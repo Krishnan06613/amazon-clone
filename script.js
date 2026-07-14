@@ -10,21 +10,38 @@ var index = 0
 var totalslides = imglist.length
 console.log(totalslides)
 function updateSlide() {
-    var slideWidth = banner.clientWidth
-    var offset = -index * slideWidth
-    slider.style.transform = `translateX(${offset}px)`
-}
+    if (index === 0) {
+        slider.style.transform = "translateX(0%)";
+    }
 
-rhtbtn.addEventListener("click", function () {
+    if (index === 1) {
+        slider.style.transform = "translateX(-100%)";
+    }
+
+    if (index === 2) {
+        slider.style.transform = "translateX(-200%)";
+    }
+    if (index === 3) {
+        slider.style.transform = "translateX(-300%)";
+    }
+
+    if (index === 4) {
+        slider.style.transform = "translateX(-400%)";
+    }
+
+    if (index === 5) {
+        slider.style.transform = "translateX(-500%)";
+    }
+}
+rhtbtn.addEventListener("click",function(){
     index = (index + 1) % totalslides
     updateSlide()
 })
-lftbtn.addEventListener("click", function () {
+lftbtn.addEventListener("click",function(){
     index = (index - 1 + totalslides) % totalslides
     updateSlide()
 })
-
-setInterval(() => {
-    index = (index + 1) % totalslides
+setInterval(()=>{
+    index=(index+1)%totalslides
     updateSlide()
-}, 4000)
+},3000)

@@ -39,3 +39,52 @@
 }
 
 
+
+@media (max-width: 700px) {
+    #banner-container {
+        height: 350px;
+    }
+
+    #right,
+    #left {
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        padding: 8px;
+    }
+
+    #left {
+        left: 10px;
+    }
+
+    #right {
+        right: 10px;
+    }
+}
+
+
+@media (max-width: 500px) {
+    #banner-container {
+        height: 230px;
+    }
+
+    #right,
+    #left {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #left {
+        left: 8px;
+    }
+
+    #right {
+        right: 8px;
+    }
+}
