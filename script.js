@@ -4,6 +4,8 @@ var imglist = slider.querySelectorAll("img")
 var rhtbtn = document.getElementById("right")
 var lftbtn = document.getElementById("left")
 
+
+
 var index = 0
 var totalslides = imglist.length
 console.log(totalslides)
@@ -13,11 +15,16 @@ function updateSlide() {
     slider.style.transform = `translateX(${offset}px)`
 }
 
-rhtbtn.addEventListener("click", function() {
+rhtbtn.addEventListener("click", function () {
     index = (index + 1) % totalslides
     updateSlide()
 })
-lftbtn.addEventListener("click", function() {
+lftbtn.addEventListener("click", function () {
     index = (index - 1 + totalslides) % totalslides
     updateSlide()
 })
+
+setInterval(() => {
+    index = (index + 1) % totalslides
+    updateSlide()
+}, 4000)
