@@ -1,3 +1,20 @@
+// Active Category
+
+const categories=document.querySelectorAll(".category");
+
+categories.forEach(category=>{
+
+    category.addEventListener("click",()=>{
+
+        categories.forEach(item=>item.classList.remove("active"));
+
+        category.classList.add("active");
+
+    });
+
+});
+
+
 var banner = document.getElementById("banner-container")
 var slider = document.getElementById("image-slider")
 var imglist = slider.querySelectorAll("img")

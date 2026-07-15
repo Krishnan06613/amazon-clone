@@ -1,3 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* CATEGORY SECTION */
+
+.category-section{
+
+    width:100%;
+    background:#232f3e;
+    overflow-x:auto;
+    white-space:nowrap;
+    scrollbar-width:none;
+
+}
+
+.category-section::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.category-container{
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+
+}
+
+.category{
+
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    padding:8px 12px;
+    border:1px solid transparent;
+    transition:.3s;
+    border-radius:3px;
+    flex-shrink:0;
+
+}
+
+.category:hover{
+
+    border:1px solid white;
+    cursor:pointer;
+
+}
+
+.category.active{
+
+    border:1px solid white;
+}
+
+
+/* hero Section */
+
 #banner-container {
     height: 500px;
     width: 100%;
