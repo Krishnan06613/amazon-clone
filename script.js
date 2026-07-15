@@ -1,12 +1,37 @@
+// Currency box 
+
+const languageBtn = document.querySelector(".nav-language");
+const currencyBox = document.querySelector(".nav-currency");
+const saveButton = document.querySelector("#save-currency");
+
+
+languageBtn.addEventListener("click", function () {
+
+    if (currencyBox.style.display === "block") {
+        currencyBox.style.display = "none";
+    }
+    else {
+        currencyBox.style.display = "block";
+    }
+
+});
+
+
+saveButton.addEventListener("click", function () {
+
+    currencyBox.style.display = "none";
+
+});
+
 // Active Category
 
-const categories=document.querySelectorAll(".category_menu");
+const categories = document.querySelectorAll(".category_menu");
 
-categories.forEach(category=>{
+categories.forEach(category => {
 
-    category.addEventListener("click",()=>{
+    category.addEventListener("click", () => {
 
-        categories.forEach(item=>item.classList.remove("active"));
+        categories.forEach(item => item.classList.remove("active"));
 
         category.classList.add("active");
 
@@ -99,15 +124,15 @@ function updateSlide() {
         slider.style.transform = "translateX(-500%)";
     }
 }
-rhtbtn.addEventListener("click",function(){
+rhtbtn.addEventListener("click", function () {
     index = (index + 1) % totalslides
     updateSlide()
 })
-lftbtn.addEventListener("click",function(){
+lftbtn.addEventListener("click", function () {
     index = (index - 1 + totalslides) % totalslides
     updateSlide()
 })
-setInterval(()=>{
-    index=(index+1)%totalslides
+setInterval(() => {
+    index = (index + 1) % totalslides
     updateSlide()
-},3000)
+}, 3000)
