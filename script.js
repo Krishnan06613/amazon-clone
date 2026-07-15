@@ -1,6 +1,6 @@
 // Active Category
 
-const categories=document.querySelectorAll(".category");
+const categories=document.querySelectorAll(".category_menu");
 
 categories.forEach(category=>{
 
@@ -15,6 +15,55 @@ categories.forEach(category=>{
 });
 
 
+
+// ======================================
+// ===========================
+// AMAZON SIDE NAVIGATION
+// ===========================
+
+// Select Elements
+const menuBtn = document.querySelector(".category.active");
+const sidebar = document.querySelector(".sidebar");
+const overlay = document.querySelector(".overlay");
+const closeBtn = document.querySelector(".close-btn");
+
+// Open Sidebar
+menuBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+    closeBtn.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+});
+
+// Close Sidebar
+function closeSidebar() {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+    closeBtn.classList.remove("active");
+
+    document.body.style.overflow = "auto";
+}
+
+// Close Button
+closeBtn.addEventListener("click", closeSidebar);
+
+// Overlay Click
+overlay.addEventListener("click", closeSidebar);
+
+// ESC Key
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+        closeSidebar();
+    }
+});
+
+
+
+
+// banner section
 var banner = document.getElementById("banner-container")
 var slider = document.getElementById("image-slider")
 var imglist = slider.querySelectorAll("img")
