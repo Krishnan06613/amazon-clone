@@ -1,11 +1,13 @@
-* {
-    margin: 0;
-    padding: 0;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 
-
-/* CATEGORY SECTION */
+/* =====================
+   CATEGORY SECTION
+===================== */
 
 .category-section{
 
@@ -17,20 +19,23 @@
 
 }
 
+
 .category-section::-webkit-scrollbar{
 
     display:none;
 
 }
 
+
 .category-container{
 
     display:flex;
     align-items:center;
-    gap:0px;
     padding:10px 18px;
+    gap:0;
 
 }
+
 
 .category{
 
@@ -40,38 +45,36 @@
     font-weight:500;
     padding:8px 12px;
     border:1px solid transparent;
-    transition:.3s;
     border-radius:3px;
+    transition:.3s;
     flex-shrink:0;
 
 }
 
+
 .category:hover{
 
     border:1px solid white;
-    cursor:pointer;
 
 }
+
 
 .category.active{
 
     border:1px solid white;
+
 }
 
 
-/*==========================================
-            AMAZON SIDE NAVIGATION
-==========================================*/
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
 
-/* Overlay */
+/* =====================
+      OVERLAY
+===================== */
+
 
 .overlay{
+
     position:fixed;
     top:0;
     left:0;
@@ -82,92 +85,132 @@
     visibility:hidden;
     transition:.3s;
     z-index:999;
+
 }
+
 
 .overlay.active{
+
     opacity:1;
     visibility:visible;
+
 }
 
-/* Sidebar */
+
+
+/* =====================
+      SIDEBAR
+===================== */
+
 
 .sidebar{
+
     position:fixed;
     top:0;
     left:-320px;
     width:320px;
     height:100vh;
-    background:#fff;
+    background:white;
     overflow-y:auto;
     transition:.35s;
     z-index:1000;
     box-shadow:2px 0 10px rgba(0,0,0,.3);
+
 }
 
+
 .sidebar.active{
+
     left:0;
+
 }
+
+
 
 /* Header */
 
 .sidebar-header{
-    background:#232f3e;
-    color:#fff;
+
     height:60px;
+    background:#232f3e;
+    color:white;
     display:flex;
     align-items:center;
     gap:15px;
     padding:0 20px;
+
 }
+
 
 .sidebar-header i{
+
     font-size:30px;
+
 }
 
+
 .sidebar-header h2{
+
     font-size:22px;
     font-weight:700;
+
 }
+
+
 
 /* Close Button */
 
 .close-btn{
+
     position:fixed;
     top:12px;
-    left:375px;
+    left:335px;
     width:40px;
     height:40px;
-    border:none;
     background:transparent;
-    color:#fff;
+    border:none;
+    color:white;
     font-size:30px;
     cursor:pointer;
     display:none;
     z-index:1001;
+
 }
+
 
 .close-btn.active{
+
     display:block;
+
 }
 
-/* Sections */
+/* =====================
+   SIDEBAR CONTENT
+===================== */
+
 
 .sidebar-section{
+
     border-bottom:1px solid #ddd;
     padding:18px 0;
+
 }
 
+
 .sidebar-section h3{
+
     font-size:20px;
     font-weight:700;
     color:#111;
-    margin-bottom:8px;
+    margin-bottom:10px;
     padding:0 20px;
+
 }
 
-/* Links */
+
 
 .sidebar-section a{
+
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -176,158 +219,391 @@
     font-size:15px;
     padding:12px 20px;
     transition:.2s;
+
 }
+
+
 
 .sidebar-section a:hover{
+
     background:#f3f3f3;
+
 }
+
+
 
 .sidebar-section a i{
+
     color:#666;
     font-size:14px;
+
 }
 
-/* Scrollbar */
+
+
+
+/* Sidebar Scrollbar */
+
 
 .sidebar::-webkit-scrollbar{
+
     width:8px;
+
 }
+
 
 .sidebar::-webkit-scrollbar-thumb{
-    background:#bdbdbd;
+
+    background:#bbb;
     border-radius:10px;
+
 }
 
-.sidebar::-webkit-scrollbar-thumb:hover{
-    background:#999;
+
+.sidebar::-webkit-scrollbar-track{
+
+    background:white;
+
 }
 
-/* Responsive */
+
+
+
+
+/* =====================
+      RESPONSIVE SIDEBAR
+===================== */
+
 
 @media(max-width:768px){
 
     .sidebar{
+
         width:320px;
         left:-320px;
+
     }
 
-    .sidebar.active{
-        left:0;
-    }
 
     .close-btn{
-        left:325px;
+
+        left:330px;
+
     }
 
 }
+
+
 
 @media(max-width:480px){
 
     .sidebar{
+
         width:290px;
         left:-290px;
+
     }
 
-    .sidebar.active{
-        left:0;
-    }
 
     .close-btn{
-        left:295px;
+
+        left:300px;
+
     }
 
 }
 
 
-/* hero Section */
 
-#banner-container {
-    height: 500px;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
 
-#image-slider {
-    display: flex;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
 
-}
+/* =====================
+       HERO SECTION
+===================== */
 
-#image-slider img {
-    width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    object-fit: cover;
+
+#banner-container{
+
+    width:100%;
+    height:500px;
+    overflow:hidden;
+    position:relative;
 
 }
+
+
+
+#image-slider{
+
+    display:flex;
+    height:100%;
+    transition:.5s ease-in-out;
+
+}
+
+
+
+#image-slider img{
+
+    width:100%;
+    height:100%;
+    flex-shrink:0;
+    object-fit:cover;
+
+}
+
+
+
 
 #right,
-#left {
-    position: absolute;
-    top: 250px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: black;
-    z-index: 1;
-}
+#left{
 
-#left {
-    left: 15px;
-}
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:black;
+    z-index:1;
 
-#right {
-    right: 15px;
 }
 
 
 
-@media (max-width: 700px) {
-    #banner-container {
-        height: 350px;
+#left{
+
+    left:15px;
+
+}
+
+
+
+#right{
+
+    right:15px;
+
+}
+
+
+
+
+@media(max-width:700px){
+
+
+    #banner-container{
+
+        height:350px;
+
     }
+
 
     #right,
-    #left {
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 24px;
-        padding: 8px;
+    #left{
+
+        width:35px;
+        height:35px;
+
     }
 
-    #left {
-        left: 10px;
-    }
-
-    #right {
-        right: 10px;
-    }
 }
 
 
-@media (max-width: 500px) {
-    #banner-container {
-        height: 230px;
+
+@media(max-width:500px){
+
+
+    #banner-container{
+
+        height:230px;
+
     }
+
 
     #right,
-    #left {
-        top: 50%;
-        transform: translateY(-50%);
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    #left{
+
+        width:30px;
+        height:30px;
+
     }
 
-    #left {
-        left: 8px;
+}
+
+/* =====================
+       FOOTER SECTION
+===================== */
+
+
+.footer-section{
+
+    background:#131A22;
+    color:white;
+    margin-top:40px;
+
+}
+
+
+
+.footer-container{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    padding:40px 8%;
+    gap:40px;
+
+}
+
+
+
+.footer-box h3{
+
+    font-size:18px;
+    margin-bottom:20px;
+
+}
+
+
+
+.footer-box p{
+
+    color:#ddd;
+    font-size:14px;
+    margin:12px 0;
+    cursor:pointer;
+
+}
+
+
+
+.footer-box p:hover{
+
+    text-decoration:underline;
+    color:white;
+
+}
+
+
+
+
+
+/* Footer Bottom */
+
+
+.footer-bottom{
+
+    border-top:1px solid #3a4553;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    padding:30px;
+
+}
+
+
+
+.amazon-logo{
+
+    font-size:35px;
+    font-weight:bold;
+    letter-spacing:1px;
+
+}
+
+
+
+.footer-bottom button{
+
+    background:transparent;
+    color:white;
+    border:1px solid #848688;
+    padding:10px 20px;
+    border-radius:4px;
+    cursor:pointer;
+
+}
+
+
+
+.footer-bottom button:hover{
+
+    background:#37475a;
+
+}
+
+
+
+
+
+/* =====================
+       BACK TO TOP
+===================== */
+
+
+.back-top{
+
+    background:#37475a;
+    color:white;
+    text-align:center;
+    padding:18px;
+    cursor:pointer;
+    margin-top:20px;
+    font-size:15px;
+
+}
+
+
+
+.back-top:hover{
+
+    background:#485769;
+
+}
+
+
+
+
+
+/* =====================
+       RESPONSIVE
+===================== */
+
+
+@media(max-width:768px){
+
+
+    .footer-container{
+
+        grid-template-columns:repeat(2,1fr);
+        padding:30px;
+
     }
 
-    #right {
-        right: 8px;
+
+}
+
+
+
+@media(max-width:480px){
+
+
+    .footer-container{
+
+        grid-template-columns:1fr;
+
     }
+
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+    }
+
+
+    .amazon-logo{
+
+        font-size:30px;
+
+    }
+
 }
