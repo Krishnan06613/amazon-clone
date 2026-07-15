@@ -4,282 +4,397 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Amazon Clone</title>
+
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" 
+    rel="stylesheet">
+
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
-    <!-- Category Navigation -->
 
-    <section class="category-section">
 
-        <div class="category-container">
+<!-- Category Navigation -->
 
-            <a href="#" class="category active">
-                <i class="fa-solid fa-bars"></i>
-                All
-            </a>
-            <a href="#" class="category">Fresh</a>
-            <a href="#" class="category">MX Player</a>
-            <a href="#" class="category">Sell</a>
-            <a href="#" class="category">Best Sellers</a>
-            <a href="#" class="category">Today's Deals</a>
-            <a href="#" class="category">Mobiles</a>
-            <a href="#" class="category">New Releases</a>
-            <a href="#" class="category">Prime</a>
-            <a href="#" class="category">Amazon Pay</a>
-            <a href="#" class="category">Electronics</a>
-            <a href="#" class="category">Customer Service</a>
-            <a href="#" class="category">Home & Kitchen</a>
-            <a href="#" class="category">Fashion</a>
-            <a href="#" class="category">Computers</a>
+<section class="category-section">
 
-        </div>
+    <div class="category-container">
 
-    </section>
+        <a href="#" class="category active">
+            <i class="fa-solid fa-bars"></i>
+            All
+        </a>
 
-    <!-- ===========================
-        AMAZON SIDE NAVIGATION
-=========================== -->
+        <a href="#" class="category">Fresh</a>
+        <a href="#" class="category">MX Player</a>
+        <a href="#" class="category">Sell</a>
+        <a href="#" class="category">Best Sellers</a>
+        <a href="#" class="category">Today's Deals</a>
+        <a href="#" class="category">Mobiles</a>
+        <a href="#" class="category">New Releases</a>
+        <a href="#" class="category">Prime</a>
+        <a href="#" class="category">Amazon Pay</a>
+        <a href="#" class="category">Electronics</a>
+        <a href="#" class="category">Customer Service</a>
+        <a href="#" class="category">Home & Kitchen</a>
+        <a href="#" class="category">Fashion</a>
+        <a href="#" class="category">Computers</a>
 
-    <!-- Overlay -->
-    <div class="overlay"></div>
+    </div>
 
-    <!-- Close Button -->
-    <button class="close-btn">
-        <i class="fa-solid fa-xmark"></i>
-    </button>
+</section>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
 
-        <!-- Header -->
-        <div class="sidebar-header">
-            <i class="fa-solid fa-circle-user"></i>
-            <h2>Hello, sign in</h2>
-        </div>
 
-        <!-- Trending -->
-        <section class="sidebar-section">
+<!-- Amazon Sidebar -->
 
-            <h3>Trending</h3>
+<div class="overlay"></div>
 
-            <a href="#">Bestsellers</a>
-            <a href="#">New Releases</a>
 
-        </section>
+<button class="close-btn">
+    <i class="fa-solid fa-xmark"></i>
+</button>
 
-        <!-- Digital Content & Devices -->
-        <section class="sidebar-section">
 
-            <h3>Digital Content & Devices</h3>
 
-            <a href="#">
-                <span>Echo & Alexa</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
+<div class="sidebar">
 
-            <a href="#">
-                <span>Fire TV</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
 
-            <a href="#">
-                <span>Kindle E-Readers & eBooks</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
+    <div class="sidebar-header">
 
-            <a href="#">
-                <span>Audible Audiobooks</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
+        <i class="fa-solid fa-circle-user"></i>
 
-            <a href="#">
-                <span>Amazon Prime Video</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
-
-            <a href="#">
-                <span>Amazon Music</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
-
-        </section>
-
-        <!-- Shop by Category -->
-        <section class="sidebar-section">
-
-            <h3>Shop by Category</h3>
-
-            <a href="#">
-                <span>Mobiles, Computers</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
-
-            <a href="#">
-                <span>TV, Appliances, Electronics</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
-
-            <a href="#">
-                <span>Men's Fashion</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
-
-            <a href="#">
-                <span>Women's Fashion</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
-
-            <a href="#">
-                <span>Home, Kitchen & Pets</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
-
-            <a href="#">
-                <span>Beauty, Health & Grocery</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
-
-            <a href="#">
-                <span>Sports, Fitness & Bags</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
-
-            <a href="#">
-                <span>Books</span>
-                <i class="fa-solid fa-angle-right"></i>
-            </a>
-
-            <a href="#">
-                <span>See All</span>
-                <i class="fa-solid fa-angle-down"></i>
-            </a>
-
-        </section>
-
-        <!-- Programs & Features -->
-        <section class="sidebar-section">
-
-            <h3>Programs & Features</h3>
-
-            <a href="#">Gift Cards</a>
-            <a href="#">Amazon Pay</a>
-            <a href="#">Amazon Launchpad</a>
-            <a href="#">Amazon Business</a>
-            <a href="#">Handmade</a>
-            <a href="#">Gift Ideas</a>
-            <a href="#">Subscribe & Save</a>
-            <a href="#">See All</a>
-
-        </section>
-
-        <!-- Help & Settings -->
-        <section class="sidebar-section">
-
-            <h3>Help & Settings</h3>
-
-            <a href="#">Your Account</a>
-            <a href="#">Customer Service</a>
-            <a href="#">Sign In</a>
-
-        </section>
+        <h2>Hello, sign in</h2>
 
     </div>
 
 
-    <!-- hero section -->
 
+    <section class="sidebar-section">
 
-    <section id="banner-container">
-        <div id="image-slider">
-            <img src="images/banner1.jpg" alt="">
-            <img src="images/banner2.jpg" alt="">
-            <img src="images/banner3.jpg" alt="">
-            <img src="images/banner4.jpg" alt="">
-            <img src="./images/banner5.png" alt="">
-            <img src="./images/banner6.png" alt="">
+        <h3>Trending</h3>
 
-        </div>
-        <svg id="right" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="w-10 h-10">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-        </svg>
+        <a href="#">Bestsellers</a>
+        <a href="#">New Releases</a>
 
-        <svg id="left" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="w-10 h-10">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-        </svg>
     </section>
 
 
-    <!-- Back To Top -->
 
-    <div class="back-top">
-        Back to top
+    <section class="sidebar-section">
+
+        <h3>Digital Content & Devices</h3>
+
+
+        <a href="#">
+            <span>Echo & Alexa</span>
+            <i class="fa-solid fa-angle-right"></i>
+        </a>
+
+
+        <a href="#">
+            <span>Fire TV</span>
+            <i class="fa-solid fa-angle-right"></i>
+        </a>
+
+
+        <a href="#">
+            <span>Kindle E-Readers & eBooks</span>
+            <i class="fa-solid fa-angle-right"></i>
+        </a>
+
+
+        <a href="#">
+            <span>Amazon Prime Video</span>
+            <i class="fa-solid fa-angle-right"></i>
+        </a>
+
+
+    </section>
+
+
+
+    <!-- Shop by Category -->
+
+<section class="sidebar-section">
+
+    <h3>Shop by Category</h3>
+
+
+    <a href="#">
+        <span>Mobiles, Computers</span>
+        <i class="fa-solid fa-angle-right"></i>
+    </a>
+
+
+    <a href="#">
+        <span>TV, Appliances, Electronics</span>
+        <i class="fa-solid fa-angle-right"></i>
+    </a>
+
+
+    <a href="#">
+        <span>Men's Fashion</span>
+        <i class="fa-solid fa-angle-right"></i>
+    </a>
+
+
+    <a href="#">
+        <span>Women's Fashion</span>
+        <i class="fa-solid fa-angle-right"></i>
+    </a>
+
+
+    <a href="#">
+        <span>Home, Kitchen & Pets</span>
+        <i class="fa-solid fa-angle-right"></i>
+    </a>
+
+
+    <a href="#">
+        <span>Beauty, Health & Grocery</span>
+        <i class="fa-solid fa-angle-right"></i>
+    </a>
+
+
+    <a href="#">
+        <span>Sports, Fitness & Bags</span>
+        <i class="fa-solid fa-angle-right"></i>
+    </a>
+
+
+    <a href="#">
+        <span>Books</span>
+        <i class="fa-solid fa-angle-right"></i>
+    </a>
+
+
+    <a href="#">
+        <span>See All</span>
+        <i class="fa-solid fa-angle-down"></i>
+    </a>
+
+
+</section>
+
+
+
+<!-- Programs & Features -->
+
+<section class="sidebar-section">
+
+    <h3>Programs & Features</h3>
+
+    <a href="#">Gift Cards</a>
+    <a href="#">Amazon Pay</a>
+    <a href="#">Amazon Launchpad</a>
+    <a href="#">Amazon Business</a>
+    <a href="#">Handmade</a>
+    <a href="#">Gift Ideas</a>
+    <a href="#">Subscribe & Save</a>
+    <a href="#">See All</a>
+
+</section>
+
+
+
+<!-- Help & Settings -->
+
+<section class="sidebar-section">
+
+    <h3>Help & Settings</h3>
+
+    <a href="#">Your Account</a>
+    <a href="#">Customer Service</a>
+    <a href="#">Sign In</a>
+
+</section>
+
+
+</div>
+
+
+
+
+
+<!-- Hero Section -->
+
+<section id="banner-container">
+
+
+    <div id="image-slider">
+
+        <img src="images/banner1.jpg" alt="">
+        <img src="images/banner2.jpg" alt="">
+        <img src="images/banner3.jpg" alt="">
+        <img src="images/banner4.jpg" alt="">
+        <img src="images/banner5.png" alt="">
+        <img src="images/banner6.png" alt="">
+
+
     </div>
 
 
 
-    <!-- Footer Section -->
-
-    <section class="footer-section">
-
-        <div class="footer-container">
-
-            <div class="footer-box">
-                <h3>Get to Know Us</h3>
-                <p>About Us</p>
-                <p>Careers</p>
-                <p>Press Releases</p>
-                <p>Amazon Science</p>
-            </div>
+    <svg id="right" 
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    class="w-10 h-10">
 
 
-            <div class="footer-box">
-                <h3>Connect with Us</h3>
-                <p>Facebook</p>
-                <p>Twitter</p>
-                <p>Instagram</p>
-            </div>
+    <path 
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
 
 
-            <div class="footer-box">
-                <h3>Make Money with Us</h3>
-                <p>Sell on Amazon</p>
-                <p>Become an Affiliate</p>
-                <p>Advertise Products</p>
-                <p>Amazon Pay</p>
-            </div>
+    </svg>
 
 
-            <div class="footer-box">
-                <h3>Let Us Help You</h3>
-                <p>Your Account</p>
-                <p>Returns Centre</p>
-                <p>Customer Service</p>
-                <p>Help</p>
-            </div>
+
+
+    <svg id="left"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    class="w-10 h-10">
+
+
+    <path
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M15.75 19.5 8.25 12l7.5-7.5"/>
+
+
+    </svg>
+
+
+</section>
+
+
+<!-- Back To Top -->
+
+<div class="back-top">
+    Back to top
+</div>
+
+
+
+
+<!-- Footer Section -->
+
+<section class="footer-section">
+
+
+    <div class="footer-container">
+
+
+        <div class="footer-box">
+
+            <h3>Get to Know Us</h3>
+
+            <p>About Us</p>
+            <p>Careers</p>
+            <p>Press Releases</p>
+            <p>Amazon Science</p>
 
         </div>
 
 
-        <div class="footer-bottom">
 
-            <h1 class="amazon-logo">amazon</h1>
+        <div class="footer-box">
 
-            <button>🌐 English</button>
-            <button>🇮🇳 India</button>
+            <h3>Connect with Us</h3>
+
+            <p>Facebook</p>
+            <p>Twitter</p>
+            <p>Instagram</p>
 
         </div>
 
 
-    </section>
 
 
-    <script src="script.js"></script>
+        <div class="footer-box">
+
+            <h3>Make Money with Us</h3>
+
+            <p>Sell on Amazon</p>
+            <p>Become an Affiliate</p>
+            <p>Advertise Products</p>
+            <p>Amazon Pay</p>
+
+        </div>
+
+
+
+
+        <div class="footer-box">
+
+            <h3>Let Us Help You</h3>
+
+            <p>Your Account</p>
+            <p>Returns Centre</p>
+            <p>Customer Service</p>
+            <p>Help</p>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- Footer Bottom -->
+
+
+    <div class="footer-bottom">
+
+
+        <h1 class="amazon-logo">
+            amazon
+        </h1>
+
+
+
+        <button>
+            🌐 English
+        </button>
+
+
+
+        <button>
+            🇮🇳 India
+        </button>
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
 </body>
 
 </html>

@@ -1,12 +1,14 @@
+// ===========================
 // Active Category
+// ===========================
 
-const categories=document.querySelectorAll(".category");
+const categories = document.querySelectorAll(".category");
 
-categories.forEach(category=>{
+categories.forEach(category => {
 
-    category.addEventListener("click",()=>{
+    category.addEventListener("click", () => {
 
-        categories.forEach(item=>item.classList.remove("active"));
+        categories.forEach(item => item.classList.remove("active"));
 
         category.classList.add("active");
 
@@ -15,18 +17,18 @@ categories.forEach(category=>{
 });
 
 
-// ======================================
-// AMAZON SIDE NAVIGATION
-// ======================================
 
-// Elements
+// ===========================
+// AMAZON SIDE NAVIGATION
+// ===========================
+
 const menuBtn = document.querySelector(".category.active");
 const sidebar = document.querySelector(".sidebar");
 const overlay = document.querySelector(".overlay");
 const closeBtn = document.querySelector(".close-btn");
 
-// Open Sidebar
-function openSidebar(e) {
+function openSidebar(e){
+
     e.preventDefault();
 
     sidebar.classList.add("active");
@@ -34,97 +36,87 @@ function openSidebar(e) {
     closeBtn.classList.add("active");
 
     document.body.style.overflow = "hidden";
+
 }
 
-// Close Sidebar
-function closeSidebar() {
+function closeSidebar(){
 
     sidebar.classList.remove("active");
     overlay.classList.remove("active");
     closeBtn.classList.remove("active");
 
     document.body.style.overflow = "auto";
+
 }
 
-// Click "All"
 if(menuBtn){
     menuBtn.addEventListener("click", openSidebar);
 }
 
-// Click Close Button
 if(closeBtn){
     closeBtn.addEventListener("click", closeSidebar);
 }
 
-// Click Overlay
 if(overlay){
     overlay.addEventListener("click", closeSidebar);
 }
 
-// ESC Key
-document.addEventListener("keydown",function(e){
+document.addEventListener("keydown", function(e){
 
-    if(e.key==="Escape"){
+    if(e.key === "Escape"){
         closeSidebar();
     }
 
 });
 
-// offers banner
-var banner = document.getElementById("banner-container")
-var slider = document.getElementById("image-slider")
-var imglist = slider.querySelectorAll("img")
-var rhtbtn = document.getElementById("right")
-var lftbtn = document.getElementById("left")
 
 
+// ===========================
+// HERO SLIDER
+// ===========================
 
-var index = 0
-var totalslides = imglist.length
-console.log(totalslides)
-function updateSlide() {
-    if (index === 0) {
-        slider.style.transform = "translateX(0%)";
-    }
+const slider = document.getElementById("image-slider");
+const imglist = slider.querySelectorAll("img");
+const rhtbtn = document.getElementById("right");
+const lftbtn = document.getElementById("left");
 
-    if (index === 1) {
-        slider.style.transform = "translateX(-100%)";
-    }
+let index = 0;
+const totalslides = imglist.length;
 
-    if (index === 2) {
-        slider.style.transform = "translateX(-200%)";
-    }
-    if (index === 3) {
-        slider.style.transform = "translateX(-300%)";
-    }
+function updateSlide(){
 
-    if (index === 4) {
-        slider.style.transform = "translateX(-400%)";
-    }
+    slider.style.transform = `translateX(-${index * 100}%)`;
 
-    if (index === 5) {
-        slider.style.transform = "translateX(-500%)";
-    }
 }
-rhtbtn.addEventListener("click",function(){
-    index = (index + 1) % totalslides
-    updateSlide()
-})
-lftbtn.addEventListener("click",function(){
-    index = (index - 1 + totalslides) % totalslides
-    updateSlide()
-})
-setInterval(()=>{
-    index=(index+1)%totalslides
-    updateSlide()
-},3000)
+
+rhtbtn.addEventListener("click", function(){
+
+    index = (index + 1) % totalslides;
+    updateSlide();
+
+});
+
+lftbtn.addEventListener("click", function(){
+
+    index = (index - 1 + totalslides) % totalslides;
+    updateSlide();
+
+});
+
+setInterval(function(){
+
+    index = (index + 1) % totalslides;
+    updateSlide();
+
+},3000);
 
 
 
-// Back to Top Function
+// ===========================
+// BACK TO TOP
+// ===========================
 
 const backTop = document.querySelector(".back-top");
-
 
 if(backTop){
 
@@ -143,10 +135,11 @@ if(backTop){
 
 
 
-// Footer Link Click Message
+// ===========================
+// FOOTER LINKS
+// ===========================
 
 const footerLinks = document.querySelectorAll(".footer-box p");
-
 
 footerLinks.forEach(function(link){
 
@@ -160,14 +153,15 @@ footerLinks.forEach(function(link){
 
 
 
-// Language Button
+// ===========================
+// LANGUAGE BUTTON
+// ===========================
 
 const languageBtn = document.querySelector(".footer-bottom button");
 
-
 if(languageBtn){
 
-    languageBtn.addEventListener("click",function(){
+    languageBtn.addEventListener("click", function(){
 
         alert("Language selection");
 
