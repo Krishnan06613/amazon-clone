@@ -118,3 +118,59 @@ setInterval(()=>{
     index=(index+1)%totalslides
     updateSlide()
 },3000)
+
+
+
+// Back to Top Function
+
+const backTop = document.querySelector(".back-top");
+
+
+if(backTop){
+
+    backTop.addEventListener("click", function(){
+
+        window.scrollTo({
+
+            top:0,
+            behavior:"smooth"
+
+        });
+
+    });
+
+}
+
+
+
+// Footer Link Click Message
+
+const footerLinks = document.querySelectorAll(".footer-box p");
+
+
+footerLinks.forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        console.log(link.innerText + " clicked");
+
+    });
+
+});
+
+
+
+// Language Button
+
+const languageBtn = document.querySelector(".footer-bottom button");
+
+
+if(languageBtn){
+
+    languageBtn.addEventListener("click",function(){
+
+        alert("Language selection");
+
+    });
+
+}
