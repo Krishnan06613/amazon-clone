@@ -1,40 +1,35 @@
 * {
     margin: 0;
     padding: 0;
-     box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-
+body {
+    background-color: #eaeded; /* Standard Amazon gray background */
+    font-family: Arial, sans-serif;
+}
 
 /* CATEGORY SECTION */
-
 .category-section{
-
     width:100%;
     background:#232f3e;
     overflow-x:auto;
     white-space:nowrap;
     scrollbar-width:none;
-
 }
 
 .category-section::-webkit-scrollbar{
-
     display:none;
-
 }
 
 .category-container{
-
     display:flex;
     align-items:center;
     gap:8px;
     padding:10px 18px;
-
 }
 
 .category{
-
     color:white;
     text-decoration:none;
     font-size:14px;
@@ -44,18 +39,14 @@
     transition:.3s;
     border-radius:3px;
     flex-shrink:0;
-
 }
 
 .category:hover{
-
     border:1px solid white;
     cursor:pointer;
-
 }
 
 .category.active{
-
     border:1px solid white;
 }
 
@@ -64,7 +55,6 @@
 ========================================= */
 
 /* Overlay */
-
 .overlay{
     position: fixed;
     top: 0;
@@ -84,7 +74,6 @@
 }
 
 /* Sidebar */
-
 .sidebar{
     position: fixed;
     top: 0;
@@ -102,7 +91,6 @@
 }
 
 /* Header */
-
 .sidebar-header{
     height: 50px;
     background: #232f3e;
@@ -123,7 +111,6 @@
 }
 
 /* Close Button */
-
 .close-btn{
     position: fixed;
     top: 10px;
@@ -144,7 +131,6 @@
 }
 
 /* Sections */
-
 .sidebar-section{
     padding: 18px 0;
     border-bottom: 1px solid #ddd;
@@ -158,7 +144,6 @@
 }
 
 /* Links */
-
 .sidebar-section a{
     display: flex;
     justify-content: space-between;
@@ -180,7 +165,6 @@
 }
 
 /* Scrollbar */
-
 .sidebar::-webkit-scrollbar{
     width: 8px;
 }
@@ -195,51 +179,42 @@
 }
 
 /* Responsive */
-
 @media(max-width:768px){
-
     .sidebar{
         width: 320px;
         left: -320px;
     }
-
     .close-btn{
         left: 330px;
     }
-
 }
 
 @media(max-width:480px){
-
     .sidebar{
         width: 300px;
         left: -300px;
     }
-
     .close-btn{
         left: 310px;
     }
-
 }
-
-
-
 
 /* ======================================================================== */
 /* hero Section */
-
 #banner-container {
     height: 500px;
     width: 100%;
     overflow: hidden;
     position: relative;
+    /* Added a bottom gradient to mimic the smooth fade on Amazon */
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
 }
 
 #image-slider {
     display: flex;
     height: 100%;
     transition: transform 0.5s ease-in-out;
-
 }
 
 #image-slider img {
@@ -247,7 +222,6 @@
     height: 100%;
     flex-shrink: 0;
     object-fit: cover;
-
 }
 
 #right,
@@ -268,13 +242,10 @@
     right: 15px;
 }
 
-
-
 @media (max-width: 700px) {
     #banner-container {
         height: 350px;
     }
-
     #right,
     #left {
         top: 50%;
@@ -282,22 +253,18 @@
         font-size: 24px;
         padding: 8px;
     }
-
     #left {
         left: 10px;
     }
-
     #right {
         right: 10px;
     }
 }
 
-
 @media (max-width: 500px) {
     #banner-container {
         height: 230px;
     }
-
     #right,
     #left {
         top: 50%;
@@ -309,12 +276,113 @@
         align-items: center;
         justify-content: center;
     }
-
     #left {
         left: 8px;
     }
-
     #right {
+        right: 8px;
+    }
+}
+
+/* =========================================
+        PRODUCT CARDS SECTION (YOUR PART)
+========================================= */
+
+.cards-section {
+    position: relative;
+    z-index: 10;
+    margin-top: -200px; /* Pulls the cards up over the banner image */
+    padding: 0 20px 20px 20px;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1500px; /* Constrains width on very large screens */
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px 20px 15px 20px;
+    flex: 1;
+    min-width: 280px; /* Ensures cards don't get too thin before wrapping */
+    display: flex;
+    flex-direction: column;
+}
+
+.card h2 {
+    font-size: 21px;
+    font-weight: 700;
+    color: #0f1111;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    height: 50px; /* Normalizes header height across all cards */
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.grid-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Keeps images perfectly square */
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+.grid-item p {
+    font-size: 12px;
+    color: #0f1111;
+    line-height: 1.4;
+}
+
+/* Specific styling for the headphones card where images have no text */
+.grid-item.no-text img {
+    margin-bottom: 0;
+    object-fit: contain; /* Prevents headphone cutoffs */
+}
+
+.card-link {
+    font-size: 13px;
+    color: #007185;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.card-link:hover {
+    color: #c45500;
+    text-decoration: underline;
+}
+
+/* Responsiveness for tablets and smaller screens */
+@media (max-width: 1200px) {
+    .card {
+        flex: 1 1 calc(50% - 20px); /* 2 columns */
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        flex: 1 1 100%; /* 1 column */
+    }
+    .cards-section {
+        margin-top: -50px; /* Adjust overlap for mobile */
+    }
+}
+
         right: 8px;
     }
 }
