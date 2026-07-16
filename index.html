@@ -4,397 +4,482 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Amazon Clone</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" 
-    rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
 
+    <!-- ===========================
+         CATEGORY NAVIGATION
+    ============================ -->
 
-<!-- Category Navigation -->
+    <section class="category-section">
+        <div class="category-container">
 
-<section class="category-section">
+            <a href="#" class="category active">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </a>
 
-    <div class="category-container">
+            <a href="#" class="category">Fresh</a>
+            <a href="#" class="category">MX Player</a>
+            <a href="#" class="category">Sell</a>
+            <a href="#" class="category">Best Sellers</a>
+            <a href="#" class="category">Today's Deals</a>
+            <a href="#" class="category">Mobiles</a>
+            <a href="#" class="category">New Releases</a>
+            <a href="#" class="category">Prime</a>
+            <a href="#" class="category">Amazon Pay</a>
+            <a href="#" class="category">Electronics</a>
+            <a href="#" class="category">Customer Service</a>
+            <a href="#" class="category">Home & Kitchen</a>
+            <a href="#" class="category">Fashion</a>
+            <a href="#" class="category">Computers</a>
 
-        <a href="#" class="category active">
-            <i class="fa-solid fa-bars"></i>
-            All
-        </a>
+        </div>
+    </section>
 
-        <a href="#" class="category">Fresh</a>
-        <a href="#" class="category">MX Player</a>
-        <a href="#" class="category">Sell</a>
-        <a href="#" class="category">Best Sellers</a>
-        <a href="#" class="category">Today's Deals</a>
-        <a href="#" class="category">Mobiles</a>
-        <a href="#" class="category">New Releases</a>
-        <a href="#" class="category">Prime</a>
-        <a href="#" class="category">Amazon Pay</a>
-        <a href="#" class="category">Electronics</a>
-        <a href="#" class="category">Customer Service</a>
-        <a href="#" class="category">Home & Kitchen</a>
-        <a href="#" class="category">Fashion</a>
-        <a href="#" class="category">Computers</a>
+    <!-- Overlay -->
+
+    <div class="overlay"></div>
+
+    <!-- Close Button -->
+
+    <button class="close-btn">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- ===========================
+         AMAZON SIDEBAR
+    ============================ -->
+
+    <div class="sidebar">
+
+        <div class="sidebar-header">
+
+            <i class="fa-solid fa-circle-user"></i>
+
+            <h2>Hello, sign in</h2>
+
+        </div>
+
+        <!-- Trending -->
+
+        <section class="sidebar-section">
+
+            <h3>Trending</h3>
+
+            <a href="#">Bestsellers</a>
+            <a href="#">New Releases</a>
+
+        </section>
+
+        <!-- Digital Content -->
+
+        <section class="sidebar-section">
+
+            <h3>Digital Content & Devices</h3>
+
+            <a href="#">
+                <span>Echo & Alexa</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+
+            <a href="#">
+                <span>Fire TV</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+
+            <a href="#">
+                <span>Kindle E-Readers & eBooks</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+
+            <a href="#">
+                <span>Audible Audiobooks</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+
+            <a href="#">
+                <span>Amazon Prime Video</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+
+            <a href="#">
+                <span>Amazon Music</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+
+        </section>
+
+        <!-- Shop By Category -->
+
+        <section class="sidebar-section">
+
+            <h3>Shop by Category</h3>
+
+            <a href="#"><span>Mobiles, Computers</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>TV, Appliances, Electronics</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>Men's Fashion</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>Women's Fashion</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>Home, Kitchen & Pets</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>Beauty, Health & Grocery</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>Sports, Fitness & Bags</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>Books</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>See All</span><i class="fa-solid fa-angle-down"></i></a>
+
+        </section>
+
+        <!-- Programs -->
+
+        <section class="sidebar-section">
+
+            <h3>Programs & Features</h3>
+
+            <a href="#">Gift Cards</a>
+            <a href="#">Amazon Pay</a>
+            <a href="#">Amazon Launchpad</a>
+            <a href="#">Amazon Business</a>
+            <a href="#">Handmade</a>
+            <a href="#">Gift Ideas</a>
+            <a href="#">Subscribe & Save</a>
+            <a href="#">See All</a>
+
+        </section>
+
+        <!-- Help -->
+
+        <section class="sidebar-section">
+
+            <h3>Help & Settings</h3>
+
+            <a href="#">Your Account</a>
+            <a href="#">Customer Service</a>
+            <a href="#">Sign In</a>
+
+        </section>
 
     </div>
 
-</section>
 
-
-
-<!-- Amazon Sidebar -->
-
-<div class="overlay"></div>
-
-
-<button class="close-btn">
-    <i class="fa-solid fa-xmark"></i>
-</button>
-
-
-
-<div class="sidebar">
-
-
-    <div class="sidebar-header">
-
-        <i class="fa-solid fa-circle-user"></i>
-
-        <h2>Hello, sign in</h2>
-
-    </div>
-
-
-
-    <section class="sidebar-section">
-
-        <h3>Trending</h3>
-
-        <a href="#">Bestsellers</a>
-        <a href="#">New Releases</a>
-
-    </section>
-
-
-
-    <section class="sidebar-section">
-
-        <h3>Digital Content & Devices</h3>
-
-
-        <a href="#">
-            <span>Echo & Alexa</span>
-            <i class="fa-solid fa-angle-right"></i>
-        </a>
-
-
-        <a href="#">
-            <span>Fire TV</span>
-            <i class="fa-solid fa-angle-right"></i>
-        </a>
-
-
-        <a href="#">
-            <span>Kindle E-Readers & eBooks</span>
-            <i class="fa-solid fa-angle-right"></i>
-        </a>
-
-
-        <a href="#">
-            <span>Amazon Prime Video</span>
-            <i class="fa-solid fa-angle-right"></i>
-        </a>
-
-
-    </section>
-
-
-
-    <!-- Shop by Category -->
-
-<section class="sidebar-section">
-
-    <h3>Shop by Category</h3>
-
-
-    <a href="#">
-        <span>Mobiles, Computers</span>
-        <i class="fa-solid fa-angle-right"></i>
-    </a>
-
-
-    <a href="#">
-        <span>TV, Appliances, Electronics</span>
-        <i class="fa-solid fa-angle-right"></i>
-    </a>
-
-
-    <a href="#">
-        <span>Men's Fashion</span>
-        <i class="fa-solid fa-angle-right"></i>
-    </a>
-
-
-    <a href="#">
-        <span>Women's Fashion</span>
-        <i class="fa-solid fa-angle-right"></i>
-    </a>
-
-
-    <a href="#">
-        <span>Home, Kitchen & Pets</span>
-        <i class="fa-solid fa-angle-right"></i>
-    </a>
-
-
-    <a href="#">
-        <span>Beauty, Health & Grocery</span>
-        <i class="fa-solid fa-angle-right"></i>
-    </a>
-
-
-    <a href="#">
-        <span>Sports, Fitness & Bags</span>
-        <i class="fa-solid fa-angle-right"></i>
-    </a>
-
-
-    <a href="#">
-        <span>Books</span>
-        <i class="fa-solid fa-angle-right"></i>
-    </a>
-
-
-    <a href="#">
-        <span>See All</span>
-        <i class="fa-solid fa-angle-down"></i>
-    </a>
-
-
-</section>
-
-
-
-<!-- Programs & Features -->
-
-<section class="sidebar-section">
-
-    <h3>Programs & Features</h3>
-
-    <a href="#">Gift Cards</a>
-    <a href="#">Amazon Pay</a>
-    <a href="#">Amazon Launchpad</a>
-    <a href="#">Amazon Business</a>
-    <a href="#">Handmade</a>
-    <a href="#">Gift Ideas</a>
-    <a href="#">Subscribe & Save</a>
-    <a href="#">See All</a>
-
-</section>
-
-
-
-<!-- Help & Settings -->
-
-<section class="sidebar-section">
-
-    <h3>Help & Settings</h3>
-
-    <a href="#">Your Account</a>
-    <a href="#">Customer Service</a>
-    <a href="#">Sign In</a>
-
-</section>
-
-
-</div>
-
-
-
-
-
-<!-- Hero Section -->
+    <!-- ===========================
+     HERO SECTION
+=========================== -->
 
 <section id="banner-container">
 
-
     <div id="image-slider">
-
-        <img src="images/banner1.jpg" alt="">
-        <img src="images/banner2.jpg" alt="">
-        <img src="images/banner3.jpg" alt="">
-        <img src="images/banner4.jpg" alt="">
-        <img src="images/banner5.png" alt="">
-        <img src="images/banner6.png" alt="">
-
-
+        <img src="images/banner1.jpg" alt="Banner 1">
+        <img src="images/banner2.jpg" alt="Banner 2">
+        <img src="images/banner3.jpg" alt="Banner 3">
+        <img src="images/banner4.jpg" alt="Banner 4">
+        <img src="images/banner5.png" alt="Banner 5">
+        <img src="images/banner6.png" alt="Banner 6">
     </div>
 
+    <!-- Right Arrow -->
+    <svg id="right"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-10 h-10">
 
-
-    <svg id="right" 
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke-width="1.5"
-    stroke="currentColor"
-    class="w-10 h-10">
-
-
-    <path 
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
-
-
+        <path stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
     </svg>
 
-
-
-
+    <!-- Left Arrow -->
     <svg id="left"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke-width="1.5"
-    stroke="currentColor"
-    class="w-10 h-10">
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-10 h-10">
 
-
-    <path
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    d="M15.75 19.5 8.25 12l7.5-7.5"/>
-
-
+        <path stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5 8.25 12l7.5-7.5"/>
     </svg>
 
+</section>
+
+<!-- ===========================
+     PRODUCT CARDS SECTION
+=========================== -->
+
+<section class="cards-section">
+
+    <div class="cards-container">
+
+        <!-- Card 1 -->
+
+        <div class="card">
+
+            <h2>Appliances for your home | Up to 55% off</h2>
+
+            <div class="card-grid">
+
+                <div class="grid-item">
+                    <img src="images/aircon.jpg" alt="">
+                    <p>Air conditioners</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/refrigerator.jpg" alt="">
+                    <p>Refrigerators</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/microwave.jpg" alt="">
+                    <p>Microwaves</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/washing machine.jpg" alt="">
+                    <p>Washing machines</p>
+                </div>
+
+            </div>
+
+            <a href="#" class="card-link">See more</a>
+
+        </div>
+
+        <!-- Card 2 -->
+
+        <div class="card">
+
+            <h2>Revamp your home in style</h2>
+
+            <div class="card-grid">
+
+                <div class="grid-item">
+                    <img src="images/cusion.jpg" alt="">
+                    <p>Cushion Covers</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/vases.jpg" alt="">
+                    <p>Figurines & Vases</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/home storage.jpg" alt="">
+                    <p>Home Storage</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/home lights.jpg" alt="">
+                    <p>Lighting Solutions</p>
+                </div>
+
+            </div>
+
+            <a href="#" class="card-link">Explore all</a>
+
+        </div>
+
+        <!-- Card 3 -->
+
+        <div class="card">
+
+            <h2>Starting ₹49 | Deals on Home Essentials</h2>
+
+            <div class="card-grid">
+
+                <div class="grid-item">
+                    <img src="images/cleaning materials.jpg" alt="">
+                    <p>Cleaning Supplies</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/bathroom essentials.jpg" alt="">
+                    <p>Bathroom Accessories</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/repairing tools.jpg" alt="">
+                    <p>Home Tools</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/walpaper.jpg" alt="">
+                    <p>Wallpapers</p>
+                </div>
+
+            </div>
+
+            <a href="#" class="card-link">Explore all</a>
+
+        </div>
+
+        <!-- Card 4 -->
+
+        <div class="card">
+
+            <h2>Up to 75% off | Deals on Headphones</h2>
+
+            <div class="card-grid">
+
+                <div class="grid-item no-text">
+                    <img src="images/speakers.jpg" alt="">
+                </div>
+
+                <div class="grid-item no-text">
+                    <img src="images/portable speaker.jpg" alt="">
+                </div>
+
+                <div class="grid-item no-text">
+                    <img src="images/headphones.jpg" alt="">
+                </div>
+
+                <div class="grid-item no-text">
+                    <img src="images/bluetooth speaker.jpg" alt="">
+                </div>
+
+            </div>
+
+            <a href="#" class="card-link">See all deals</a>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- Back To Top -->
+<!-- Electronics -->
+
+<section class="electronics">
+
+        <h2>Up to 45% off | Electronics & accessories</h2>
+        <a href="#">See all offers</a>
+
+
+        <div class="slider-container">
+            <button class="prev">&#10094;</button>
+
+            <div class="products" id="products">
+
+                <div class="item"><img src="./images/pic1.jpeg"></div>
+
+                <div class="item"><img src="./images/pic2.jpeg"></div>
+
+                <div class="item"><img src="./images/pic3.jpeg"></div>
+
+                <div class="item"><img src="./images/pic4.jpeg"></div>
+
+                <div class="item"><img src="./images/pic5.jpeg"></div>
+
+                <div class="item"><img src="./images/pic6.jpeg"></div>
+
+                <div class="item"><img src="./images/pic7.jpeg"></div>
+
+                <div class="item"><img src="./images/pic8.jpeg"></div>
+
+                <div class="item"><img src="./images/pic9.jpeg"></div>
+
+
+
+            </div>
+
+            <button class="next">&#10095;</button>
+
+        </div>
+    </section>
+
+<!-- ===========================
+     BACK TO TOP
+=========================== -->
 
 <div class="back-top">
     Back to top
 </div>
 
-
-
-
-<!-- Footer Section -->
+<!-- ===========================
+     FOOTER SECTION
+=========================== -->
 
 <section class="footer-section">
 
-
     <div class="footer-container">
 
-
+        <!-- Column 1 -->
         <div class="footer-box">
-
             <h3>Get to Know Us</h3>
-
             <p>About Us</p>
             <p>Careers</p>
             <p>Press Releases</p>
             <p>Amazon Science</p>
-
         </div>
 
-
-
+        <!-- Column 2 -->
         <div class="footer-box">
-
             <h3>Connect with Us</h3>
-
             <p>Facebook</p>
             <p>Twitter</p>
             <p>Instagram</p>
-
         </div>
 
-
-
-
+        <!-- Column 3 -->
         <div class="footer-box">
-
             <h3>Make Money with Us</h3>
-
             <p>Sell on Amazon</p>
             <p>Become an Affiliate</p>
-            <p>Advertise Products</p>
+            <p>Advertise Your Products</p>
             <p>Amazon Pay</p>
-
         </div>
 
-
-
-
+        <!-- Column 4 -->
         <div class="footer-box">
-
             <h3>Let Us Help You</h3>
-
             <p>Your Account</p>
             <p>Returns Centre</p>
             <p>Customer Service</p>
             <p>Help</p>
-
         </div>
-
 
     </div>
 
-
-
-
-
     <!-- Footer Bottom -->
 
-
     <div class="footer-bottom">
-
 
         <h1 class="amazon-logo">
             amazon
         </h1>
 
+        <button>🌐 English</button>
 
-
-        <button>
-            🌐 English
-        </button>
-
-
-
-        <button>
-            🇮🇳 India
-        </button>
-
+        <button>🇮🇳 India</button>
 
     </div>
 
-
-
 </section>
 
-
-
-
-
-
+<!-- JavaScript -->
 <script src="script.js"></script>
 
-
 </body>
-
 </html>

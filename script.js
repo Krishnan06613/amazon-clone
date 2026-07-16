@@ -5,18 +5,11 @@
 const categories = document.querySelectorAll(".category");
 
 categories.forEach(category => {
-
     category.addEventListener("click", () => {
-
         categories.forEach(item => item.classList.remove("active"));
-
         category.classList.add("active");
-
     });
-
 });
-
-
 
 // ===========================
 // AMAZON SIDE NAVIGATION
@@ -27,90 +20,90 @@ const sidebar = document.querySelector(".sidebar");
 const overlay = document.querySelector(".overlay");
 const closeBtn = document.querySelector(".close-btn");
 
-function openSidebar(e){
+function openSidebar(e) {
+    if (e) e.preventDefault();
 
-    e.preventDefault();
-
-    sidebar.classList.add("active");
-    overlay.classList.add("active");
-    closeBtn.classList.add("active");
+    sidebar?.classList.add("active");
+    overlay?.classList.add("active");
+    closeBtn?.classList.add("active");
 
     document.body.style.overflow = "hidden";
-
 }
 
-function closeSidebar(){
-
-    sidebar.classList.remove("active");
-    overlay.classList.remove("active");
-    closeBtn.classList.remove("active");
+function closeSidebar() {
+    sidebar?.classList.remove("active");
+    overlay?.classList.remove("active");
+    closeBtn?.classList.remove("active");
 
     document.body.style.overflow = "auto";
-
 }
 
-if(menuBtn){
-    menuBtn.addEventListener("click", openSidebar);
-}
+menuBtn?.addEventListener("click", openSidebar);
+closeBtn?.addEventListener("click", closeSidebar);
+overlay?.addEventListener("click", closeSidebar);
 
-if(closeBtn){
-    closeBtn.addEventListener("click", closeSidebar);
-}
-
-if(overlay){
-    overlay.addEventListener("click", closeSidebar);
-}
-
-document.addEventListener("keydown", function(e){
-
-    if(e.key === "Escape"){
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
         closeSidebar();
     }
-
 });
-
-
 
 // ===========================
 // HERO SLIDER
 // ===========================
 
 const slider = document.getElementById("image-slider");
-const imglist = slider.querySelectorAll("img");
-const rhtbtn = document.getElementById("right");
-const lftbtn = document.getElementById("left");
 
-let index = 0;
-const totalslides = imglist.length;
+if (slider) {
 
-function updateSlide(){
+    const images = slider.querySelectorAll("img");
+    const rightBtn = document.getElementById("right");
+    const leftBtn = document.getElementById("left");
 
-    slider.style.transform = `translateX(-${index * 100}%)`;
+    let index = 0;
+    const totalSlides = images.length;
 
+    function updateSlide() {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    rightBtn?.addEventListener("click", () => {
+        index = (index + 1) % totalSlides;
+        updateSlide();
+    });
+
+    leftBtn?.addEventListener("click", () => {
+        index = (index - 1 + totalSlides) % totalSlides;
+        updateSlide();
+    });
+
+    setInterval(() => {
+        index = (index + 1) % totalSlides;
+        updateSlide();
+    }, 3000);
 }
 
-rhtbtn.addEventListener("click", function(){
 
-    index = (index + 1) % totalslides;
-    updateSlide();
+//electronics page
 
+const products = document.getElementById("products");
+
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+
+next.addEventListener("click", () => {
+    products.scrollBy({
+        left: 300,
+        behavior: "smooth"
+    });
 });
 
-lftbtn.addEventListener("click", function(){
-
-    index = (index - 1 + totalslides) % totalslides;
-    updateSlide();
-
+prev.addEventListener("click", () => {
+    products.scrollBy({
+        left: -300,
+        behavior: "smooth"
+    });
 });
-
-setInterval(function(){
-
-    index = (index + 1) % totalslides;
-    updateSlide();
-
-},3000);
-
-
 
 // ===========================
 // BACK TO TOP
@@ -118,22 +111,12 @@ setInterval(function(){
 
 const backTop = document.querySelector(".back-top");
 
-if(backTop){
-
-    backTop.addEventListener("click", function(){
-
-        window.scrollTo({
-
-            top:0,
-            behavior:"smooth"
-
-        });
-
+backTop?.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
     });
-
-}
-
-
+});
 
 // ===========================
 // FOOTER LINKS
@@ -141,17 +124,11 @@ if(backTop){
 
 const footerLinks = document.querySelectorAll(".footer-box p");
 
-footerLinks.forEach(function(link){
-
-    link.addEventListener("click", function(){
-
+footerLinks.forEach(link => {
+    link.addEventListener("click", () => {
         console.log(link.innerText + " clicked");
-
     });
-
 });
-
-
 
 // ===========================
 // LANGUAGE BUTTON
@@ -159,12 +136,6 @@ footerLinks.forEach(function(link){
 
 const languageBtn = document.querySelector(".footer-bottom button");
 
-if(languageBtn){
-
-    languageBtn.addEventListener("click", function(){
-
-        alert("Language selection");
-
-    });
-
-}
+languageBtn?.addEventListener("click", () => {
+    alert("Language selection");
+});

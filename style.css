@@ -1,167 +1,136 @@
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eaeded;
+    overflow-x:hidden;
+}
 
-/* =====================
-   CATEGORY SECTION
-===================== */
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+/* =========================================
+   CATEGORY NAVIGATION
+========================================= */
 
 .category-section{
-
     width:100%;
     background:#232f3e;
     overflow-x:auto;
     white-space:nowrap;
     scrollbar-width:none;
-
 }
-
 
 .category-section::-webkit-scrollbar{
-
     display:none;
-
 }
 
-
 .category-container{
-
     display:flex;
     align-items:center;
     padding:10px 18px;
-    gap:0;
-
 }
-
 
 .category{
-
-    color:white;
-    text-decoration:none;
+    color:#fff;
+    padding:8px 12px;
     font-size:14px;
     font-weight:500;
-    padding:8px 12px;
     border:1px solid transparent;
     border-radius:3px;
-    transition:.3s;
     flex-shrink:0;
-
+    transition:.3s;
 }
 
-
-.category:hover{
-
-    border:1px solid white;
-
-}
-
-
+.category:hover,
 .category.active{
-
-    border:1px solid white;
-
+    border:1px solid #fff;
+    cursor:pointer;
 }
 
-
-
-
-/* =====================
-      OVERLAY
-===================== */
-
+/* =========================================
+   OVERLAY
+========================================= */
 
 .overlay{
-
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
+    inset:0;
     background:rgba(0,0,0,.65);
     opacity:0;
     visibility:hidden;
     transition:.3s;
     z-index:999;
-
 }
-
 
 .overlay.active{
-
     opacity:1;
     visibility:visible;
-
 }
 
-
-
-/* =====================
-      SIDEBAR
-===================== */
-
+/* =========================================
+   SIDEBAR
+========================================= */
 
 .sidebar{
-
     position:fixed;
     top:0;
     left:-320px;
     width:320px;
     height:100vh;
-    background:white;
+    background:#fff;
     overflow-y:auto;
     transition:.35s;
     z-index:1000;
     box-shadow:2px 0 10px rgba(0,0,0,.3);
-
 }
-
 
 .sidebar.active{
-
     left:0;
-
 }
 
-
-
-/* Header */
+/* =========================================
+   SIDEBAR HEADER
+========================================= */
 
 .sidebar-header{
-
     height:60px;
     background:#232f3e;
-    color:white;
+    color:#fff;
     display:flex;
     align-items:center;
     gap:15px;
     padding:0 20px;
-
 }
-
 
 .sidebar-header i{
-
     font-size:30px;
-
 }
-
 
 .sidebar-header h2{
-
     font-size:22px;
     font-weight:700;
-
 }
 
-
-
-/* Close Button */
+/* =========================================
+   CLOSE BUTTON
+========================================= */
 
 .close-btn{
-
     position:fixed;
     top:12px;
     left:335px;
@@ -169,443 +138,589 @@
     height:40px;
     background:transparent;
     border:none;
-    color:white;
+    color:#fff;
     font-size:30px;
     cursor:pointer;
     display:none;
     z-index:1001;
-
 }
-
 
 .close-btn.active{
-
     display:block;
-
 }
 
-
-/* =====================
+/* =========================================
    SIDEBAR CONTENT
-===================== */
-
+========================================= */
 
 .sidebar-section{
-
     border-bottom:1px solid #ddd;
     padding:18px 0;
-
 }
-
 
 .sidebar-section h3{
-
     font-size:20px;
     font-weight:700;
-    color:#111;
-    margin-bottom:10px;
     padding:0 20px;
-
+    margin-bottom:10px;
+    color:#111;
 }
 
-
-
 .sidebar-section a{
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-    text-decoration:none;
+    padding:12px 20px;
     color:#111;
     font-size:15px;
-    padding:12px 20px;
     transition:.2s;
-
 }
-
-
 
 .sidebar-section a:hover{
-
     background:#f3f3f3;
-
 }
-
-
 
 .sidebar-section a i{
-
     color:#666;
     font-size:14px;
-
 }
 
-
-
-
-/* Sidebar Scrollbar */
-
+/* =========================================
+   SCROLLBAR
+========================================= */
 
 .sidebar::-webkit-scrollbar{
-
     width:8px;
-
 }
-
 
 .sidebar::-webkit-scrollbar-thumb{
-
-    background:#bbb;
-    border-radius:10px;
-
+    background:#bcbcbc;
+    border-radius:20px;
 }
-
 
 .sidebar::-webkit-scrollbar-track{
-
-    background:white;
-
+    background:#fff;
 }
 
-
-
-
-
-/* =====================
-      RESPONSIVE SIDEBAR
-===================== */
-
+/* =========================================
+   RESPONSIVE SIDEBAR
+========================================= */
 
 @media(max-width:768px){
 
     .sidebar{
-
         width:320px;
         left:-320px;
-
     }
 
-
     .close-btn{
-
         left:330px;
-
     }
 
 }
-
-
 
 @media(max-width:480px){
 
     .sidebar{
-
         width:290px;
         left:-290px;
-
     }
 
-
     .close-btn{
-
         left:300px;
-
     }
 
 }
 
-
-
-
-
-/* =====================
-       HERO SECTION
-===================== */
-
+/* =========================================
+   HERO SECTION
+========================================= */
 
 #banner-container{
-
+    position:relative;
     width:100%;
     height:500px;
     overflow:hidden;
-    position:relative;
 
+    /* Amazon fade effect */
+    mask-image:linear-gradient(
+        to bottom,
+        rgba(0,0,0,1) 65%,
+        rgba(0,0,0,0)
+    );
+
+    -webkit-mask-image:linear-gradient(
+        to bottom,
+        rgba(0,0,0,1) 65%,
+        rgba(0,0,0,0)
+    );
 }
 
-
+/* =========================================
+   IMAGE SLIDER
+========================================= */
 
 #image-slider{
-
     display:flex;
+    width:100%;
     height:100%;
-    transition:.5s ease-in-out;
-
+    transition:transform .5s ease-in-out;
 }
 
-
-
 #image-slider img{
-
     width:100%;
     height:100%;
     flex-shrink:0;
     object-fit:cover;
-
 }
 
+/* =========================================
+   SLIDER ARROWS
+========================================= */
 
-
-
-#right,
-#left{
+#left,
+#right{
 
     position:absolute;
     top:50%;
     transform:translateY(-50%);
+
+    width:50px;
+    height:50px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
     cursor:pointer;
-    color:black;
-    z-index:1;
 
+    color:#111;
+
+    z-index:5;
+
+    transition:.3s;
 }
-
-
 
 #left{
-
     left:15px;
-
 }
-
-
 
 #right{
-
     right:15px;
+}
+
+#left:hover,
+#right:hover{
+
+    background:rgba(255,255,255,.7);
+    border-radius:50%;
+}
+
+/* =========================================
+   RESPONSIVE HERO
+========================================= */
+
+@media(max-width:992px){
+
+    #banner-container{
+        height:420px;
+    }
 
 }
 
-
-
-
-@media(max-width:700px){
-
+@media(max-width:768px){
 
     #banner-container{
-
         height:350px;
-
     }
 
-
-    #right,
-    #left{
-
-        width:35px;
-        height:35px;
-
+    #left,
+    #right{
+        width:40px;
+        height:40px;
     }
 
 }
 
-
-
-@media(max-width:500px){
-
+@media(max-width:576px){
 
     #banner-container{
-
-        height:230px;
-
+        height:240px;
     }
 
-
-    #right,
     #left{
+        left:8px;
+    }
 
+    #right{
+        right:8px;
+    }
+
+    #left,
+    #right{
         width:30px;
         height:30px;
-
     }
 
 }
 
 
-/* =====================
-       FOOTER SECTION
-===================== */
+/* =========================================
+   PRODUCT CARDS SECTION
+========================================= */
 
-
-.footer-section{
-
-    background:#131A22;
-    color:white;
-    margin-top:40px;
-
+.cards-section{
+    position:relative;
+    z-index:10;
+    margin-top:-220px;
+    padding:0 20px 30px;
 }
 
-
-
-.footer-container{
+.cards-container{
+    max-width:1500px;
+    margin:auto;
 
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    padding:40px 8%;
-    gap:40px;
+    gap:20px;
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.card{
+    background:#fff;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 2px 5px rgba(0,0,0,.15);
+}
+
+.card h2{
+    font-size:21px;
+    font-weight:700;
+    color:#0f1111;
+    line-height:1.3;
+    margin-bottom:15px;
+    min-height:55px;
+}
+
+/* =========================================
+   CARD GRID
+========================================= */
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    flex:1;
+}
+
+.grid-item{
+    display:flex;
+    flex-direction:column;
+    cursor:pointer;
+}
+
+.grid-item img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    margin-bottom:6px;
+}
+
+.grid-item p{
+    font-size:12px;
+    color:#111;
+    line-height:1.4;
+}
+
+/* Headphone Card */
+
+.grid-item.no-text img{
+    height:130px;
+    object-fit:contain;
+    margin-bottom:0;
+}
+
+/* =========================================
+   CARD LINK
+========================================= */
+
+.card-link{
+    margin-top:18px;
+    color:#007185;
+    font-size:13px;
+    font-weight:500;
+}
+
+.card-link:hover{
+    color:#c7511f;
+    text-decoration:underline;
+}
+
+/* =========================================
+   RESPONSIVE PRODUCT CARDS
+========================================= */
+
+@media(max-width:1200px){
+
+    .cards-container{
+        grid-template-columns:repeat(2,1fr);
+    }
 
 }
 
+@media(max-width:768px){
 
+    .cards-section{
+        margin-top:-80px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .cards-container{
+        grid-template-columns:1fr;
+    }
+
+    .cards-section{
+        margin-top:-40px;
+        padding:15px;
+    }
+
+    .card h2{
+        font-size:20px;
+    }
+
+    .grid-item img{
+        height:150px;
+    }
+
+}
+
+/* ===================================================== */
+/* Electronics page */
+
+
+.electronics{
+    width: 100%;
+    height: 270px;
+    margin: 0px auto;
+    background: #fff;
+    padding: 20px;
+}
+
+.electronics h2{
+    display: inline-block;
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.electronics a{
+    text-decoration: none;
+    color: #007185;
+    font-size: 15px;
+}
+
+.electronics a:hover{
+    color: #c7511f;
+    text-decoration: underline;
+}
+
+.slider-container{
+    position: relative;
+    margin-top: 20px;
+}
+
+.products{
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+}
+
+.products::-webkit-scrollbar{
+    display: none;
+}
+
+.products{
+    scrollbar-width: none;
+}
+
+.item{
+    flex: 0 0 auto;
+}
+
+.item img{
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+}
+
+.prev,
+.next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 80px;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.prev{
+    left: 0;
+}
+
+.next{
+    right: 0;
+}
+
+.prev:hover,
+.next:hover{
+    background: #ffffff;
+}
+
+/* =========================================
+   BACK TO TOP
+========================================= */
+
+.back-top{
+    background:#37475a;
+    color:#fff;
+    text-align:center;
+    padding:16px;
+    font-size:14px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.back-top:hover{
+    background:#485769;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer-section{
+    background:#131a22;
+    color:#fff;
+}
+
+.footer-container{
+    max-width:1500px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:40px;
+    padding:50px 60px;
+}
 
 .footer-box h3{
-
-    font-size:18px;
-    margin-bottom:20px;
-
+    font-size:16px;
+    margin-bottom:18px;
+    font-weight:700;
 }
-
-
 
 .footer-box p{
-
     color:#ddd;
     font-size:14px;
-    margin:12px 0;
+    margin:10px 0;
     cursor:pointer;
-
+    transition:.3s;
 }
-
-
 
 .footer-box p:hover{
-
+    color:#fff;
     text-decoration:underline;
-    color:white;
-
 }
 
-
-
-
-
-/* Footer Bottom */
-
+/* =========================================
+   FOOTER BOTTOM
+========================================= */
 
 .footer-bottom{
-
     border-top:1px solid #3a4553;
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:25px;
+    gap:20px;
     padding:30px;
-
 }
-
-
 
 .amazon-logo{
-
-    font-size:35px;
+    font-size:34px;
     font-weight:bold;
     letter-spacing:1px;
-
+    text-transform:lowercase;
 }
-
-
 
 .footer-bottom button{
-
     background:transparent;
-    color:white;
-    border:1px solid #848688;
-    padding:10px 20px;
+    color:#fff;
+    border:1px solid #777;
+    padding:10px 18px;
     border-radius:4px;
     cursor:pointer;
-
+    transition:.3s;
 }
-
-
 
 .footer-bottom button:hover{
-
     background:#37475a;
-
 }
 
+/* =========================================
+   GLOBAL RESPONSIVE
+========================================= */
 
+@media(max-width:1200px){
 
-
-
-/* =====================
-       BACK TO TOP
-===================== */
-
-
-.back-top{
-
-    background:#37475a;
-    color:white;
-    text-align:center;
-    padding:18px;
-    cursor:pointer;
-    margin-top:20px;
-    font-size:15px;
+    .footer-container{
+        grid-template-columns:repeat(2,1fr);
+        padding:40px;
+    }
 
 }
-
-
-
-.back-top:hover{
-
-    background:#485769;
-
-}
-
-
-
-
-
-/* =====================
-       RESPONSIVE
-===================== */
-
 
 @media(max-width:768px){
 
-
-    .footer-container{
-
-        grid-template-columns:repeat(2,1fr);
-        padding:30px;
-
+    .footer-bottom{
+        flex-direction:column;
+        gap:15px;
     }
-
 
 }
 
-
-
-@media(max-width:480px){
-
+@media(max-width:576px){
 
     .footer-container{
-
         grid-template-columns:1fr;
-
+        gap:30px;
+        padding:30px 20px;
     }
-
-
-    .footer-bottom{
-
-        flex-direction:column;
-
-    }
-
 
     .amazon-logo{
-
-        font-size:30px;
-
+        font-size:28px;
     }
 
+    .footer-bottom button{
+        width:220px;
+    }
+
+}
+
+/* =========================================
+   SMOOTH SCROLL
+========================================= */
+
+html{
+    scroll-behavior:smooth;
 }
