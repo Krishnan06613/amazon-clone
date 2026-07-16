@@ -1,47 +1,55 @@
-var banner = document.getElementById("banner-container")
-var slider = document.getElementById("image-slider")
-var imglist = slider.querySelectorAll("img")
-var rhtbtn = document.getElementById("right")
-var lftbtn = document.getElementById("left")
+// BANNER SECTION
+var slider = document.getElementById("image-slider");
 
+if (slider) {
 
+    var imglist = slider.querySelectorAll("img");
+    var rhtbtn = document.getElementById("right");
+    var lftbtn = document.getElementById("left");
 
-var index = 0
-var totalslides = imglist.length
-console.log(totalslides)
-function updateSlide() {
-    if (index === 0) {
-        slider.style.transform = "translateX(0%)";
+    var index = 0;
+    var totalslides = imglist.length;
+
+    function updateSlide() {
+        slider.style.transform = `translateX(-${index * 100}%)`;
     }
 
-    if (index === 1) {
-        slider.style.transform = "translateX(-100%)";
-    }
+    rhtbtn.addEventListener("click", function () {
+        index = (index + 1) % totalslides;
+        updateSlide();
+    });
 
-    if (index === 2) {
-        slider.style.transform = "translateX(-200%)";
-    }
-    if (index === 3) {
-        slider.style.transform = "translateX(-300%)";
-    }
+    lftbtn.addEventListener("click", function () {
+        index = (index - 1 + totalslides) % totalslides;
+        updateSlide();
+    });
 
-    if (index === 4) {
-        slider.style.transform = "translateX(-400%)";
-    }
+    setInterval(function () {
+        index = (index + 1) % totalslides;
+        updateSlide();
+    }, 3000);
 
-    if (index === 5) {
-        slider.style.transform = "translateX(-500%)";
-    }
 }
-rhtbtn.addEventListener("click",function(){
-    index = (index + 1) % totalslides
-    updateSlide()
+
+var productSlider = document.querySelector(".left-slider");
+
+if (productSlider) {
+
+    document.querySelectorAll(".left-s1 img").forEach((img, i) => {
+        img.addEventListener("mouseenter", () => {
+            productSlider.style.transform = `translateX(-${i * 100}%)`;
+        });
+    });
+
+    document.querySelectorAll(".design img").forEach((img, i) => {
+        img.addEventListener("mouseenter", () => {
+            productSlider.style.transform = `translateX(-${i * 100}%)`;
+        });
+    });
+
+}
+
+var product1 = document.getElementById("img1")
+product1.addEventListener("click", function () {
+    window.location.href = "products.html";
 })
-lftbtn.addEventListener("click",function(){
-    index = (index - 1 + totalslides) % totalslides
-    updateSlide()
-})
-setInterval(()=>{
-    index=(index+1)%totalslides
-    updateSlide()
-},3000)
