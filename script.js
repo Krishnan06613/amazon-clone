@@ -1,3 +1,28 @@
+// navbar
+
+// Currency box 
+
+const navLanguageBtn = document.querySelector(".nav-language");
+const currencyBox = document.querySelector(".nav-currency");
+const saveButton = document.getElementById("save-currency");
+
+navLanguageBtn?.addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    currencyBox.style.display =
+        currencyBox.style.display === "block" ? "none" : "block";
+
+});
+
+saveButton?.addEventListener("click", function(){
+
+    currencyBox.style.display = "none";
+
+});
+
+
+
 // ===========================
 // Active Category
 // ===========================
@@ -5,49 +30,61 @@
 const categories = document.querySelectorAll(".category");
 
 categories.forEach(category => {
-    category.addEventListener("click", () => {
-        categories.forEach(item => item.classList.remove("active"));
-        category.classList.add("active");
-    });
+
+    if(category.id !== "menu-btn"){
+
+        category.addEventListener("click", () => {
+
+            categories.forEach(item => {
+
+                if(item.id !== "menu-btn"){
+                    item.classList.remove("active");
+                }
+
+            });
+
+            category.classList.add("active");
+
+        });
+
+    }
+
 });
 
 // ===========================
 // AMAZON SIDE NAVIGATION
 // ===========================
 
-const menuBtn = document.querySelector(".category.active");
+const menuBtn = document.getElementById("menu-btn");
 const sidebar = document.querySelector(".sidebar");
 const overlay = document.querySelector(".overlay");
 const closeBtn = document.querySelector(".close-btn");
 
-function openSidebar(e) {
-    if (e) e.preventDefault();
+menuBtn.addEventListener("click", function(e){
 
-    sidebar?.classList.add("active");
-    overlay?.classList.add("active");
-    closeBtn?.classList.add("active");
+    e.preventDefault();
 
-    document.body.style.overflow = "hidden";
-}
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+    closeBtn.classList.add("active");
 
-function closeSidebar() {
-    sidebar?.classList.remove("active");
-    overlay?.classList.remove("active");
-    closeBtn?.classList.remove("active");
-
-    document.body.style.overflow = "auto";
-}
-
-menuBtn?.addEventListener("click", openSidebar);
-closeBtn?.addEventListener("click", closeSidebar);
-overlay?.addEventListener("click", closeSidebar);
-
-document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-        closeSidebar();
-    }
 });
 
+closeBtn.addEventListener("click", function(){
+
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+    closeBtn.classList.remove("active");
+
+});
+
+overlay.addEventListener("click", function(){
+
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+    closeBtn.classList.remove("active");
+
+});
 // ===========================
 // HERO SLIDER
 // ===========================
