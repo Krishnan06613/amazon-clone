@@ -1,0 +1,1208 @@
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+   
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eaeded;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+
+/* navbar ====================================================*/
+
+.nav-logo img {
+  width: 150px;
+  height: auto;
+}
+
+.navbar {
+  background-color: #131921;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/*Nav Location */
+
+.nav-location {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.nav-location i {
+  font-size: 16px;
+  margin-right: 6px;
+  margin-top: 10px; /* pushes the icon down slightly like Amazon */
+}
+
+.location-text {
+  display: flex;
+  flex-direction: column;
+}
+.location-text span {
+  font-size: 16px;
+  color: #cccccc;
+}
+
+.location-text p {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+}
+
+/*Search bar*/
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 700px;
+  height: 40px;
+  margin-left: 20px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.search-bar:focus-within {
+  border: 2px solid #ff9900;
+}
+
+.search-select {
+  width: 60px;
+  border: none;
+  outline: none;
+  background-color: #d4d4d4;
+  border-radius: 4px 0 0 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-select:hover {
+  background-color: #a8a8a8;
+}
+
+.search-bar:focus-within {
+  border: 3px solid #ff9900;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.search-bar button {
+  width: 45px;
+  background-color: #febd69;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #f3a847;
+}
+
+.search-bar button i {
+  font-size: 18px;
+}
+
+.search-select,
+.search-bar input,
+.search-bar button {
+  height: 36px;
+}
+
+/* Language */
+
+.nav-language {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 20px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-language img {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+}
+
+.nav-language i {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Currency container */
+.currency-container {
+  position: relative;
+}
+
+/* Currency dropdown */
+
+.nav-currency {
+  display: none; /* hidden initially */
+  position: absolute;
+  top: 35px;
+  right: 0;
+  width: 280px;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+.nav-currency h3 {
+  margin-bottom: 15px;
+}
+.nav-currency label {
+  display: block;
+  margin: 12px 0;
+  white-space: nowrap;
+}
+.nav-currency button {
+  margin-top: 15px;
+  padding: 8px 20px;
+  border: none;
+  background-color: #ffd814;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Account */
+
+.nav-account {
+  color: white;
+  margin-left: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-account span {
+  display: block;
+  font-size: 12px;
+}
+
+.nav-account p {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.nav-account i {
+  font-size: 12px;
+}
+/* Returns & Orders */
+
+.nav-orders {
+  color: white;
+  margin-left: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-orders span {
+  display: block;
+  font-size: 12px;
+}
+
+.nav-orders p {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Cart */
+
+.nav-cart {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-icon i {
+  font-size: 30px;
+}
+
+.cart-icon span {
+  position: absolute;
+  top: -8px;
+  right: 6px;
+  font-size: 16px;
+  color: #f08804;
+  font-weight: bold;
+}
+
+.nav-cart p {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+
+/* =========================
+   Tablet (1024px)
+========================= */
+@media (max-width: 1024px) {
+
+  .navbar{
+    padding:0 10px;
+  }
+
+  .search-bar{
+    width:420px;
+  }
+
+  .nav-language,
+  .nav-orders{
+    display:none;
+  }
+
+  .nav-logo img{
+    width:120px;
+  }
+
+}
+
+
+/* =========================
+   Small Tablet (768px)
+========================= */
+
+@media (max-width:768px){
+
+  .navbar{
+    height:auto;
+    flex-wrap:wrap;
+    padding:10px;
+    gap:10px;
+  }
+
+  .nav-logo{
+    order:1;
+  }
+
+  .nav-cart{
+    order:2;
+    margin-left:auto;
+  }
+
+  .nav-location{
+    order:3;
+    margin-left:0;
+  }
+
+  .search-bar{
+    order:4;
+    width:100%;
+    margin-left:0;
+  }
+
+  .nav-language,
+  .nav-account,
+  .nav-orders{
+    display:none;
+  }
+
+}
+
+
+/* =========================
+   Mobile (576px)
+========================= */
+
+@media (max-width:576px){
+
+  .navbar{
+    padding:8px;
+  }
+
+  .nav-logo img{
+    width:100px;
+  }
+
+  .nav-location{
+    display:none;
+  }
+
+  .search-bar{
+    width:100%;
+    height:38px;
+  }
+
+  .search-select{
+    width:55px;
+    font-size:12px;
+    padding:5px;
+  }
+
+  .search-bar input{
+    font-size:13px;
+  }
+
+  .search-bar button{
+    width:42px;
+  }
+
+  .nav-account,
+  .nav-orders,
+  .nav-language{
+    display:none;
+  }
+
+  .cart-icon i{
+    font-size:26px;
+  }
+
+  .cart-icon span{
+    font-size:14px;
+    right:5px;
+  }
+
+  .nav-cart p{
+    display:none;
+  }
+
+}
+
+
+/* =========================
+   Small Mobile (425px)
+========================= */
+
+@media (max-width:425px){
+
+  .navbar{
+    gap:8px;
+  }
+
+  .nav-logo img{
+    width:90px;
+  }
+
+  .search-bar{
+    height:36px;
+  }
+
+  .search-select{
+    width:50px;
+    font-size:11px;
+  }
+
+  .search-bar input{
+    font-size:12px;
+  }
+
+  .search-bar button{
+    width:38px;
+  }
+
+  .cart-icon i{
+    font-size:24px;
+  }
+
+}
+
+
+
+
+/* =========================================
+   CATEGORY NAVIGATION
+========================================= */
+
+.category-section{
+    width:100%;
+    background:#232f3e;
+    overflow-x:auto;
+    white-space:nowrap;
+    scrollbar-width:none;
+}
+
+.category-section::-webkit-scrollbar{
+    display:none;
+}
+
+.category-container{
+    display:flex;
+    align-items:center;
+    padding:10px 18px;
+}
+
+.category{
+    color:#fff;
+    padding:8px 12px;
+    font-size:14px;
+    font-weight:500;
+    border:1px solid transparent;
+    border-radius:3px;
+    flex-shrink:0;
+    transition:.3s;
+}
+
+.category:hover,
+.category.active{
+    border:1px solid #fff;
+    cursor:pointer;
+}
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:999;
+}
+
+.overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-320px;
+    width:320px;
+    height:100vh;
+    background:#fff;
+    overflow-y:auto;
+    transition:.35s;
+    z-index:1000;
+    box-shadow:2px 0 10px rgba(0,0,0,.3);
+}
+
+.sidebar.active{
+    left:0;
+}
+
+/* =========================================
+   SIDEBAR HEADER
+========================================= */
+
+.sidebar-header{
+    height:60px;
+    background:#232f3e;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:0 20px;
+}
+
+.sidebar-header i{
+    font-size:30px;
+}
+
+.sidebar-header h2{
+    font-size:22px;
+    font-weight:700;
+}
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.close-btn{
+    position:fixed;
+    top:12px;
+    left:335px;
+    width:40px;
+    height:40px;
+    background:transparent;
+    border:none;
+    color:#fff;
+    font-size:30px;
+    cursor:pointer;
+    display:none;
+    z-index:1001;
+}
+
+.close-btn.active{
+    display:block;
+}
+
+/* =========================================
+   SIDEBAR CONTENT
+========================================= */
+
+.sidebar-section{
+    border-bottom:1px solid #ddd;
+    padding:18px 0;
+}
+
+.sidebar-section h3{
+    font-size:20px;
+    font-weight:700;
+    padding:0 20px;
+    margin-bottom:10px;
+    color:#111;
+}
+
+.sidebar-section a{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 20px;
+    color:#111;
+    font-size:15px;
+    transition:.2s;
+}
+
+.sidebar-section a:hover{
+    background:#f3f3f3;
+}
+
+.sidebar-section a i{
+    color:#666;
+    font-size:14px;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+.sidebar::-webkit-scrollbar{
+    width:8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+    background:#bcbcbc;
+    border-radius:20px;
+}
+
+.sidebar::-webkit-scrollbar-track{
+    background:#fff;
+}
+
+/* =========================================
+   RESPONSIVE SIDEBAR
+========================================= */
+
+@media(max-width:768px){
+
+    .sidebar{
+        width:320px;
+        left:-320px;
+    }
+
+    .close-btn{
+        left:330px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .sidebar{
+        width:290px;
+        left:-290px;
+    }
+
+    .close-btn{
+        left:300px;
+    }
+
+}
+
+
+
+/* ==========================================================================
+   AMAZON CLONE - HOME APPLIANCES PAGE
+   ========================================================================== */
+
+/* ==========================================================================
+   1. CSS VARIABLES
+   ========================================================================== */
+:root {
+  --amazon-dark: #131921;
+  --amazon-navy: #232f3e;
+  --amazon-navy-light: #37475a;
+  --amazon-orange: #febd69;
+  --amazon-yellow: #f3a847;
+  --amazon-blue-link: #007185;
+  --amazon-price-red: #cc0c39;
+  --amazon-badge-bg: #cc0c39;
+  --amazon-success-green: #007600;
+  --amazon-star: #ffa41c;
+  --amazon-btn-yellow: #ffd814;
+  --amazon-btn-yellow-hover: #f7ca00;
+  --amazon-btn-orange: #ffa41c;
+  --amazon-btn-orange-hover: #fa8900;
+  --card-bg: #ffffff;
+  --card-border: #d5d9d9;
+  --text-dark: #0f1111;
+  --text-gray: #565959;
+  --font-main: "Amazon Ember", Arial, Helvetica, sans-serif;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-card-hover: 0 6px 16px rgba(0, 0, 0, 0.18);
+  --transition-fast: 0.2s ease-in-out;
+}
+
+/* ==========================================================================
+   2. RESET / BASE
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #eaeded;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   3. PRODUCTS SECTION HEADER
+   ========================================================================== */
+.products-section {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+.products-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.products-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+#sortProducts {
+  padding: 8px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  background-color: #fff;
+  font-size: 14px;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   4. PRODUCTS GRID
+   ========================================================================== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Desktop: 4 per row */
+  gap: 20px;
+}
+
+/* ==========================================================================
+   5. PRODUCT CARD
+   ========================================================================== */
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 16px;
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-3px);
+}
+
+/* Badge */
+.product-card .badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--amazon-badge-bg);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Wishlist icon */
+.product-card .wishlist {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  z-index: 2;
+  transition: background-color var(--transition-fast);
+}
+
+.product-card .wishlist:hover {
+  background-color: #f5f5f5;
+}
+
+.product-card .wishlist i {
+  color: var(--text-gray);
+  font-size: 14px;
+}
+
+/* Product image */
+.product-card > a > img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  margin: 10px 0 14px;
+}
+
+/* Product title */
+.product-card h3 {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  min-height: 42px;
+}
+
+.product-card h3 a {
+  color: var(--amazon-blue-link);
+}
+
+.product-card h3 a:hover {
+  color: var(--amazon-price-red);
+  text-decoration: underline;
+}
+
+/* Rating */
+.product-card .rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.product-card .stars {
+  color: var(--amazon-star);
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.product-card .rating-count {
+  font-size: 13px;
+  color: var(--amazon-blue-link);
+}
+
+/* Bought text */
+.product-card .bought {
+  font-size: 12px;
+  color: var(--text-gray);
+  margin-bottom: 6px;
+}
+
+/* Price */
+.product-card .price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.product-card .price span {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-gray);
+  text-decoration: line-through;
+}
+
+/* Offer */
+.product-card .offer {
+  font-size: 13px;
+  color: var(--amazon-success-green);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* Delivery */
+.product-card .delivery {
+  font-size: 13px;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+/* Stock */
+.product-card .stock {
+  font-size: 13px;
+  color: var(--amazon-price-red);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Push buttons to bottom regardless of content height */
+.product-card .product-buttons {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 10px;
+}
+
+.product-card .cart-btn,
+.product-card .buy-btn {
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.product-card .cart-btn {
+  background-color: var(--amazon-btn-yellow);
+  border-color: #fcd200;
+  color: var(--text-dark);
+}
+
+.product-card .cart-btn:hover {
+  background-color: var(--amazon-btn-yellow-hover);
+}
+
+.product-card .buy-btn {
+  background-color: var(--amazon-btn-orange);
+  border-color: #ff8f00;
+  color: #fff;
+}
+
+.product-card .buy-btn:hover {
+  background-color: var(--amazon-btn-orange-hover);
+}
+
+.product-card .cart-btn:active,
+.product-card .buy-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   6. FOOTER SECTION
+   ========================================================================== */
+.footer-section {
+  background-color: var(--amazon-navy);
+  color: #fff;
+  margin-top: 40px;
+}
+
+.footer-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 40px 20px;
+}
+
+.footer-box h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.footer-box p {
+  font-size: 13px;
+  color: #ddd;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: text-decoration var(--transition-fast);
+}
+
+.footer-box p:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #3a4553;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px 16px;
+  flex-wrap: wrap;
+}
+
+.footer-bottom .amazon-logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.footer-bottom button {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #55606d;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  transition: border-color var(--transition-fast);
+}
+
+.footer-bottom button:hover {
+  border-color: #fff;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Laptop: 3 per row */
+@media (max-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet: 2 per row */
+@media (max-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 per row */
+@media (max-width: 560px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .product-card > a > img {
+    height: 200px;
+  }
+}
+
+
+
+
+/* =========================================
+   SCROLL
+========================================= */
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer-section{
+    background:#131a22;
+    color:#fff;
+}
+
+.footer-container{
+    max-width:1500px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:40px;
+    padding:50px 60px;
+}
+
+.footer-box h3{
+    font-size:16px;
+    margin-bottom:18px;
+    font-weight:700;
+}
+
+.footer-box p{
+    color:#ddd;
+    font-size:14px;
+    margin:10px 0;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.footer-box p:hover{
+    color:#fff;
+    text-decoration:underline;
+}
+
+/* =========================================
+   FOOTER BOTTOM
+========================================= */
+
+.footer-bottom{
+    border-top:1px solid #3a4553;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    padding:30px;
+}
+
+.amazon-logo{
+    font-size:34px;
+    font-weight:bold;
+    letter-spacing:1px;
+    text-transform:lowercase;
+}
+
+.footer-bottom button{
+    background:transparent;
+    color:#fff;
+    border:1px solid #777;
+    padding:10px 18px;
+    border-radius:4px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.footer-bottom button:hover{
+    background:#37475a;
+}
+
+/* =========================================
+   GLOBAL RESPONSIVE
+========================================= */
+
+@media(max-width:1200px){
+
+    .footer-container{
+        grid-template-columns:repeat(2,1fr);
+        padding:40px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .footer-bottom{
+        flex-direction:column;
+        gap:15px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:30px;
+        padding:30px 20px;
+    }
+
+    .amazon-logo{
+        font-size:28px;
+    }
+
+    .footer-bottom button{
+        width:220px;
+    }
+
+}
+
+/* =========================================
+   SMOOTH SCROLL
+========================================= */
+
+html{
+    scroll-behavior:smooth;
+}
