@@ -1,18 +1,25 @@
 /* =========================================
    GLOBAL STYLES
+   (perf: avoid `transition: .3s` on `all`,
+   isolate paint layers, enable touch scroll)
 ========================================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-   
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
     font-family:Arial, Helvetica, sans-serif;
     background:#eaeded;
     overflow-x:hidden;
+    text-rendering:optimizeSpeed;
+    -webkit-tap-highlight-color:transparent;
 }
 
 a{
@@ -41,7 +48,7 @@ img{
   padding: 0 20px;
 }
 
-/*Nav Location */
+/* Nav Location */
 
 .nav-location {
   display: flex;
@@ -53,7 +60,7 @@ img{
 .nav-location i {
   font-size: 16px;
   margin-right: 6px;
-  margin-top: 10px; /* pushes the icon down slightly like Amazon */
+  margin-top: 10px;
 }
 
 .location-text {
@@ -72,7 +79,7 @@ img{
   margin: 0;
 }
 
-/*Search bar*/
+/* Search bar */
 
 .search-bar {
   display: flex;
@@ -83,9 +90,10 @@ img{
   border: 2px solid transparent;
   border-radius: 6px;
   overflow: hidden;
+  /* was declared twice in the original file (2px then 3px) — de-duplicated below */
 }
 .search-bar:focus-within {
-  border: 2px solid #ff9900;
+  border: 3px solid #ff9900;
 }
 
 .search-select {
@@ -102,16 +110,11 @@ img{
   background-color: #a8a8a8;
 }
 
-.search-bar:focus-within {
-  border: 3px solid #ff9900;
-}
-
 .search-bar input {
   flex: 1;
   padding: 10px;
   border: none;
   outline: none;
-  padding: 10px;
   font-size: 14px;
 }
 
@@ -168,7 +171,7 @@ img{
 /* Currency dropdown */
 
 .nav-currency {
-  display: none; /* hidden initially */
+  display: none;
   position: absolute;
   top: 35px;
   right: 0;
@@ -220,6 +223,7 @@ img{
 .nav-account i {
   font-size: 12px;
 }
+
 /* Returns & Orders */
 
 .nav-orders {
@@ -275,203 +279,6 @@ img{
 }
 
 
-
-/* =========================
-   Tablet (1024px)
-========================= */
-@media (max-width: 1024px) {
-
-  .navbar{
-    padding:0 10px;
-  }
-
-  .search-bar{
-    width:420px;
-  }
-
-  .nav-language,
-  .nav-orders{
-    display:none;
-  }
-
-  .nav-logo img{
-    width:120px;
-  }
-
-}
-
-
-/* =========================
-   Small Tablet (768px)
-========================= */
-
-@media (max-width:768px){
-
-  .navbar{
-    height:auto;
-    flex-wrap:wrap;
-    padding:10px;
-    gap:10px;
-  }
-
-  .nav-logo{
-    order:1;
-  }
-
-  .nav-cart{
-    order:2;
-    margin-left:auto;
-  }
-
-  .nav-location{
-    order:3;
-    margin-left:0;
-  }
-
-  .search-bar{
-    order:4;
-    width:100%;
-    margin-left:0;
-  }
-
-  .nav-language,
-  .nav-account,
-  .nav-orders{
-    display:none;
-  }
-
-}
-
-
-/* =========================
-   Mobile (576px)
-========================= */
-
-@media (max-width:576px){
-
-  .navbar{
-    padding:8px;
-  }
-
-  .nav-logo img{
-    width:100px;
-  }
-
-  .nav-location{
-    display:none;
-  }
-
-  .search-bar{
-    width:100%;
-    height:38px;
-  }
-
-  .search-select{
-    width:55px;
-    font-size:12px;
-    padding:5px;
-  }
-
-  .search-bar input{
-    font-size:13px;
-  }
-
-  .search-bar button{
-    width:42px;
-  }
-
-  .nav-account,
-  .nav-orders,
-  .nav-language{
-    display:none;
-  }
-
-  .cart-icon i{
-    font-size:26px;
-  }
-
-  .cart-icon span{
-    font-size:14px;
-    right:5px;
-  }
-
-  .nav-cart p{
-    display:none;
-  }
-
-}
-
-
-/* =========================
-   Small Mobile (425px)
-========================= */
-
-@media (max-width:425px){
-
-  .navbar{
-    gap:8px;
-  }
-
-  .nav-logo img{
-    width:90px;
-  }
-
-  .search-bar{
-    height:36px;
-  }
-
-  .search-select{
-    width:50px;
-    font-size:11px;
-  }
-
-  .search-bar input{
-    font-size:12px;
-  }
-
-  .search-bar button{
-    width:38px;
-  }
-
-  .cart-icon i{
-    font-size:24px;
-  }
-
-}
-
-
-/* =========================
-   Extra Small Mobile (320px)
-========================= */
-
-@media (max-width:320px){
-
-  .nav-logo img{
-    width:80px;
-  }
-
-  .search-select{
-    display:none;
-  }
-
-  .search-bar{
-    width:100%;
-  }
-
-  .search-bar input{
-    font-size:11px;
-  }
-
-  .search-bar button{
-    width:36px;
-  }
-
-  .cart-icon i{
-    font-size:22px;
-  }
-
-}
-
 /* =========================================
    CATEGORY NAVIGATION
 ========================================= */
@@ -482,6 +289,8 @@ img{
     overflow-x:auto;
     white-space:nowrap;
     scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior-x:contain;
 }
 
 .category-section::-webkit-scrollbar{
@@ -502,7 +311,7 @@ img{
     border:1px solid transparent;
     border-radius:3px;
     flex-shrink:0;
-    transition:.3s;
+    transition:border-color .2s ease, background-color .2s ease;
 }
 
 .category:hover,
@@ -513,6 +322,7 @@ img{
 
 /* =========================================
    OVERLAY
+   (opacity + visibility only — cheap, GPU-composited)
 ========================================= */
 
 .overlay{
@@ -521,7 +331,7 @@ img{
     background:rgba(0,0,0,.65);
     opacity:0;
     visibility:hidden;
-    transition:.3s;
+    transition:opacity .3s ease, visibility .3s ease;
     z-index:999;
 }
 
@@ -532,23 +342,31 @@ img{
 
 /* =========================================
    SIDEBAR
+   PERF FIX: original animated the `left` property,
+   which forces layout/reflow on every frame.
+   Switched to `transform: translateX()`, which is
+   handled entirely on the GPU compositor.
 ========================================= */
 
 .sidebar{
     position:fixed;
     top:0;
-    left:-320px;
+    left:0;
     width:320px;
     height:100vh;
     background:#fff;
     overflow-y:auto;
-    transition:.35s;
+    -webkit-overflow-scrolling:touch;
+    transform:translateX(-320px);
+    transition:transform .35s ease;
+    will-change:transform;
     z-index:1000;
     box-shadow:2px 0 10px rgba(0,0,0,.3);
+    contain:layout style;
 }
 
 .sidebar.active{
-    left:0;
+    transform:translateX(0);
 }
 
 /* =========================================
@@ -621,7 +439,7 @@ img{
     padding:12px 20px;
     color:#111;
     font-size:15px;
-    transition:.2s;
+    transition:background-color .2s ease;
 }
 
 .sidebar-section a:hover{
@@ -651,37 +469,11 @@ img{
 }
 
 /* =========================================
-   RESPONSIVE SIDEBAR
-========================================= */
-
-@media(max-width:768px){
-
-    .sidebar{
-        width:320px;
-        left:-320px;
-    }
-
-    .close-btn{
-        left:330px;
-    }
-
-}
-
-@media(max-width:480px){
-
-    .sidebar{
-        width:290px;
-        left:-290px;
-    }
-
-    .close-btn{
-        left:300px;
-    }
-
-}
-
-/* =========================================
    HERO SECTION
+   PERF NOTE: the mask-image fade is kept (removing it
+   changes the Amazon look) but isolated on its own
+   compositor layer via `contain` + `transform:translateZ(0)`
+   so the browser doesn't repaint it while the page scrolls.
 ========================================= */
 
 #banner-container{
@@ -689,8 +481,9 @@ img{
     width:100%;
     height:500px;
     overflow:hidden;
+    contain:layout paint;
+    transform:translateZ(0);
 
-    /* Amazon fade effect */
     mask-image:linear-gradient(
         to bottom,
         rgba(0,0,0,1) 65%,
@@ -706,6 +499,9 @@ img{
 
 /* =========================================
    IMAGE SLIDER
+   PERF FIX: added will-change + translateZ so the
+   transform animation runs on the GPU compositor
+   instead of triggering paint on every slide change.
 ========================================= */
 
 #image-slider{
@@ -713,6 +509,9 @@ img{
     width:100%;
     height:100%;
     transition:transform .5s ease-in-out;
+    will-change:transform;
+    transform:translate3d(0,0,0);
+    backface-visibility:hidden;
 }
 
 #image-slider img{
@@ -728,25 +527,18 @@ img{
 
 #left,
 #right{
-
     position:absolute;
     top:50%;
     transform:translateY(-50%);
-
     width:50px;
     height:50px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     cursor:pointer;
-
     color:#111;
-
     z-index:5;
-
-    transition:.3s;
+    transition:background-color .3s ease;
 }
 
 #left{
@@ -759,62 +551,17 @@ img{
 
 #left:hover,
 #right:hover{
-
     background:rgba(255,255,255,.7);
     border-radius:50%;
-}
-
-/* =========================================
-   RESPONSIVE HERO
-========================================= */
-
-@media(max-width:992px){
-
-    #banner-container{
-        height:420px;
-    }
-
-}
-
-@media(max-width:768px){
-
-    #banner-container{
-        height:350px;
-    }
-
-    #left,
-    #right{
-        width:40px;
-        height:40px;
-    }
-
-}
-
-@media(max-width:576px){
-
-    #banner-container{
-        height:240px;
-    }
-
-    #left{
-        left:8px;
-    }
-
-    #right{
-        right:8px;
-    }
-
-    #left,
-    #right{
-        width:30px;
-        height:30px;
-    }
-
 }
 
 
 /* =========================================
    PRODUCT CARDS SECTION
+   PERF FIX: `content-visibility:auto` + `contain`
+   let the browser skip layout/paint work for cards
+   that are off-screen — this is the biggest win when
+   there are many product cards.
 ========================================= */
 
 .cards-section{
@@ -827,7 +574,6 @@ img{
 .cards-container{
     max-width:1500px;
     margin:auto;
-
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:20px;
@@ -843,6 +589,9 @@ img{
     display:flex;
     flex-direction:column;
     box-shadow:0 2px 5px rgba(0,0,0,.15);
+    content-visibility:auto;
+    contain-intrinsic-size:420px 520px;
+    contain:layout style paint;
 }
 
 .card h2{
@@ -908,50 +657,9 @@ img{
     text-decoration:underline;
 }
 
-/* =========================================
-   RESPONSIVE PRODUCT CARDS
-========================================= */
-
-@media(max-width:1200px){
-
-    .cards-container{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
-
-@media(max-width:768px){
-
-    .cards-section{
-        margin-top:-80px;
-    }
-
-}
-
-@media(max-width:600px){
-
-    .cards-container{
-        grid-template-columns:1fr;
-    }
-
-    .cards-section{
-        margin-top:-40px;
-        padding:15px;
-    }
-
-    .card h2{
-        font-size:20px;
-    }
-
-    .grid-item img{
-        height:150px;
-    }
-
-}
 
 /* ===================================================== */
 /* Electronics page */
-
 
 .electronics{
     width: 100%;
@@ -989,6 +697,9 @@ img{
     overflow-x: auto;
     scroll-behavior: smooth;
     padding: 10px;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    will-change: scroll-position;
 }
 
 .products::-webkit-scrollbar{
@@ -1001,6 +712,9 @@ img{
 
 .item{
     flex: 0 0 auto;
+    content-visibility: auto;
+    contain-intrinsic-size: 180px 220px;
+    contain: layout style paint;
 }
 
 .item img{
@@ -1021,6 +735,7 @@ img{
     font-size: 24px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color .3s ease;
 }
 
 .prev{
@@ -1036,192 +751,6 @@ img{
     background: #ffffff;
 }
 
-
-/* =========================================
-   TABLET (1024px)
-========================================= */
-
-@media (max-width:1024px){
-
-    .electronics{
-        height:auto;
-        padding:15px;
-    }
-
-    .electronics h2{
-        font-size:22px;
-    }
-
-    .item img{
-        width:160px;
-        height:160px;
-    }
-
-    .prev,
-    .next{
-        width:40px;
-        height:70px;
-        font-size:22px;
-    }
-
-}
-
-
-/* =========================================
-   TABLET (768px)
-========================================= */
-
-@media (max-width:768px){
-
-    .electronics{
-        padding:15px 10px;
-    }
-
-    .electronics h2{
-        display:block;
-        font-size:20px;
-        margin-bottom:8px;
-    }
-
-    .electronics a{
-        display:inline-block;
-        font-size:14px;
-        margin-bottom:10px;
-    }
-
-    .products{
-        gap:8px;
-        padding:5px;
-    }
-
-    .item img{
-        width:140px;
-        height:140px;
-    }
-
-    .prev,
-    .next{
-        width:35px;
-        height:60px;
-        font-size:20px;
-    }
-
-}
-
-
-/* =========================================
-   MOBILE (576px)
-========================================= */
-
-@media (max-width:576px){
-
-    .electronics{
-        padding:12px 8px;
-    }
-
-    .electronics h2{
-        font-size:18px;
-    }
-
-    .electronics a{
-        font-size:13px;
-    }
-
-    .products{
-        gap:6px;
-    }
-
-    .item img{
-        width:120px;
-        height:120px;
-    }
-
-    .prev,
-    .next{
-        width:30px;
-        height:50px;
-        font-size:18px;
-    }
-
-    .back-top{
-        padding:14px;
-        font-size:13px;
-    }
-
-}
-
-
-/* =========================================
-   SMALL MOBILE (425px)
-========================================= */
-
-@media (max-width:425px){
-
-    .electronics{
-        padding:10px;
-    }
-
-    .electronics h2{
-        font-size:17px;
-    }
-
-    .electronics a{
-        font-size:12px;
-    }
-
-    .item img{
-        width:100px;
-        height:100px;
-    }
-
-    .prev,
-    .next{
-        width:28px;
-        height:45px;
-        font-size:16px;
-    }
-
-    .back-top{
-        padding:12px;
-        font-size:12px;
-    }
-
-}
-
-
-/* =========================================
-   EXTRA SMALL MOBILE (320px)
-========================================= */
-
-@media (max-width:320px){
-
-    .electronics h2{
-        font-size:16px;
-    }
-
-    .electronics a{
-        font-size:11px;
-    }
-
-    .item img{
-        width:85px;
-        height:85px;
-    }
-
-    .prev,
-    .next{
-        width:25px;
-        height:40px;
-        font-size:14px;
-    }
-
-    .back-top{
-        font-size:11px;
-        padding:10px;
-    }
-
-}
-
 /* =========================================
    BACK TO TOP
 ========================================= */
@@ -1233,7 +762,7 @@ img{
     padding:16px;
     font-size:14px;
     cursor:pointer;
-    transition:.3s;
+    transition:background-color .3s ease;
 }
 
 .back-top:hover{
@@ -1258,6 +787,11 @@ img{
     padding:50px 60px;
 }
 
+.footer-box{
+    content-visibility:auto;
+    contain-intrinsic-size:300px 260px;
+}
+
 .footer-box h3{
     font-size:16px;
     margin-bottom:18px;
@@ -1269,7 +803,7 @@ img{
     font-size:14px;
     margin:10px 0;
     cursor:pointer;
-    transition:.3s;
+    transition:color .3s ease;
 }
 
 .footer-box p:hover{
@@ -1304,57 +838,485 @@ img{
     padding:10px 18px;
     border-radius:4px;
     cursor:pointer;
-    transition:.3s;
+    transition:background-color .3s ease;
 }
 
 .footer-bottom button:hover{
     background:#37475a;
 }
 
-/* =========================================
-   GLOBAL RESPONSIVE
-========================================= */
 
-@media(max-width:1200px){
+/* =========================================================
+   RESPONSIVE / MEDIA QUERIES
+   Consolidated — every breakpoint now appears ONCE,
+   with all rules for that width grouped together
+   (previously the same breakpoint was declared 3–5
+   separate times across the file).
+========================================================= */
 
-    .footer-container{
-        grid-template-columns:repeat(2,1fr);
-        padding:40px;
-    }
+/* ---------- 1200px ---------- */
+@media (max-width:1200px){
 
-}
+  /* Product cards */
+  .cards-container{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-@media(max-width:768px){
-
-    .footer-bottom{
-        flex-direction:column;
-        gap:15px;
-    }
-
-}
-
-@media(max-width:576px){
-
-    .footer-container{
-        grid-template-columns:1fr;
-        gap:30px;
-        padding:30px 20px;
-    }
-
-    .amazon-logo{
-        font-size:28px;
-    }
-
-    .footer-bottom button{
-        width:220px;
-    }
+  /* Footer */
+  .footer-container{
+    grid-template-columns:repeat(2,1fr);
+    padding:40px;
+  }
 
 }
 
-/* =========================================
-   SMOOTH SCROLL
-========================================= */
+/* ---------- 1024px ---------- */
+@media (max-width:1024px){
 
-html{
-    scroll-behavior:smooth;
+  /* Navbar */
+  .navbar{
+    padding:0 10px;
+  }
+
+  .search-bar{
+    width:420px;
+  }
+
+  .nav-language,
+  .nav-orders{
+    display:none;
+  }
+
+  .nav-logo img{
+    width:120px;
+  }
+
+  /* Electronics */
+  .electronics{
+    height:auto;
+    padding:15px;
+  }
+
+  .electronics h2{
+    font-size:22px;
+  }
+
+  .item img{
+    width:160px;
+    height:160px;
+  }
+
+  .prev,
+  .next{
+    width:40px;
+    height:70px;
+    font-size:22px;
+  }
+
+}
+
+/* ---------- 992px ---------- */
+@media (max-width:992px){
+
+  /* Hero */
+  #banner-container{
+    height:420px;
+  }
+
+}
+
+/* ---------- 768px ---------- */
+@media (max-width:768px){
+
+  /* Navbar */
+  .navbar{
+    height:auto;
+    flex-wrap:wrap;
+    padding:10px;
+    gap:10px;
+  }
+
+  .nav-logo{
+    order:1;
+  }
+
+  .nav-cart{
+    order:2;
+    margin-left:auto;
+  }
+
+  .nav-location{
+    order:3;
+    margin-left:0;
+  }
+
+  .search-bar{
+    order:4;
+    width:100%;
+    margin-left:0;
+  }
+
+  .nav-language,
+  .nav-account,
+  .nav-orders{
+    display:none;
+  }
+
+  /* Sidebar */
+  .sidebar{
+    width:320px;
+    transform:translateX(-320px);
+  }
+
+  .sidebar.active{
+    transform:translateX(0);
+  }
+
+  .close-btn{
+    left:330px;
+  }
+
+  /* Hero */
+  #banner-container{
+    height:350px;
+  }
+
+  #left,
+  #right{
+    width:40px;
+    height:40px;
+  }
+
+  /* Product cards */
+  .cards-section{
+    margin-top:-80px;
+  }
+
+  /* Electronics */
+  .electronics{
+    padding:15px 10px;
+  }
+
+  .electronics h2{
+    display:block;
+    font-size:20px;
+    margin-bottom:8px;
+  }
+
+  .electronics a{
+    display:inline-block;
+    font-size:14px;
+    margin-bottom:10px;
+  }
+
+  .products{
+    gap:8px;
+    padding:5px;
+  }
+
+  .item img{
+    width:140px;
+    height:140px;
+  }
+
+  .prev,
+  .next{
+    width:35px;
+    height:60px;
+    font-size:20px;
+  }
+
+  /* Footer */
+  .footer-bottom{
+    flex-direction:column;
+    gap:15px;
+  }
+
+}
+
+/* ---------- 600px ---------- */
+@media (max-width:600px){
+
+  /* Product cards */
+  .cards-container{
+    grid-template-columns:1fr;
+  }
+
+  .cards-section{
+    margin-top:-40px;
+    padding:15px;
+  }
+
+  .card h2{
+    font-size:20px;
+  }
+
+  .grid-item img{
+    height:150px;
+  }
+
+}
+
+/* ---------- 576px ---------- */
+@media (max-width:576px){
+
+  /* Navbar */
+  .navbar{
+    padding:8px;
+  }
+
+  .nav-logo img{
+    width:100px;
+  }
+
+  .nav-location{
+    display:none;
+  }
+
+  .search-bar{
+    width:100%;
+    height:38px;
+  }
+
+  .search-select{
+    width:55px;
+    font-size:12px;
+    padding:5px;
+  }
+
+  .search-bar input{
+    font-size:13px;
+  }
+
+  .search-bar button{
+    width:42px;
+  }
+
+  .nav-account,
+  .nav-orders,
+  .nav-language{
+    display:none;
+  }
+
+  .cart-icon i{
+    font-size:26px;
+  }
+
+  .cart-icon span{
+    font-size:14px;
+    right:5px;
+  }
+
+  .nav-cart p{
+    display:none;
+  }
+
+  /* Hero */
+  #banner-container{
+    height:240px;
+  }
+
+  #left{
+    left:8px;
+  }
+
+  #right{
+    right:8px;
+  }
+
+  #left,
+  #right{
+    width:30px;
+    height:30px;
+  }
+
+  /* Electronics */
+  .electronics{
+    padding:12px 8px;
+  }
+
+  .electronics h2{
+    font-size:18px;
+  }
+
+  .electronics a{
+    font-size:13px;
+  }
+
+  .products{
+    gap:6px;
+  }
+
+  .item img{
+    width:120px;
+    height:120px;
+  }
+
+  .prev,
+  .next{
+    width:30px;
+    height:50px;
+    font-size:18px;
+  }
+
+  .back-top{
+    padding:14px;
+    font-size:13px;
+  }
+
+  /* Footer */
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:30px;
+    padding:30px 20px;
+  }
+
+  .amazon-logo{
+    font-size:28px;
+  }
+
+  .footer-bottom button{
+    width:220px;
+  }
+
+}
+
+/* ---------- 480px ---------- */
+@media (max-width:480px){
+
+  /* Sidebar */
+  .sidebar{
+    width:290px;
+    transform:translateX(-290px);
+  }
+
+  .sidebar.active{
+    transform:translateX(0);
+  }
+
+  .close-btn{
+    left:300px;
+  }
+
+}
+
+/* ---------- 425px ---------- */
+@media (max-width:425px){
+
+  /* Navbar */
+  .navbar{
+    gap:8px;
+  }
+
+  .nav-logo img{
+    width:90px;
+  }
+
+  .search-bar{
+    height:36px;
+  }
+
+  .search-select{
+    width:50px;
+    font-size:11px;
+  }
+
+  .search-bar input{
+    font-size:12px;
+  }
+
+  .search-bar button{
+    width:38px;
+  }
+
+  .cart-icon i{
+    font-size:24px;
+  }
+
+  /* Electronics */
+  .electronics{
+    padding:10px;
+  }
+
+  .electronics h2{
+    font-size:17px;
+  }
+
+  .electronics a{
+    font-size:12px;
+  }
+
+  .item img{
+    width:100px;
+    height:100px;
+  }
+
+  .prev,
+  .next{
+    width:28px;
+    height:45px;
+    font-size:16px;
+  }
+
+  .back-top{
+    padding:12px;
+    font-size:12px;
+  }
+
+}
+
+/* ---------- 320px ---------- */
+@media (max-width:320px){
+
+  /* Navbar */
+  .nav-logo img{
+    width:80px;
+  }
+
+  .search-select{
+    display:none;
+  }
+
+  .search-bar{
+    width:100%;
+  }
+
+  .search-bar input{
+    font-size:11px;
+  }
+
+  .search-bar button{
+    width:36px;
+  }
+
+  .cart-icon i{
+    font-size:22px;
+  }
+
+  /* Electronics */
+  .electronics h2{
+    font-size:16px;
+  }
+
+  .electronics a{
+    font-size:11px;
+  }
+
+  .item img{
+    width:85px;
+    height:85px;
+  }
+
+  .prev,
+  .next{
+    width:25px;
+    height:40px;
+    font-size:14px;
+  }
+
+  .back-top{
+    font-size:11px;
+    padding:10px;
+  }
+
 }

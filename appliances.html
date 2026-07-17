@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone</title>
+
+    <link rel="stylesheet" href="appliances.css">
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!--Header-->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="nav-logo">
+
+                <img src="images/logo.webp" alt="Amazon Logo">
+
+            </div>
+
+            <!--Nav Location-->
+
+            <div class="nav-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <div class="location-text">
+                    <span>Delivering to</span>
+                    <p>London</p>
+                </div>
+            </div>
+
+            <!--Search Bar-->
+
+            <div class="search-bar">
+                <select class="search-select">
+
+                    <option>All</option>
+                    <option>Baby</option>
+                    <option>Books</option>
+                    <option>Electronics</option>
+                    <option>Fashion</option>
+                    <option>Home</option>
+                    <option>Beauty</option>
+                    <option>Toys</option>
+                </select>
+
+                <input type="text" placeholder="Search Amazon.co.uk">
+
+                <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+
+            </div>
+
+            <!-- Currency-->
+            <div class="currency-container">
+
+                <div class="nav-language">
+
+                    <img src="images/united-kingdom.png" alt="UK Flag">
+
+                    <i class="fa-solid fa-caret-down"></i>
+
+                </div>
+
+                <!--Currency Dropdown-->
+
+                <div class="nav-currency">
+
+                    <h3>Change Currency </h3>
+
+                    <label>
+                        <input type="radio" name="currency" checked>
+                        £ GBP - British Pound
+                    </label>
+
+                    <label>
+                        <input type="radio" name="currency">
+                        $ USD - US Dollar
+                    </label>
+
+                    <label>
+                        <input type="radio" name="currency">
+                        € EUR - Euro
+                    </label>
+
+                    <label>
+                        <input type="radio" name="currency">
+                        ₹ INR - Rupees
+                    </label>
+
+                    <label>
+                        <input type="radio" name="currency">
+                        ¥ CNY - Chinese Yuan
+                    </label>
+
+                    <button id="save-currency">Save Changes</button>
+
+                </div>
+
+            </div>
+
+            <!-- Account & Lists -->
+
+            <div class="nav-account">
+
+                <span>Hello, sign in</span>
+
+                <p>
+                    Account & Lists
+                    <i class="fa-solid fa-caret-down"></i>
+                </p>
+
+            </div>
+
+            <!-- Returns & Orders -->
+
+            <div class="nav-orders">
+
+                <span>Returns</span>
+
+                <p>
+                    & Orders
+                </p>
+
+            </div>
+
+            <!-- Cart -->
+
+            <div class="nav-cart">
+
+                <div class="cart-icon"> <i class="fa-solid fa-cart-plus"></i>
+                    <span>0</span>
+                </div>
+                <p>Cart</p>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ===========================
+         CATEGORY NAVIGATION
+    ============================ -->
+
+    <section class="category-section">
+        <div class="category-container">
+
+            <a href="#" id="menu-btn" class="category active">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </a>
+
+            <a href="#" class="category">Fresh</a>
+            <a href="#" class="category">MX Player</a>
+            <a href="#" class="category">Sell</a>
+            <a href="#" class="category">Best Sellers</a>
+            <a href="#" class="category">Today's Deals</a>
+            <a href="#" class="category">Mobiles</a>
+            <a href="#" class="category">New Releases</a>
+            <a href="#" class="category">Prime</a>
+            <a href="#" class="category">Amazon Pay</a>
+            <a href="#" class="category">Electronics</a>
+            <a href="#" class="category">Customer Service</a>
+            <a href="#" class="category">Home & Kitchen</a>
+            <a href="#" class="category">Fashion</a>
+            <a href="#" class="category">Computers</a>
+
+        </div>
+    </section>
+
+    <!-- Overlay -->
+
+    <div class="overlay"></div>
+
+    <!-- Close Button -->
+
+    <button class="close-btn">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- ===========================
+         AMAZON SIDEBAR
+    ============================ -->
+
+    <div class="sidebar">
+
+        <div class="sidebar-header">
+
+            <i class="fa-solid fa-circle-user"></i>
+
+            <h2>Hello, sign in</h2>
+
+        </div>
+
+        <!-- Trending -->
+
+        <section class="sidebar-section">
+
+            <h3>Trending</h3>
+
+            <a href="#">Bestsellers</a>
+            <a href="#">New Releases</a>
+
+        </section>
+
+        <!-- Digital Content -->
+
+        <section class="sidebar-section">
+
+            <h3>Digital Content & Devices</h3>
+
+            <a href="#">
+                <span>Echo & Alexa</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+
+            <a href="#">
+                <span>Fire TV</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+
+            <a href="#">
+                <span>Kindle E-Readers & eBooks</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+
+            <a href="#">
+                <span>Audible Audiobooks</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+
+            <a href="#">
+                <span>Amazon Prime Video</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+
+            <a href="#">
+                <span>Amazon Music</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+
+        </section>
+
+        <!-- Shop By Category -->
+
+        <section class="sidebar-section">
+
+            <h3>Shop by Category</h3>
+
+            <a href="#"><span>Mobiles, Computers</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>TV, Appliances, Electronics</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>Men's Fashion</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>Women's Fashion</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>Home, Kitchen & Pets</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>Beauty, Health & Grocery</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>Sports, Fitness & Bags</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>Books</span><i class="fa-solid fa-angle-right"></i></a>
+
+            <a href="#"><span>See All</span><i class="fa-solid fa-angle-down"></i></a>
+
+        </section>
+
+        <!-- Programs -->
+
+        <section class="sidebar-section">
+
+            <h3>Programs & Features</h3>
+
+            <a href="#">Gift Cards</a>
+            <a href="#">Amazon Pay</a>
+            <a href="#">Amazon Launchpad</a>
+            <a href="#">Amazon Business</a>
+            <a href="#">Handmade</a>
+            <a href="#">Gift Ideas</a>
+            <a href="#">Subscribe & Save</a>
+            <a href="#">See All</a>
+
+        </section>
+
+        <!-- Help -->
+
+        <section id="sortProducts" class="sidebar-section">
+
+            <h3>Help & Settings</h3>
+
+            <a href="#">Your Account</a>
+            <a href="#">Customer Service</a>
+            <a href="#">Sign In</a>
+
+        </section>
+
+    </div>
+
+
+
+    <!-- ===========================
+     BREADCRUMB
+=========================== -->
+
+    <section class="breadcrumb">
+
+        <a href="index.html">Home</a>
+
+        <span>></span>
+
+        <a href="#">Home & Kitchen</a>
+
+        <span>></span>
+
+        <strong>Appliances</strong>
+
+    </section>
+
+    <!-- ===========================
+     APPLIANCES PAGE
+=========================== -->
+
+    <section class="appliances-page">
+
+        <!-- ===========================
+         FILTER SIDEBAR
+    ============================ -->
+
+        <aside class="filter-sidebar">
+
+            <h2>Category</h2>
+
+            <label><input type="checkbox" value="ac"> Air Conditioners</label>
+            <label><input type="checkbox" value="fridge"> Refrigerators</label>
+            <label><input type="checkbox" value="washing"> Washing Machines</label>
+            <label><input type="checkbox" value="microwave"> Microwave Ovens</label>
+            <label><input type="checkbox" value="dishwasher"> Dishwashers</label>
+            <label><input type="checkbox" value="purifier"> Water Purifiers</label>
+
+            <hr>
+
+            <h2>Brands</h2>
+
+            <label><input type="checkbox"> LG</label>
+            <label><input type="checkbox"> Samsung</label>
+            <label><input type="checkbox"> Whirlpool</label>
+            <label><input type="checkbox"> Panasonic</label>
+            <label><input type="checkbox"> Bosch</label>
+            <label><input type="checkbox"> IFB</label>
+
+            <hr>
+
+            <h2>Price</h2>
+
+            <label><input type="radio" name="price"> Under ₹10,000</label>
+            <label><input type="radio" name="price"> ₹10,000 – ₹25,000</label>
+            <label><input type="radio" name="price"> ₹25,000 – ₹50,000</label>
+            <label><input type="radio" name="price"> Above ₹50,000</label>
+
+            <hr>
+
+            <h2>Customer Rating</h2>
+
+            <label><input type="checkbox"> ★★★★☆ & Up</label>
+            <label><input type="checkbox"> ★★★☆☆ & Up</label>
+
+            <hr>
+
+            <h2>Availability</h2>
+
+            <label><input type="checkbox"> In Stock</label>
+
+        </aside>
+
+        <!-- ===========================
+         PRODUCTS
+    ============================ -->
+
+        <div class="products-section">
+
+            <div class="products-header">
+
+                <h1>Home Appliances</h1>
+
+                <select id="sortProducts">
+
+                    <option value="featured">Featured</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
+                    <option value="new">Newest Arrivals</option>
+                    <option value="rating">Customer Reviews</option>
+
+                </select>
+
+            </div>
+
+            <div class="products-grid">
+
+                <!-- ================= Product 1 ================= -->
+
+                <div class="product-card" data-category="ac" data-price="39999">
+
+                    <div class="badge">Best Seller</div>
+
+                    <a href="product-details.html">
+                        <img src="images/aircon.webp" alt="">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            LG 1.5 Ton 5 Star Inverter Split AC
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+
+                        <span class="stars">
+                            ★★★★★
+                        </span>
+
+                        <span class="rating-count">
+                            2,356
+                        </span>
+
+                    </div>
+
+                    <p class="bought">
+                        5K+ bought in past month
+                    </p>
+
+                    <p class="price">
+
+                        ₹39,999
+
+                        <span>₹56,990</span>
+
+                    </p>
+
+                    <p class="offer">
+
+                        Save ₹16,991 (30%)
+
+                    </p>
+
+                    <p class="delivery">
+
+                        FREE Delivery Tomorrow
+
+                    </p>
+
+                    <p class="stock">
+
+                        In Stock
+
+                    </p>
+
+                    <div class="product-buttons">
+
+                        <button class="cart-btn">
+                            Add to Cart
+                        </button>
+
+                        <button class="buy-btn">
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- ================= Product 2 ================= -->
+                <div class="product-card" data-category="fridge" data-price="27999">
+
+                    <div class="badge">Amazon Choice</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/refrigerator.webp" alt="">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Samsung 253L Double Door Refrigerator
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">1,543</span>
+                    </div>
+
+                    <p class="bought">3K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹27,999
+                        <span>₹34,990</span>
+                    </p>
+
+                    <p class="offer">20% Off</p>
+
+                    <p class="delivery">FREE Delivery</p>
+
+                    <p class="stock">In Stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+                <!-- ================= Product 3 ================= -->
+
+                <div class="product-card" data-category="microwave" data-price="12499">
+
+                    <div class="badge">Limited Deal</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/microwave.webp" alt="">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            IFB 30L Convection Microwave Oven
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">862</span>
+                    </div>
+
+                    <p class="bought">2K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹12,499
+                        <span>₹15,999</span>
+                    </p>
+
+                    <p class="offer">22% Off</p>
+
+                    <p class="delivery">FREE Delivery Tomorrow</p>
+
+                    <p class="stock">Only 8 left</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+                <!-- ================= Product 4 ================= -->
+
+                <div class="product-card" data-category="washing" data-price="31999">
+
+                    <div class="badge">Top Rated</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/refrigerator.webp">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            LG Fully Automatic Front Load Washing Machine
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">2,142</span>
+                    </div>
+
+                    <p class="bought">4K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹31,999
+                        <span>₹42,000</span>
+                    </p>
+
+                    <p class="offer">24% Off</p>
+
+                    <p class="delivery">FREE Delivery</p>
+
+                    <p class="stock">In Stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+                <!-- ================= Product 5 ================= -->
+
+                <div class="product-card" data-category="ac" data-price="34490">
+
+                    <div class="badge">Limited Deal</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/aircon.webp" alt="Voltas AC">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Voltas 1.5 Ton 3 Star Inverter Split AC
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">1,126</span>
+                    </div>
+
+                    <p class="bought">2K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹34,490
+                        <span>₹47,990</span>
+                    </p>
+
+                    <p class="offer">Save ₹13,500 (28% Off)</p>
+
+                    <p class="delivery">FREE Delivery Tomorrow</p>
+
+                    <p class="stock">In Stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+                <!-- ================= Product 6 ================= -->
+
+                <div class="product-card" data-category="fridge" data-price="24990">
+
+                    <div class="badge">Amazon Choice</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/refrigerator.webp" alt="Haier Refrigerator">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Haier 240L Double Door Refrigerator
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">894</span>
+                    </div>
+
+                    <p class="bought">1K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹24,990
+                        <span>₹31,500</span>
+                    </p>
+
+                    <p class="offer">21% Off</p>
+
+                    <p class="delivery">FREE Delivery</p>
+
+                    <p class="stock">In Stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= Product 7 ================= -->
+
+                <div class="product-card" data-category="microwave" data-price="10990">
+
+                    <div class="badge">Best Seller</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/microwave.webp" alt="Panasonic Microwave">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Panasonic 27L Convection Microwave Oven
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">1,305</span>
+                    </div>
+
+                    <p class="bought">3K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹10,990
+                        <span>₹14,999</span>
+                    </p>
+
+                    <p class="offer">27% Off</p>
+
+                    <p class="delivery">FREE Delivery Tomorrow</p>
+
+                    <p class="stock">In Stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= Product 8 ================= -->
+
+                <div class="product-card" data-category="microwave" data-price="10990">
+
+                    <div class="badge">Best Seller</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/microwave.webp" alt="Panasonic Microwave">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Panasonic 27L Convection Microwave Oven
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">1,305</span>
+                    </div>
+
+                    <p class="bought">3K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹10,990
+                        <span>₹14,999</span>
+                    </p>
+
+                    <p class="offer">27% Off</p>
+
+                    <p class="delivery">FREE Delivery Tomorrow</p>
+
+                    <p class="stock">In Stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+
+                <!-- ================= Product 9 ================= -->
+
+
+                <div class="product-card" data-category="dishwasher" data-price="45999">
+
+                    <div class="badge">Amazon Choice</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/led-bluetooth-speaker.webp" alt="Bosch Dishwasher">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Bosch 13 Place Settings Dishwasher
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">1,248</span>
+                    </div>
+
+                    <p class="bought">2K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹45,999
+                        <span>₹56,990</span>
+                    </p>
+
+                    <p class="offer">Save ₹10,991 (19% Off)</p>
+
+                    <p class="delivery">FREE Delivery & Installation</p>
+
+                    <p class="stock">In Stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+                <!-- ================= Product 10 ================= -->
+                <div class="product-card" data-category="induction" data-price="2999">
+
+                    <div class="badge">Best Seller</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/home-lights.webp" alt="Prestige Induction">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Prestige Induction Cooktop 2000W
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">5,123</span>
+                    </div>
+
+                    <p class="bought">10K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹2,999
+                        <span>₹4,495</span>
+                    </p>
+
+                    <p class="offer">Save ₹1,496 (33% Off)</p>
+
+                    <p class="delivery">FREE Delivery Tomorrow</p>
+
+                    <p class="stock">In Stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+
+                <!-- ================= Product 11 ================= -->
+
+                <div class="product-card" data-category="airfryer" data-price="6999">
+
+                    <div class="badge">Limited Deal</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/microwave.webp" alt="Philips Air Fryer">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Philips Digital Air Fryer 4.1L
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">3,457</span>
+                    </div>
+
+                    <p class="bought">8K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹6,999
+                        <span>₹9,995</span>
+                    </p>
+
+                    <p class="offer">Save ₹2,996 (30% Off)</p>
+
+                    <p class="delivery">FREE Delivery Tomorrow</p>
+
+                    <p class="stock">Only 7 left in stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+
+                <!-- ================= Product 12 ================= -->
+
+                <div class="product-card" data-category="purifier" data-price="16999">
+
+                    <div class="badge">Amazon Choice</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/refrigerator.webp" alt="Kent RO">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Kent Grand RO + UV + UF Water Purifier
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">2,950</span>
+                    </div>
+
+                    <p class="bought">6K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹16,999
+                        <span>₹22,000</span>
+                    </p>
+
+                    <p class="offer">Save ₹5,001 (23% Off)</p>
+
+                    <p class="delivery">FREE Installation</p>
+
+                    <p class="stock">In Stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+                <!-- ================= Product 13 ================= -->
+
+                <!-- ================= Product 13 ================= -->
+
+                <div class="product-card" data-category="purifier" data-price="13999">
+
+                    <div class="badge">Best Seller</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/repairing-tools.webp" alt="Havells Water Purifier">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Havells Fab Alkaline RO + UV Water Purifier
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">1,780</span>
+                    </div>
+
+                    <p class="bought">4K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹13,999
+                        <span>₹18,999</span>
+                    </p>
+
+                    <p class="offer">Save ₹5,000 (26% Off)</p>
+
+                    <p class="delivery">FREE Installation</p>
+
+                    <p class="stock">In Stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= Product 14 ================= -->
+
+                <!-- ================= Product 14 ================= -->
+
+                <div class="product-card" data-category="geyser" data-price="7499">
+
+                    <div class="badge">Amazon Choice</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/microwave.webp" alt="Crompton Geyser">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Crompton 15L Storage Water Heater (Geyser)
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">2,042</span>
+                    </div>
+
+                    <p class="bought">3K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹7,499
+                        <span>₹10,499</span>
+                    </p>
+
+                    <p class="offer">Save ₹3,000 (29% Off)</p>
+
+                    <p class="delivery">FREE Delivery Tomorrow</p>
+
+                    <p class="stock">In Stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+                <!-- ================= Product 15 ================= -->
+
+                <!-- ================= Product 15 ================= -->
+
+                <div class="product-card" data-category="heater" data-price="3499">
+
+                    <div class="badge">Limited Deal</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/ceramic-vases.webp" alt="Usha Room Heater">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Usha Quartz Room Heater 800W
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">1,325</span>
+                    </div>
+
+                    <p class="bought">2K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹3,499
+                        <span>₹4,999</span>
+                    </p>
+
+                    <p class="offer">Save ₹1,500 (30% Off)</p>
+
+                    <p class="delivery">FREE Delivery Tomorrow</p>
+
+                    <p class="stock">Only 10 left</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+
+
+                <!-- ================= Product 16 ================= -->
+                <!-- ================= Product 16 ================= -->
+
+                <div class="product-card" data-category="fridge" data-price="31999">
+
+                    <div class="badge">Top Rated</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <a href="product-details.html">
+                        <img src="images/refrigerator.webp" alt="Whirlpool Refrigerator">
+                    </a>
+
+                    <h3>
+                        <a href="product-details.html">
+                            Whirlpool 300L Frost Free Double Door Refrigerator
+                        </a>
+                    </h3>
+
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">2,890</span>
+                    </div>
+
+                    <p class="bought">5K+ bought in past month</p>
+
+                    <p class="price">
+                        ₹31,999
+                        <span>₹39,990</span>
+                    </p>
+
+                    <p class="offer">Save ₹7,991 (20% Off)</p>
+
+                    <p class="delivery">FREE Delivery Tomorrow</p>
+
+                    <p class="stock">In Stock</p>
+
+                    <div class="product-buttons">
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
+                    </div>
+
+                </div>
+            </div> <!-- products-grid -->
+
+        </div> <!-- products-section -->
+
+    </section> <!-- appliances-page -->
+    <!-- ===========================
+     FOOTER SECTION
+=========================== -->
+
+    <section class="footer-section">
+
+        <div class="footer-container">
+
+            <!-- Column 1 -->
+            <div class="footer-box">
+                <h3>Get to Know Us</h3>
+                <p>About Us</p>
+                <p>Careers</p>
+                <p>Press Releases</p>
+                <p>Amazon Science</p>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="footer-box">
+                <h3>Connect with Us</h3>
+                <p>Facebook</p>
+                <p>Twitter</p>
+                <p>Instagram</p>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="footer-box">
+                <h3>Make Money with Us</h3>
+                <p>Sell on Amazon</p>
+                <p>Become an Affiliate</p>
+                <p>Advertise Your Products</p>
+                <p>Amazon Pay</p>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="footer-box">
+                <h3>Let Us Help You</h3>
+                <p>Your Account</p>
+                <p>Returns Centre</p>
+                <p>Customer Service</p>
+                <p>Help</p>
+            </div>
+
+        </div>
+
+        <!-- Footer Bottom -->
+
+        <div class="footer-bottom">
+
+            <h1 class="amazon-logo">
+                amazon
+            </h1>
+
+            <button>🌐 English</button>
+
+            <button>🇮🇳 India</button>
+
+        </div>
+
+    </section>
+
+    <!-- JavaScript -->
+    <script src="appliances.js"></script>
+
+</body>
+
+</html>
