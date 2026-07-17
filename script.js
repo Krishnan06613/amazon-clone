@@ -6,7 +6,7 @@ const navLanguageBtn = document.querySelector(".nav-language");
 const currencyBox = document.querySelector(".nav-currency");
 const saveButton = document.getElementById("save-currency");
 
-navLanguageBtn?.addEventListener("click", function(e){
+navLanguageBtn?.addEventListener("click", function (e) {
 
     e.preventDefault();
 
@@ -15,7 +15,7 @@ navLanguageBtn?.addEventListener("click", function(e){
 
 });
 
-saveButton?.addEventListener("click", function(){
+saveButton?.addEventListener("click", function () {
 
     currencyBox.style.display = "none";
 
@@ -31,13 +31,13 @@ const categories = document.querySelectorAll(".category");
 
 categories.forEach(category => {
 
-    if(category.id !== "menu-btn"){
+    if (category.id !== "menu-btn") {
 
         category.addEventListener("click", () => {
 
             categories.forEach(item => {
 
-                if(item.id !== "menu-btn"){
+                if (item.id !== "menu-btn") {
                     item.classList.remove("active");
                 }
 
@@ -60,7 +60,7 @@ const sidebar = document.querySelector(".sidebar");
 const overlay = document.querySelector(".overlay");
 const closeBtn = document.querySelector(".close-btn");
 
-menuBtn.addEventListener("click", function(e){
+menuBtn.addEventListener("click", function (e) {
 
     e.preventDefault();
 
@@ -70,7 +70,7 @@ menuBtn.addEventListener("click", function(e){
 
 });
 
-closeBtn.addEventListener("click", function(){
+closeBtn.addEventListener("click", function () {
 
     sidebar.classList.remove("active");
     overlay.classList.remove("active");
@@ -78,7 +78,7 @@ closeBtn.addEventListener("click", function(){
 
 });
 
-overlay.addEventListener("click", function(){
+overlay.addEventListener("click", function () {
 
     sidebar.classList.remove("active");
     overlay.classList.remove("active");
