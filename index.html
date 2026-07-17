@@ -12,13 +12,13 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-<!-- BANNER SECTION -->
 
 <body>
 
-    <!--Header-->
+     <!--Header-->
 
     <header>
 
@@ -112,16 +112,14 @@
             <!-- Account & Lists -->
 
             <div class="nav-account">
-                <a href="sign.html" class="nav-account">
 
+                <span>Hello, sign in</span>
 
-                    <span>Hello, sign in</span>
+                <p>
+                    Account & Lists
+                    <i class="fa-solid fa-caret-down"></i>
+                </p>
 
-                    <p>
-                        Account & Lists
-                        <i class="fa-solid fa-caret-down"></i>
-                    </p>
-                </a>
             </div>
 
             <!-- Returns & Orders -->
@@ -141,7 +139,7 @@
             <div class="nav-cart">
 
                 <div class="cart-icon"> <i class="fa-solid fa-cart-plus"></i>
-                    <span>0</span>
+                       <span>0</span>
                 </div>
                 <p>Cart</p>
 
@@ -317,189 +315,201 @@
      HERO SECTION
 =========================== -->
 
-    <section id="banner-container">
+<section id="banner-container">
 
-        <div id="image-slider">
-            <img src="images/banner1.jpg" alt="">
-            <img src="images/banner2.jpg" alt="">
-            <img src="images/banner3.jpg" alt="">
-            <img src="images/banner4.jpg" alt="">
-            <img src="./images/banner5.png" alt="">
-            <img src="./images/banner6.png" alt="">
+    <div id="image-slider">
+        <img src="images/banner1.webp" alt="Banner 1">
+        <img src="images/banner2.webp" alt="Banner 2">
+        <img src="images/banner3.webp" alt="Banner 3">
+        <img src="images/banner4.webp" alt="Banner 4">
+        <img src="images/banner5.webp" alt="Banner 5">
+        <img src="images/banner6.webp" alt="Banner 6">
+    </div>
 
-        </div>
+    <!-- Right Arrow -->
+    <svg id="right"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-10 h-10">
 
-        <!-- Right Arrow -->
-        <svg id="right" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="w-10 h-10">
+        <path stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m8.25 4.5 7.5 7.5-7.5 7.5"/>
+    </svg>
 
-            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-        </svg>
+    <!-- Left Arrow -->
+    <svg id="left"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-10 h-10">
 
-        <!-- Left Arrow -->
-        <svg id="left" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="w-10 h-10">
+        <path stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5 8.25 12l7.5-7.5"/>
+    </svg>
 
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-        </svg>
+</section>
 
-    </section>
-
-    <!-- ===========================
+<!-- ===========================
      PRODUCT CARDS SECTION
 =========================== -->
 
-    <section class="cards-section">
+<section class="cards-section">
 
-        <div class="cards-container">
+    <div class="cards-container">
 
-            <!-- Card 1 -->
+        <!-- Card 1 -->
 
-            <div class="card"><a href="appliances.html">
+        <div class="card"><a href="appliances.html">
 
-                    <h2>Appliances for your home | Up to 55% off</h2>
+            <h2>Appliances for your home | Up to 55% off</h2>
 
-                    <div class="card-grid">
+            <div class="card-grid">
 
-                        <div class="grid-item">
-                            <img src="images/aircon.webp" alt="">
-                            <p>Air conditioners</p>
-                        </div>
-
-                        <div class="grid-item">
-                            <img src="images/refrigerator.webp" alt="">
-                            <p>Refrigerators</p>
-                        </div>
-
-                        <div class="grid-item">
-                            <img src="images/microwave.webp" alt="">
-                            <p>Microwaves</p>
-                        </div>
-
-                        <div class="grid-item">
-                            <img src="images/emporio-armani-watch.webp" alt="">
-                            <p>Washing machines</p>
-                        </div>
-
-                    </div>
-                </a>
-
-                <a href="appliances.html" class="card-link">See more</a>
-
-            </div>
-
-            <!-- Card 2 -->
-
-            <div class="card">
-
-                <h2>Revamp your home in style</h2>
-
-                <div class="card-grid">
-
-                    <div class="grid-item">
-                        <img src="images/cushion.webp" alt="">
-                        <p>Cushion Covers</p>
-                    </div>
-
-                    <div class="grid-item">
-                        <img src="images/ceramic-vases.webp" alt="">
-                        <p>Figurines & Vases</p>
-                    </div>
-
-                    <div class="grid-item">
-                        <img src="images/home-storage.webp" alt="">
-                        <p>Home Storage</p>
-                    </div>
-
-                    <div class="grid-item">
-                        <img src="images/home-lights.webp" alt="">
-                        <p>Lighting Solutions</p>
-                    </div>
-
+                <div class="grid-item">
+                    <img src="images/aircon.webp" alt="">
+                    <p>Air conditioners</p>
                 </div>
 
-                <a href="#" class="card-link">Explore all</a>
-
-            </div>
-
-            <!-- Card 3 -->
-
-            <div class="card">
-
-                <h2>Starting ₹49 | Deals on Home Essentials</h2>
-
-                <div class="card-grid">
-
-                    <div class="grid-item">
-                        <img src="images/cleaning-materials.webp" alt="">
-                        <p>Cleaning Supplies</p>
-                    </div>
-
-                    <div class="grid-item">
-                        <img src="images/bathroom-essentials.webp" alt="">
-                        <p>Bathroom Accessories</p>
-                    </div>
-
-                    <div class="grid-item">
-                        <img src="images/repairing-tools.webp" alt="">
-                        <p>Home Tools</p>
-                    </div>
-
-                    <div class="grid-item">
-                        <img src="images/home-lights.webp" alt="">
-                        <p>Wallpapers</p>
-                    </div>
-
+                <div class="grid-item">
+                    <img src="images/refrigerator.webp" alt="">
+                    <p>Refrigerators</p>
                 </div>
 
-                <a href="#" class="card-link">Explore all</a>
-
-            </div>
-
-            <!-- Card 4 -->
-
-            <div class="card">
-
-                <h2>Up to 75% off | Deals on Headphones</h2>
-
-                <div class="card-grid">
-
-                    <div class="grid-item no-text">
-                        <img src="images/bookshelf-speakers.webp" alt="">
-                    </div>
-
-                    <div class="grid-item no-text">
-                        <img src="images/refrigerator.webp" alt="">
-                    </div>
-
-                    <div class="grid-item no-text">
-                        <img src="images/repairing-tools.webp" alt="">
-                    </div>
-
-                    <div class="grid-item no-text">
-                        <img src="images/bluetooth-speaker.webp" alt="">
-                    </div>
-
+                <div class="grid-item">
+                    <img src="images/microwave.webp" alt="">
+                    <p>Microwaves</p>
                 </div>
 
-                <a href="#" class="card-link">See all deals</a>
+                <div class="grid-item">
+                    <img src="images/emporio-armani-watch.webp" alt="">
+                    <p>Washing machines</p>
+                </div>
 
-            </div>
+            </div></a>
+
+            <a href="appliances.html" class="card-link">See more</a>
 
         </div>
 
-    </section>
+        <!-- Card 2 -->
+
+        <div class="card">
+
+            <h2>Revamp your home in style</h2>
+
+            <div class="card-grid">
+
+                <div class="grid-item">
+                    <img src="images/cushion.webp" alt="">
+                    <p>Cushion Covers</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/ceramic-vases.webp" alt="">
+                    <p>Figurines & Vases</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/home-storage.webp" alt="">
+                    <p>Home Storage</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/home-lights.webp" alt="">
+                    <p>Lighting Solutions</p>
+                </div>
+
+            </div>
+
+            <a href="#" class="card-link">Explore all</a>
+
+        </div>
+
+        <!-- Card 3 -->
+
+        <div class="card">
+
+            <h2>Starting ₹49 | Deals on Home Essentials</h2>
+
+            <div class="card-grid">
+
+                <div class="grid-item">
+                    <img src="images/cleaning-materials.webp" alt="">
+                    <p>Cleaning Supplies</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/bathroom-essentials.webp" alt="">
+                    <p>Bathroom Accessories</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/repairing-tools.webp" alt="">
+                    <p>Home Tools</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/home-lights.webp" alt="">
+                    <p>Wallpapers</p>
+                </div>
+
+            </div>
+
+            <a href="#" class="card-link">Explore all</a>
+
+        </div>
+
+        <!-- Card 4 -->
+
+        <div class="card">
+
+            <h2>Up to 75% off | Deals on Headphones</h2>
+
+            <div class="card-grid">
+
+                <div class="grid-item no-text">
+                    <img src="images/bookshelf-speakers.webp" alt="">
+                </div>
+
+                <div class="grid-item no-text">
+                    <img src="images/refrigerator.webp" alt="">
+                </div>
+
+                <div class="grid-item no-text">
+                    <img src="images/repairing-tools.webp" alt="">
+                </div>
+
+                <div class="grid-item no-text">
+                    <img src="images/bluetooth-speaker.webp" alt="">
+                </div>
+
+            </div>
+
+            <a href="#" class="card-link">See all deals</a>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-    <!-- Electronics -->
+<!-- Electronics -->
 
-    <section class="electronics">
+<section class="electronics">
 
         <h2>Up to 45% off | Electronics & accessories</h2>
         <a href="#">See all offers</a>
 
 
-        <div class="slider-container">
+        <div  class="slider-container">
             <button class="prev">&#10094;</button>
 
             <div class="products" id="products">
@@ -531,77 +541,78 @@
         </div>
     </section>
 
-    <!-- ===========================
+<!-- ===========================
      BACK TO TOP
 =========================== -->
 
-    <div class="back-top">
-        Back to top
-    </div>
+<div class="back-top">
+    Back to top
+</div>
 
-    <!-- ===========================
+<!-- ===========================
      FOOTER SECTION
 =========================== -->
 
-    <section class="footer-section">
+<section class="footer-section">
 
-        <div class="footer-container">
+    <div class="footer-container">
 
-            <!-- Column 1 -->
-            <div class="footer-box">
-                <h3>Get to Know Us</h3>
-                <p>About Us</p>
-                <p>Careers</p>
-                <p>Press Releases</p>
-                <p>Amazon Science</p>
-            </div>
-
-            <!-- Column 2 -->
-            <div class="footer-box">
-                <h3>Connect with Us</h3>
-                <p>Facebook</p>
-                <p>Twitter</p>
-                <p>Instagram</p>
-            </div>
-
-            <!-- Column 3 -->
-            <div class="footer-box">
-                <h3>Make Money with Us</h3>
-                <p>Sell on Amazon</p>
-                <p>Become an Affiliate</p>
-                <p>Advertise Your Products</p>
-                <p>Amazon Pay</p>
-            </div>
-
-            <!-- Column 4 -->
-            <div class="footer-box">
-                <h3>Let Us Help You</h3>
-                <p>Your Account</p>
-                <p>Returns Centre</p>
-                <p>Customer Service</p>
-                <p>Help</p>
-            </div>
-
+        <!-- Column 1 -->
+        <div class="footer-box">
+            <h3>Get to Know Us</h3>
+            <p>About Us</p>
+            <p>Careers</p>
+            <p>Press Releases</p>
+            <p>Amazon Science</p>
         </div>
 
-        <!-- Footer Bottom -->
-
-        <div class="footer-bottom">
-
-            <h1 class="amazon-logo">
-                amazon
-            </h1>
-
-            <button>🌐 English</button>
-
-            <button>🇮🇳 India</button>
-
+        <!-- Column 2 -->
+        <div class="footer-box">
+            <h3>Connect with Us</h3>
+            <p>Facebook</p>
+            <p>Twitter</p>
+            <p>Instagram</p>
         </div>
 
-    </section>
+        <!-- Column 3 -->
+        <div class="footer-box">
+            <h3>Make Money with Us</h3>
+            <p>Sell on Amazon</p>
+            <p>Become an Affiliate</p>
+            <p>Advertise Your Products</p>
+            <p>Amazon Pay</p>
+        </div>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+        <!-- Column 4 -->
+        <div class="footer-box">
+            <h3>Let Us Help You</h3>
+            <p>Your Account</p>
+            <p>Returns Centre</p>
+            <p>Customer Service</p>
+            <p>Help</p>
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+
+    <div class="footer-bottom">
+
+        <h1 class="amazon-logo">
+            amazon
+        </h1>
+
+        <button>🌐 English</button>
+
+        <button>🇮🇳 India</button>
+
+    </div>
+
+</section>
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+
 </body>
-
 </html>
+
