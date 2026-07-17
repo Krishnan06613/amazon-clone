@@ -26,7 +26,7 @@ img{
 }
 
 
-/* navbar */
+/* navbar ====================================================*/
 
 .nav-logo img {
   width: 150px;
@@ -272,6 +272,204 @@ img{
   font-size: 14px;
   font-weight: bold;
   margin: 0;
+}
+
+
+
+/* =========================
+   Tablet (1024px)
+========================= */
+@media (max-width: 1024px) {
+
+  .navbar{
+    padding:0 10px;
+  }
+
+  .search-bar{
+    width:420px;
+  }
+
+  .nav-language,
+  .nav-orders{
+    display:none;
+  }
+
+  .nav-logo img{
+    width:120px;
+  }
+
+}
+
+
+/* =========================
+   Small Tablet (768px)
+========================= */
+
+@media (max-width:768px){
+
+  .navbar{
+    height:auto;
+    flex-wrap:wrap;
+    padding:10px;
+    gap:10px;
+  }
+
+  .nav-logo{
+    order:1;
+  }
+
+  .nav-cart{
+    order:2;
+    margin-left:auto;
+  }
+
+  .nav-location{
+    order:3;
+    margin-left:0;
+  }
+
+  .search-bar{
+    order:4;
+    width:100%;
+    margin-left:0;
+  }
+
+  .nav-language,
+  .nav-account,
+  .nav-orders{
+    display:none;
+  }
+
+}
+
+
+/* =========================
+   Mobile (576px)
+========================= */
+
+@media (max-width:576px){
+
+  .navbar{
+    padding:8px;
+  }
+
+  .nav-logo img{
+    width:100px;
+  }
+
+  .nav-location{
+    display:none;
+  }
+
+  .search-bar{
+    width:100%;
+    height:38px;
+  }
+
+  .search-select{
+    width:55px;
+    font-size:12px;
+    padding:5px;
+  }
+
+  .search-bar input{
+    font-size:13px;
+  }
+
+  .search-bar button{
+    width:42px;
+  }
+
+  .nav-account,
+  .nav-orders,
+  .nav-language{
+    display:none;
+  }
+
+  .cart-icon i{
+    font-size:26px;
+  }
+
+  .cart-icon span{
+    font-size:14px;
+    right:5px;
+  }
+
+  .nav-cart p{
+    display:none;
+  }
+
+}
+
+
+/* =========================
+   Small Mobile (425px)
+========================= */
+
+@media (max-width:425px){
+
+  .navbar{
+    gap:8px;
+  }
+
+  .nav-logo img{
+    width:90px;
+  }
+
+  .search-bar{
+    height:36px;
+  }
+
+  .search-select{
+    width:50px;
+    font-size:11px;
+  }
+
+  .search-bar input{
+    font-size:12px;
+  }
+
+  .search-bar button{
+    width:38px;
+  }
+
+  .cart-icon i{
+    font-size:24px;
+  }
+
+}
+
+
+/* =========================
+   Extra Small Mobile (320px)
+========================= */
+
+@media (max-width:320px){
+
+  .nav-logo img{
+    width:80px;
+  }
+
+  .search-select{
+    display:none;
+  }
+
+  .search-bar{
+    width:100%;
+  }
+
+  .search-bar input{
+    font-size:11px;
+  }
+
+  .search-bar button{
+    width:36px;
+  }
+
+  .cart-icon i{
+    font-size:22px;
+  }
+
 }
 
 /* =========================================
@@ -836,6 +1034,192 @@ img{
 .prev:hover,
 .next:hover{
     background: #ffffff;
+}
+
+
+/* =========================================
+   TABLET (1024px)
+========================================= */
+
+@media (max-width:1024px){
+
+    .electronics{
+        height:auto;
+        padding:15px;
+    }
+
+    .electronics h2{
+        font-size:22px;
+    }
+
+    .item img{
+        width:160px;
+        height:160px;
+    }
+
+    .prev,
+    .next{
+        width:40px;
+        height:70px;
+        font-size:22px;
+    }
+
+}
+
+
+/* =========================================
+   TABLET (768px)
+========================================= */
+
+@media (max-width:768px){
+
+    .electronics{
+        padding:15px 10px;
+    }
+
+    .electronics h2{
+        display:block;
+        font-size:20px;
+        margin-bottom:8px;
+    }
+
+    .electronics a{
+        display:inline-block;
+        font-size:14px;
+        margin-bottom:10px;
+    }
+
+    .products{
+        gap:8px;
+        padding:5px;
+    }
+
+    .item img{
+        width:140px;
+        height:140px;
+    }
+
+    .prev,
+    .next{
+        width:35px;
+        height:60px;
+        font-size:20px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE (576px)
+========================================= */
+
+@media (max-width:576px){
+
+    .electronics{
+        padding:12px 8px;
+    }
+
+    .electronics h2{
+        font-size:18px;
+    }
+
+    .electronics a{
+        font-size:13px;
+    }
+
+    .products{
+        gap:6px;
+    }
+
+    .item img{
+        width:120px;
+        height:120px;
+    }
+
+    .prev,
+    .next{
+        width:30px;
+        height:50px;
+        font-size:18px;
+    }
+
+    .back-top{
+        padding:14px;
+        font-size:13px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE (425px)
+========================================= */
+
+@media (max-width:425px){
+
+    .electronics{
+        padding:10px;
+    }
+
+    .electronics h2{
+        font-size:17px;
+    }
+
+    .electronics a{
+        font-size:12px;
+    }
+
+    .item img{
+        width:100px;
+        height:100px;
+    }
+
+    .prev,
+    .next{
+        width:28px;
+        height:45px;
+        font-size:16px;
+    }
+
+    .back-top{
+        padding:12px;
+        font-size:12px;
+    }
+
+}
+
+
+/* =========================================
+   EXTRA SMALL MOBILE (320px)
+========================================= */
+
+@media (max-width:320px){
+
+    .electronics h2{
+        font-size:16px;
+    }
+
+    .electronics a{
+        font-size:11px;
+    }
+
+    .item img{
+        width:85px;
+        height:85px;
+    }
+
+    .prev,
+    .next{
+        width:25px;
+        height:40px;
+        font-size:14px;
+    }
+
+    .back-top{
+        font-size:11px;
+        padding:10px;
+    }
+
 }
 
 /* =========================================
