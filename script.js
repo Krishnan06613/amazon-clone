@@ -177,35 +177,3 @@ languageBtn?.addEventListener("click", () => {
     alert("Language selection");
 });
 
-// ===========================
-// sigin 
-// ===========================
-
-const button = document.querySelector("button");
-const input = document.querySelector("#loginInput");
-const error = document.querySelector("#error");
-
-button.addEventListener("click", function () {
-
-    const value = input.value.trim();
-
-    const pattern = /^[0-9]{10}$|^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (value === "") {
-        error.textContent = "Please enter your mobile number or email.";
-        input.focus();
-    }
-    else if (!pattern.test(value)) {
-        error.textContent = "Enter a valid mobile number or email.";
-        input.focus();
-    }
-    else {
-        error.textContent = "Sign in successful!";
-        error.style.color = "green";
-
-        setTimeout(() => {
-            window.location.href = "index.html";
-        }, 1000);
-    }
-
-});
