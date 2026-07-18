@@ -662,6 +662,16 @@ img {
 
 /* ===================================================== */
 /* Electronics page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eaeded;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 .electronics {
     width: 100%;
@@ -699,9 +709,6 @@ img {
     overflow-x: auto;
     scroll-behavior: smooth;
     padding: 10px;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    will-change: scroll-position;
 }
 
 .products::-webkit-scrollbar {
@@ -714,9 +721,6 @@ img {
 
 .item {
     flex: 0 0 auto;
-    content-visibility: auto;
-    contain-intrinsic-size: 180px 220px;
-    contain: layout style paint;
 }
 
 .item img {
@@ -737,7 +741,6 @@ img {
     font-size: 24px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color .3s ease;
 }
 
 .prev {
@@ -753,102 +756,102 @@ img {
     background: #ffffff;
 }
 
-/* =========================================
+    /* =========================================
    BACK TO TOP
 ========================================= */
 
-.back-top {
-    background: #37475a;
-    color: #fff;
-    text-align: center;
-    padding: 16px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color .3s ease;
-}
+    .back-top {
+        background: #37475a;
+        color: #fff;
+        text-align: center;
+        padding: 16px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color .3s ease;
+    }
 
-.back-top:hover {
-    background: #485769;
-}
+    .back-top:hover {
+        background: #485769;
+    }
 
-/* =========================================
+    /* =========================================
    FOOTER
 ========================================= */
 
-.footer-section {
-    background: #131a22;
-    color: #fff;
-}
+    .footer-section {
+        background: #131a22;
+        color: #fff;
+    }
 
-.footer-container {
-    max-width: 1500px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    padding: 50px 60px;
-}
+    .footer-container {
+        max-width: 1500px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        padding: 50px 60px;
+    }
 
-.footer-box {
-    content-visibility: auto;
-    contain-intrinsic-size: 300px 260px;
-}
+    .footer-box {
+        content-visibility: auto;
+        contain-intrinsic-size: 300px 260px;
+    }
 
-.footer-box h3 {
-    font-size: 16px;
-    margin-bottom: 18px;
-    font-weight: 700;
-}
+    .footer-box h3 {
+        font-size: 16px;
+        margin-bottom: 18px;
+        font-weight: 700;
+    }
 
-.footer-box p {
-    color: #ddd;
-    font-size: 14px;
-    margin: 10px 0;
-    cursor: pointer;
-    transition: color .3s ease;
-}
+    .footer-box p {
+        color: #ddd;
+        font-size: 14px;
+        margin: 10px 0;
+        cursor: pointer;
+        transition: color .3s ease;
+    }
 
-.footer-box p:hover {
-    color: #fff;
-    text-decoration: underline;
-}
+    .footer-box p:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
 
-/* =========================================
+    /* =========================================
    FOOTER BOTTOM
 ========================================= */
 
-.footer-bottom {
-    border-top: 1px solid #3a4553;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 30px;
-}
+    .footer-bottom {
+        border-top: 1px solid #3a4553;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 30px;
+    }
 
-.amazon-logo {
-    font-size: 34px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: lowercase;
-}
+    .amazon-logo {
+        font-size: 34px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: lowercase;
+    }
 
-.footer-bottom button {
-    background: transparent;
-    color: #fff;
-    border: 1px solid #777;
-    padding: 10px 18px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color .3s ease;
-}
+    .footer-bottom button {
+        background: transparent;
+        color: #fff;
+        border: 1px solid #777;
+        padding: 10px 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color .3s ease;
+    }
 
-.footer-bottom button:hover {
-    background: #37475a;
-}
+    .footer-bottom button:hover {
+        background: #37475a;
+    }
 
 
-/* =========================================================
+    /* =========================================================
    RESPONSIVE / MEDIA QUERIES
    Consolidated — every breakpoint now appears ONCE,
    with all rules for that width grouped together
@@ -856,630 +859,630 @@ img {
    separate times across the file).
 ========================================================= */
 
-/* ---------- 1200px ---------- */
-@media (max-width:1200px) {
-
-    /* Product cards */
-    .cards-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Footer */
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 40px;
-    }
-
-}
-
-/* ---------- 1024px ---------- */
-@media (max-width:1024px) {
-
-    /* Navbar */
-    .navbar {
-        padding: 0 10px;
-    }
-
-    .search-bar {
-        width: 420px;
-    }
-
-    .nav-language,
-    .nav-orders {
-        display: none;
-    }
-
-    .nav-logo img {
-        width: 120px;
-    }
-
-    /* Electronics */
-    .electronics {
-        height: auto;
-        padding: 15px;
-    }
-
-    .electronics h2 {
-        font-size: 22px;
-    }
-
-    .item img {
-        width: 160px;
-        height: 160px;
-    }
-
-    .prev,
-    .next {
-        width: 40px;
-        height: 70px;
-        font-size: 22px;
-    }
-
-}
-
-/* ---------- 992px ---------- */
-@media (max-width:992px) {
-
-    /* Hero */
-    #banner-container {
-        height: 420px;
-    }
-
-}
-
-/* ---------- 768px ---------- */
-@media (max-width:768px) {
-
-    /* Navbar */
-    .navbar {
-        height: auto;
-        flex-wrap: wrap;
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .nav-logo {
-        order: 1;
-    }
-
-    .nav-cart {
-        order: 2;
-        margin-left: auto;
-    }
-
-    .nav-location {
-        order: 3;
-        margin-left: 0;
-    }
-
-    .search-bar {
-        order: 4;
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .nav-language,
-    .nav-account,
-    .nav-orders {
-        display: none;
-    }
-
-    /* Sidebar */
-    .sidebar {
-        width: 320px;
-        transform: translateX(-320px);
-    }
-
-    .sidebar.active {
-        transform: translateX(0);
-    }
-
-    .close-btn {
-        left: 330px;
-    }
-
-    /* Hero */
-    #banner-container {
-        height: 350px;
-    }
-
-    #left,
-    #right {
-        width: 40px;
-        height: 40px;
-    }
-
-    /* Product cards */
-    .cards-section {
-        margin-top: -80px;
-    }
-
-    /* Electronics */
-    .electronics {
-        padding: 15px 10px;
-    }
-
-    .electronics h2 {
-        display: block;
-        font-size: 20px;
-        margin-bottom: 8px;
-    }
-
-    .electronics a {
-        display: inline-block;
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-    .products {
-        gap: 8px;
-        padding: 5px;
-    }
-
-    .item img {
-        width: 140px;
-        height: 140px;
-    }
-
-    .prev,
-    .next {
-        width: 35px;
-        height: 60px;
-        font-size: 20px;
-    }
-
-    /* Footer */
-    .footer-bottom {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-}
-
-/* ---------- 600px ---------- */
-@media (max-width:600px) {
-
-    /* Product cards */
-    .cards-container {
-        grid-template-columns: 1fr;
-    }
-
-    .cards-section {
-        margin-top: -40px;
-        padding: 15px;
-    }
-
-    .card h2 {
-        font-size: 20px;
-    }
-
-    .grid-item img {
-        height: 150px;
-    }
-
-}
-
-/* ---------- 576px ---------- */
-@media (max-width:576px) {
-
-    /* Navbar */
-    .navbar {
-        padding: 8px;
-    }
-
-    .nav-logo img {
-        width: 100px;
-    }
-
-    .nav-location {
-        display: none;
-    }
-
-    .search-bar {
-        width: 100%;
-        height: 38px;
-    }
-
-    .search-select {
-        width: 55px;
-        font-size: 12px;
-        padding: 5px;
-    }
-
-    .search-bar input {
-        font-size: 13px;
-    }
-
-    .search-bar button {
-        width: 42px;
-    }
-
-    .nav-account,
-    .nav-orders,
-    .nav-language {
-        display: none;
-    }
-
-    .cart-icon i {
-        font-size: 26px;
-    }
-
-    .cart-icon span {
-        font-size: 14px;
-        right: 5px;
-    }
-
-    .nav-cart p {
-        display: none;
-    }
-
-    /* Hero */
-    #banner-container {
-        height: 240px;
-    }
-
-    #left {
-        left: 8px;
-    }
-
-    #right {
-        right: 8px;
-    }
-
-    #left,
-    #right {
-        width: 30px;
-        height: 30px;
-    }
-
-    /* Electronics */
-    .electronics {
-        padding: 12px 8px;
-    }
-
-    .electronics h2 {
-        font-size: 18px;
-    }
-
-    .electronics a {
-        font-size: 13px;
-    }
-
-    .products {
-        gap: 6px;
-    }
-
-    .item img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .prev,
-    .next {
-        width: 30px;
-        height: 50px;
-        font-size: 18px;
-    }
-
-    .back-top {
-        padding: 14px;
-        font-size: 13px;
-    }
-
-    /* Footer */
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 30px 20px;
-    }
-
-    .amazon-logo {
-        font-size: 28px;
-    }
-
-    .footer-bottom button {
-        width: 220px;
-    }
-
-}
-
-/* ---------- 480px ---------- */
-@media (max-width:480px) {
-
-    /* Sidebar */
-    .sidebar {
-        width: 290px;
-        transform: translateX(-290px);
-    }
-
-    .sidebar.active {
-        transform: translateX(0);
-    }
-
-    .close-btn {
-        left: 300px;
-    }
-
-}
-
-/* ---------- 425px ---------- */
-@media (max-width:425px) {
-
-    /* Navbar */
-    .navbar {
-        gap: 8px;
-    }
-
-    .nav-logo img {
-        width: 90px;
-    }
-
-    .search-bar {
-        height: 36px;
-    }
-
-    .search-select {
-        width: 50px;
-        font-size: 11px;
-    }
-
-    .search-bar input {
-        font-size: 12px;
-    }
-
-    .search-bar button {
-        width: 38px;
-    }
-
-    .cart-icon i {
-        font-size: 24px;
-    }
-
-    /* Electronics */
-    .electronics {
-        padding: 10px;
-    }
-
-    .electronics h2 {
-        font-size: 17px;
-    }
-
-    .electronics a {
-        font-size: 12px;
-    }
-
-    .item img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .prev,
-    .next {
-        width: 28px;
-        height: 45px;
-        font-size: 16px;
-    }
-
-    .back-top {
-        padding: 12px;
-        font-size: 12px;
-    }
-
-}
-
-/* ---------- 320px ---------- */
-@media (max-width:320px) {
-
-    /* Navbar */
-    .nav-logo img {
-        width: 80px;
-    }
-
-    .search-select {
-        display: none;
-    }
-
-    .search-bar {
-        width: 100%;
-    }
-
-    .search-bar input {
-        font-size: 11px;
-    }
-
-    .search-bar button {
-        width: 36px;
-    }
-
-    .cart-icon i {
-        font-size: 22px;
-    }
-
-    /* Electronics */
-    .electronics h2 {
-        font-size: 16px;
-    }
-
-    .electronics a {
-        font-size: 11px;
-    }
-
-    .item img {
-        width: 85px;
-        height: 85px;
-    }
-
-    .prev,
-    .next {
-        width: 25px;
-        height: 40px;
-        font-size: 14px;
-    }
-
-    .back-top {
-        font-size: 11px;
-        padding: 10px;
-    }
-
-}
+    /* ---------- 1200px ---------- */
+    @media (max-width:1200px) {
 
-/*=========================================
+        /* Product cards */
+        .cards-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* Footer */
+        .footer-container {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 40px;
+        }
+
+    }
+
+    /* ---------- 1024px ---------- */
+    @media (max-width:1024px) {
+
+        /* Navbar */
+        .navbar {
+            padding: 0 10px;
+        }
+
+        .search-bar {
+            width: 420px;
+        }
+
+        .nav-language,
+        .nav-orders {
+            display: none;
+        }
+
+        .nav-logo img {
+            width: 120px;
+        }
+
+        /* Electronics */
+        .electronics {
+            height: auto;
+            padding: 15px;
+        }
+
+        .electronics h2 {
+            font-size: 22px;
+        }
+
+        .item img {
+            width: 160px;
+            height: 160px;
+        }
+
+        .prev,
+        .next {
+            width: 40px;
+            height: 70px;
+            font-size: 22px;
+        }
+
+    }
+
+    /* ---------- 992px ---------- */
+    @media (max-width:992px) {
+
+        /* Hero */
+        #banner-container {
+            height: 420px;
+        }
+
+    }
+
+    /* ---------- 768px ---------- */
+    @media (max-width:768px) {
+
+        /* Navbar */
+        .navbar {
+            height: auto;
+            flex-wrap: wrap;
+            padding: 10px;
+            gap: 10px;
+        }
+
+        .nav-logo {
+            order: 1;
+        }
+
+        .nav-cart {
+            order: 2;
+            margin-left: auto;
+        }
+
+        .nav-location {
+            order: 3;
+            margin-left: 0;
+        }
+
+        .search-bar {
+            order: 4;
+            width: 100%;
+            margin-left: 0;
+        }
+
+        .nav-language,
+        .nav-account,
+        .nav-orders {
+            display: none;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 320px;
+            transform: translateX(-320px);
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .close-btn {
+            left: 330px;
+        }
+
+        /* Hero */
+        #banner-container {
+            height: 350px;
+        }
+
+        #left,
+        #right {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Product cards */
+        .cards-section {
+            margin-top: -80px;
+        }
+
+        /* Electronics */
+        .electronics {
+            padding: 15px 10px;
+        }
+
+        .electronics h2 {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .electronics a {
+            display: inline-block;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .products {
+            gap: 8px;
+            padding: 5px;
+        }
+
+        .item img {
+            width: 140px;
+            height: 140px;
+        }
+
+        .prev,
+        .next {
+            width: 35px;
+            height: 60px;
+            font-size: 20px;
+        }
+
+        /* Footer */
+        .footer-bottom {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+    }
+
+    /* ---------- 600px ---------- */
+    @media (max-width:600px) {
+
+        /* Product cards */
+        .cards-container {
+            grid-template-columns: 1fr;
+        }
+
+        .cards-section {
+            margin-top: -40px;
+            padding: 15px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+        }
+
+        .grid-item img {
+            height: 150px;
+        }
+
+    }
+
+    /* ---------- 576px ---------- */
+    @media (max-width:576px) {
+
+        /* Navbar */
+        .navbar {
+            padding: 8px;
+        }
+
+        .nav-logo img {
+            width: 100px;
+        }
+
+        .nav-location {
+            display: none;
+        }
+
+        .search-bar {
+            width: 100%;
+            height: 38px;
+        }
+
+        .search-select {
+            width: 55px;
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        .search-bar input {
+            font-size: 13px;
+        }
+
+        .search-bar button {
+            width: 42px;
+        }
+
+        .nav-account,
+        .nav-orders,
+        .nav-language {
+            display: none;
+        }
+
+        .cart-icon i {
+            font-size: 26px;
+        }
+
+        .cart-icon span {
+            font-size: 14px;
+            right: 5px;
+        }
+
+        .nav-cart p {
+            display: none;
+        }
+
+        /* Hero */
+        #banner-container {
+            height: 240px;
+        }
+
+        #left {
+            left: 8px;
+        }
+
+        #right {
+            right: 8px;
+        }
+
+        #left,
+        #right {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Electronics */
+        .electronics {
+            padding: 12px 8px;
+        }
+
+        .electronics h2 {
+            font-size: 18px;
+        }
+
+        .electronics a {
+            font-size: 13px;
+        }
+
+        .products {
+            gap: 6px;
+        }
+
+        .item img {
+            width: 120px;
+            height: 120px;
+        }
+
+        .prev,
+        .next {
+            width: 30px;
+            height: 50px;
+            font-size: 18px;
+        }
+
+        .back-top {
+            padding: 14px;
+            font-size: 13px;
+        }
+
+        /* Footer */
+        .footer-container {
+            grid-template-columns: 1fr;
+            gap: 30px;
+            padding: 30px 20px;
+        }
+
+        .amazon-logo {
+            font-size: 28px;
+        }
+
+        .footer-bottom button {
+            width: 220px;
+        }
+
+    }
+
+    /* ---------- 480px ---------- */
+    @media (max-width:480px) {
+
+        /* Sidebar */
+        .sidebar {
+            width: 290px;
+            transform: translateX(-290px);
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .close-btn {
+            left: 300px;
+        }
+
+    }
+
+    /* ---------- 425px ---------- */
+    @media (max-width:425px) {
+
+        /* Navbar */
+        .navbar {
+            gap: 8px;
+        }
+
+        .nav-logo img {
+            width: 90px;
+        }
+
+        .search-bar {
+            height: 36px;
+        }
+
+        .search-select {
+            width: 50px;
+            font-size: 11px;
+        }
+
+        .search-bar input {
+            font-size: 12px;
+        }
+
+        .search-bar button {
+            width: 38px;
+        }
+
+        .cart-icon i {
+            font-size: 24px;
+        }
+
+        /* Electronics */
+        .electronics {
+            padding: 10px;
+        }
+
+        .electronics h2 {
+            font-size: 17px;
+        }
+
+        .electronics a {
+            font-size: 12px;
+        }
+
+        .item img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .prev,
+        .next {
+            width: 28px;
+            height: 45px;
+            font-size: 16px;
+        }
+
+        .back-top {
+            padding: 12px;
+            font-size: 12px;
+        }
+
+    }
+
+    /* ---------- 320px ---------- */
+    @media (max-width:320px) {
+
+        /* Navbar */
+        .nav-logo img {
+            width: 80px;
+        }
+
+        .search-select {
+            display: none;
+        }
+
+        .search-bar {
+            width: 100%;
+        }
+
+        .search-bar input {
+            font-size: 11px;
+        }
+
+        .search-bar button {
+            width: 36px;
+        }
+
+        .cart-icon i {
+            font-size: 22px;
+        }
+
+        /* Electronics */
+        .electronics h2 {
+            font-size: 16px;
+        }
+
+        .electronics a {
+            font-size: 11px;
+        }
+
+        .item img {
+            width: 85px;
+            height: 85px;
+        }
+
+        .prev,
+        .next {
+            width: 25px;
+            height: 40px;
+            font-size: 14px;
+        }
+
+        .back-top {
+            font-size: 11px;
+            padding: 10px;
+        }
+
+    }
+
+    /*=========================================
  // sigin page//
 =========================================  */
 
-body {
-    background: #fff;
-    margin: 0px;
-}
-
-.navbar {
-    background-color: #131921;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.nav-logo img {
-    height: 35px;
-}
-
-.container {
-    width: 350px;
-    margin: 40px auto;
-}
-
-.container h2 {
-    margin-bottom: 20px;
-}
-
-label {
-    font-weight: bold;
-}
-
-input {
-    width: 100%;
-    height: 40px;
-    margin: 10px 0 20px;
-    border: 1px solid #999;
-    border-radius: 4px;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-button {
-    width: 100%;
-    height: 42px;
-    background: #ffd814;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.error {
-    color: red;
-    font-size: 14px;
-    margin-top: -15px;
-    margin-bottom: 15px;
-}
-
-.text {
-    margin: 20px 0;
-    font-size: 14px;
-}
-
-.text a {
-    color: #007185;
-    text-decoration: none;
-}
-
-hr {
-    margin: 20px 0;
-}
-
-footer {
-    margin-top: 50px;
-    background: #131a22;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-.footer-lang {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 15px;
-}
-
-.globe-icon {
-    width: 18px;
-    height: 18px;
-
-}
-
-.footer-links {
-    margin-bottom: 10px;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.footer-links a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 14px;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-@media screen and (max-width: 768px) {
+    body {
+        background: #fff;
+        margin: 0px;
+    }
 
     .navbar {
-        height: 55px;
-        padding: 0 15px;
+        background-color: #131921;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
     }
 
     .nav-logo img {
-        height: 30px;
+        height: 35px;
     }
 
     .container {
-        width: 90%;
-        margin: 30px auto;
+        width: 350px;
+        margin: 40px auto;
     }
 
     .container h2 {
-        font-size: 24px;
+        margin-bottom: 20px;
     }
 
-    input,
+    label {
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        height: 40px;
+        margin: 10px 0 20px;
+        border: 1px solid #999;
+        border-radius: 4px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
     button {
         width: 100%;
+        height: 42px;
+        background: #ffd814;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
     }
 
-    .footer-lang {
-        flex-direction: column;
-        gap: 5px;
+    .error {
+        color: red;
+        font-size: 14px;
+        margin-top: -15px;
+        margin-bottom: 15px;
     }
 
-    .footer-links {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+    .text {
+        margin: 20px 0;
+        font-size: 14px;
     }
 
-    .footer-links a {
-        margin: 0;
+    .text a {
+        color: #007185;
+        text-decoration: none;
+    }
+
+    hr {
+        margin: 20px 0;
     }
 
     footer {
-        padding: 15px;
+        margin-top: 50px;
+        background: #131a22;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .footer-lang {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .globe-icon {
+        width: 18px;
+        height: 18px;
+
+    }
+
+    .footer-links {
+        margin-bottom: 10px;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .footer-links a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
         font-size: 14px;
     }
-}
+
+    .footer-links a:hover {
+        text-decoration: underline;
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .navbar {
+            height: 55px;
+            padding: 0 15px;
+        }
+
+        .nav-logo img {
+            height: 30px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        .container h2 {
+            font-size: 24px;
+        }
+
+        input,
+        button {
+            width: 100%;
+        }
+
+        .footer-lang {
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            margin: 0;
+        }
+
+        footer {
+            padding: 15px;
+            font-size: 14px;
+        }
+    }
