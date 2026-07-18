@@ -120,6 +120,55 @@ if (slider) {
     }, 3000);
 }
 
+var productSlider = document.querySelector(".left-slider");
+
+if (productSlider) {
+
+    document.querySelectorAll(".left-s1 img").forEach((img, i) => {
+        img.addEventListener("mouseenter", () => {
+            productSlider.style.transform = `translateX(-${i * 100}%)`;
+        });
+    });
+
+    document.querySelectorAll(".design img").forEach((img, i) => {
+        img.addEventListener("mouseenter", () => {
+            productSlider.style.transform = `translateX(-${i * 100}%)`;
+        });
+    });
+
+}
+
+
+var product1 = document.getElementById("img1")
+product1.addEventListener("click", function () {
+    window.location.href = "products.html";
+})
+
+var product2 = document.getElementById("img2")
+var product3 = document.getElementById("img3")
+var product4 = document.getElementById("img4")
+var product5 = document.getElementById("img5")
+var product6 = document.getElementById("img6")
+
+product2.addEventListener("click", function () {
+    window.location.href = "mobile.html";
+})
+
+product6.addEventListener("click", function () {
+    window.location.href = "mobile.html";
+})
+product3.addEventListener("click", function () {
+    window.location.href = "cook.html";
+})
+
+product4.addEventListener("click", function () {
+    window.location.href = "furni.html";
+})
+
+product5.addEventListener("click", function () {
+    window.location.href = "tv.html";
+})
+
 
 //electronics page
 
