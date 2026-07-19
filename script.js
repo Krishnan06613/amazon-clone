@@ -189,6 +189,10 @@ product5.addEventListener("click", function () {
 })
 
 
+
+
+
+
 //electronics page
 
 const products = document.getElementById("products");
