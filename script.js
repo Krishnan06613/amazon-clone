@@ -188,7 +188,15 @@ product5.addEventListener("click", function () {
     window.location.href = "tv.html";
 })
 
+var maincart = document.getElementById("maincart");
 
+if (maincart) {
+    var savedCount = Number(localStorage.getItem("cartCount")) || 0;
+    maincart.textContent = savedCount;
+    
+    
+
+}
 
 
 

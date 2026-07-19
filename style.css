@@ -80,6 +80,28 @@ img {
     color: white;
     margin: 0;
 }
+#maincart {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+
+    height: 18px;
+    width: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color:#FF4D6D;  /* red background, like your original red text color */
+    color: white;                         /* white text on red — matches the screenshot */
+
+    font-size: 11px;
+    font-weight: bolder;
+
+    border-radius: 50%;   /* makes it a perfect circle */
+    border: 2px solid white; /* optional: gives it a clean separation from the icon behind it */
+}
+
 
 /* Search bar */
 
