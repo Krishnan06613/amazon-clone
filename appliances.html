@@ -54,7 +54,7 @@
                     <option>Toys</option>
                 </select>
 
-                <input type="text" placeholder="Search Amazon.co.uk">
+                <input class="search-bar-s1" type="text" placeholder="Search Amazon.co.uk">
 
                 <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
 
@@ -138,7 +138,7 @@
             <div class="nav-cart">
 
                 <div class="cart-icon"> <i class="fa-solid fa-cart-plus"></i>
-                    <span>0</span>
+                    <span id="maincart">0</span>
                 </div>
                 <p>Cart</p>
 
@@ -341,47 +341,116 @@
 
         <aside class="filter-sidebar">
 
-            <h2>Category</h2>
+            <!-- CATEGORY -->
+            <div class="filter-group">
 
-            <label><input type="checkbox" value="ac"> Air Conditioners</label>
-            <label><input type="checkbox" value="fridge"> Refrigerators</label>
-            <label><input type="checkbox" value="washing"> Washing Machines</label>
-            <label><input type="checkbox" value="microwave"> Microwave Ovens</label>
-            <label><input type="checkbox" value="dishwasher"> Dishwashers</label>
-            <label><input type="checkbox" value="purifier"> Water Purifiers</label>
+                <h2>Category</h2>
 
-            <hr>
+                <label><input type="checkbox" class="category-filter" value="ac"> Air Conditioners</label>
 
-            <h2>Brands</h2>
+                <label><input type="checkbox" class="category-filter" value="fridge"> Refrigerators</label>
 
-            <label><input type="checkbox"> LG</label>
-            <label><input type="checkbox"> Samsung</label>
-            <label><input type="checkbox"> Whirlpool</label>
-            <label><input type="checkbox"> Panasonic</label>
-            <label><input type="checkbox"> Bosch</label>
-            <label><input type="checkbox"> IFB</label>
+                <label><input type="checkbox" class="category-filter" value="washing"> Washing Machines</label>
 
-            <hr>
+                <label><input type="checkbox" class="category-filter" value="microwave"> Microwave Ovens</label>
 
-            <h2>Price</h2>
+                <label><input type="checkbox" class="category-filter" value="dishwasher"> Dishwashers</label>
 
-            <label><input type="radio" name="price"> Under ₹10,000</label>
-            <label><input type="radio" name="price"> ₹10,000 – ₹25,000</label>
-            <label><input type="radio" name="price"> ₹25,000 – ₹50,000</label>
-            <label><input type="radio" name="price"> Above ₹50,000</label>
+                <label><input type="checkbox" class="category-filter" value="purifier"> Water Purifiers</label>
 
-            <hr>
+            </div>
 
-            <h2>Customer Rating</h2>
 
-            <label><input type="checkbox"> ★★★★☆ & Up</label>
-            <label><input type="checkbox"> ★★★☆☆ & Up</label>
+            <!-- BRANDS -->
 
-            <hr>
+            <div class="filter-group">
 
-            <h2>Availability</h2>
+                <h2>Brands</h2>
 
-            <label><input type="checkbox"> In Stock</label>
+                <label><input type="checkbox" class="brand-filter" value="LG"> LG</label>
+
+                <label><input type="checkbox" class="brand-filter" value="Samsung"> Samsung</label>
+
+                <label><input type="checkbox" class="brand-filter" value="Whirlpool"> Whirlpool</label>
+
+                <label><input type="checkbox" class="brand-filter" value="Panasonic"> Panasonic</label>
+
+                <label><input type="checkbox" class="brand-filter" value="Bosch"> Bosch</label>
+
+                <label><input type="checkbox" class="brand-filter" value="IFB"> IFB</label>
+
+            </div>
+
+
+            <!-- PRICE -->
+
+            <div class="filter-group">
+
+                <h2>Price</h2>
+
+                <label>
+                    <input type="radio" name="price" value="under10000">
+                    Under ₹10,000
+                </label>
+
+                <label>
+                    <input type="radio" name="price" value="10000-25000">
+                    ₹10,000 – ₹25,000
+                </label>
+
+                <label>
+                    <input type="radio" name="price" value="25000-50000">
+                    ₹25,000 – ₹50,000
+                </label>
+
+                <label>
+                    <input type="radio" name="price" value="50000above">
+                    Above ₹50,000
+                </label>
+
+            </div>
+
+
+            <!-- RATING -->
+
+            <div class="filter-group">
+
+                <h2>Customer Rating</h2>
+
+                <label>
+
+                    <input type="checkbox" class="rating-filter" value="4">
+
+                    ★★★★☆ & Up
+
+                </label>
+
+                <label>
+
+                    <input type="checkbox" class="rating-filter" value="3">
+
+                    ★★★☆☆ & Up
+
+                </label>
+
+            </div>
+
+
+            <!-- STOCK -->
+
+            <div class="filter-group">
+
+                <h2>Availability</h2>
+
+                <label>
+
+                    <input type="checkbox" class="stock-filter">
+
+                    In Stock
+
+                </label>
+
+            </div>
 
         </aside>
 
@@ -411,9 +480,14 @@
 
                 <!-- ================= Product 1 ================= -->
 
-                <div class="product-card" data-category="ac" data-price="39999">
+                <div class="product-card" data-category="microwave" data-price="12499" data-brand="Samsung"
+                    data-rating="5" data-stock="instock">
 
-                    <div class="badge">Best Seller</div>
+                    <div class="badge">Limited Deal</div>
+
+                    <div class="wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
 
                     <a href="product-details.html">
                         <img src="images/aircon.webp" alt="">
@@ -421,102 +495,72 @@
 
                     <h3>
                         <a href="product-details.html">
-                            LG 1.5 Ton 5 Star Inverter Split AC
+                            IFB 30L Convection Microwave Oven
                         </a>
                     </h3>
 
                     <div class="rating">
-
-                        <span class="stars">
-                            ★★★★★
-                        </span>
-
-                        <span class="rating-count">
-                            2,356
-                        </span>
-
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">862</span>
                     </div>
 
-                    <p class="bought">
-                        5K+ bought in past month
-                    </p>
+                    <p class="bought">2K+ bought in past month</p>
 
                     <p class="price">
-
-                        ₹39,999
-
-                        <span>₹56,990</span>
-
+                        ₹12,499
+                        <span>₹15,999</span>
                     </p>
 
-                    <p class="offer">
+                    <p class="offer">22% Off</p>
 
-                        Save ₹16,991 (30%)
+                    <p class="delivery">FREE Delivery Tomorrow</p>
 
-                    </p>
-
-                    <p class="delivery">
-
-                        FREE Delivery Tomorrow
-
-                    </p>
-
-                    <p class="stock">
-
-                        In Stock
-
-                    </p>
+                    <p class="stock">Only 8 left</p>
 
                     <div class="product-buttons">
-
-                        <button class="cart-btn">
-                            Add to Cart
-                        </button>
-
-                        <button class="buy-btn">
-                            Buy Now
-                        </button>
-
+                        <button class="cart-btn">Add to Cart</button>
+                        <button class="buy-btn">Buy Now</button>
                     </div>
 
                 </div>
 
                 <!-- ================= Product 2 ================= -->
-                <div class="product-card" data-category="fridge" data-price="27999">
+                <div class="product-card" data-category="microwave" data-price="12499" data-brand="Samsung"
+                    data-rating="5" data-stock="instock">
 
-                    <div class="badge">Amazon Choice</div>
+                    <div class="badge">Limited Deal</div>
 
                     <div class="wishlist">
                         <i class="fa-regular fa-heart"></i>
                     </div>
 
                     <a href="product-details.html">
-                        <img src="images/refrigerator.webp" alt="">
+                        <img src="images/microwave.webp" alt="">
                     </a>
 
                     <h3>
                         <a href="product-details.html">
-                            Samsung 253L Double Door Refrigerator
+                            IFB 30L Convection Microwave Oven
                         </a>
                     </h3>
 
                     <div class="rating">
-                        <span class="stars">★★★★☆</span>
-                        <span class="rating-count">1,543</span>
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">862</span>
                     </div>
 
-                    <p class="bought">3K+ bought in past month</p>
+                    <p class="bought">2K+ bought in past month</p>
 
                     <p class="price">
-                        ₹27,999
-                        <span>₹34,990</span>
+                        ₹12,499
+                        <span>₹15,999</span>
                     </p>
 
-                    <p class="offer">20% Off</p>
+                    <p class="offer">22% Off</p>
 
-                    <p class="delivery">FREE Delivery</p>
+                    <p class="delivery">FREE Delivery Tomorrow</p>
 
-                    <p class="stock">In Stock</p>
+                    <p class="stock">Only 8 left</p>
 
                     <div class="product-buttons">
                         <button class="cart-btn">Add to Cart</button>
@@ -527,7 +571,8 @@
 
                 <!-- ================= Product 3 ================= -->
 
-                <div class="product-card" data-category="microwave" data-price="12499">
+                <div class="product-card" data-category="microwave" data-price="12499" data-brand="Samsung"
+                    data-rating="5" data-stock="instock">
 
                     <div class="badge">Limited Deal</div>
 
@@ -571,7 +616,8 @@
                 </div>
                 <!-- ================= Product 4 ================= -->
 
-                <div class="product-card" data-category="washing" data-price="31999">
+                <div class="product-card" data-category="washing" data-price="31999" data-brand="Whirlpool"
+                    data-rating="5" data-stock="instock">
 
                     <div class="badge">Top Rated</div>
 
@@ -616,7 +662,8 @@
 
                 <!-- ================= Product 5 ================= -->
 
-                <div class="product-card" data-category="ac" data-price="34490">
+                <div class="product-card" data-category="ac" data-price="34490" data-brand="Samsung" data-rating="2"
+                    data-stock="nostock">
 
                     <div class="badge">Limited Deal</div>
 
@@ -661,7 +708,8 @@
 
                 <!-- ================= Product 6 ================= -->
 
-                <div class="product-card" data-category="fridge" data-price="24990">
+                <div class="product-card" data-category="fridge" data-price="24990" data-brand="IFB" data-rating="3"
+                    data-stock="instock">
 
                     <div class="badge">Amazon Choice</div>
 
@@ -708,7 +756,8 @@
 
                 <!-- ================= Product 7 ================= -->
 
-                <div class="product-card" data-category="microwave" data-price="10990">
+                <div class="product-card" data-category="microwave" data-price="10990" data-brand="IFB" data-rating="3"
+                    data-stock="nostock">
 
                     <div class="badge">Best Seller</div>
 
@@ -755,7 +804,8 @@
 
                 <!-- ================= Product 8 ================= -->
 
-                <div class="product-card" data-category="microwave" data-price="10990">
+                <div class="product-card" data-category="microwave" data-price="10990" data-brand="Panasonic"
+                    data-rating="5" data-stock="instock">
 
                     <div class="badge">Best Seller</div>
 
@@ -802,7 +852,8 @@
                 <!-- ================= Product 9 ================= -->
 
 
-                <div class="product-card" data-category="dishwasher" data-price="45999">
+                <div class="product-card" data-category="dishwasher" data-price="45999" data-brand="Panasonic"
+                    data-rating="5" data-stock="instock">
 
                     <div class="badge">Amazon Choice</div>
 
@@ -846,7 +897,8 @@
                 </div>
 
                 <!-- ================= Product 10 ================= -->
-                <div class="product-card" data-category="induction" data-price="2999">
+                <div class="product-card" data-category="induction" data-price="2999" data-brand="Bosch" data-rating="5"
+                    data-stock="instock">
 
                     <div class="badge">Best Seller</div>
 
@@ -892,7 +944,8 @@
 
                 <!-- ================= Product 11 ================= -->
 
-                <div class="product-card" data-category="airfryer" data-price="6999">
+                <div class="product-card" data-category="airfryer" data-price="6999" data-brand="Samsung"
+                    data-rating="5" data-stock="instock">
 
                     <div class="badge">Limited Deal</div>
 
@@ -938,7 +991,8 @@
 
                 <!-- ================= Product 12 ================= -->
 
-                <div class="product-card" data-category="purifier" data-price="16999">
+                <div class="product-card" data-category="purifier" data-price="16999" data-brand="Bosch" data-rating="5"
+                    data-stock="instock">
 
                     <div class="badge">Amazon Choice</div>
 
@@ -985,7 +1039,8 @@
 
                 <!-- ================= Product 13 ================= -->
 
-                <div class="product-card" data-category="purifier" data-price="13999">
+                <div class="product-card" data-category="purifier" data-price="13999" data-brand="LG" data-rating="5"
+                    data-stock="instock">
 
                     <div class="badge">Best Seller</div>
 
@@ -1034,7 +1089,8 @@
 
                 <!-- ================= Product 14 ================= -->
 
-                <div class="product-card" data-category="geyser" data-price="7499">
+                <div class="product-card" data-category="geyser" data-price="7499" data-brand="LG" data-rating="5"
+                    data-stock="instock">
 
                     <div class="badge">Amazon Choice</div>
 
@@ -1081,7 +1137,8 @@
 
                 <!-- ================= Product 15 ================= -->
 
-                <div class="product-card" data-category="heater" data-price="3499">
+                <div class="product-card" data-category="heater" data-price="3499" data-brand="Whirlpool"
+                    data-rating="5" data-stock="instock">
 
                     <div class="badge">Limited Deal</div>
 
@@ -1128,7 +1185,8 @@
                 <!-- ================= Product 16 ================= -->
                 <!-- ================= Product 16 ================= -->
 
-                <div class="product-card" data-category="fridge" data-price="31999">
+                <div class="product-card" data-category="fridge" data-price="31999" data-brand="Whirlpool"
+                    data-rating="5" data-stock="instock">
 
                     <div class="badge">Top Rated</div>
 

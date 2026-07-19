@@ -559,6 +559,51 @@ body {
     margin-bottom: 20px;
 }
 
+.cart-icon {
+    position: relative;
+}
+
+.cart-icon i {
+    font-size: 28px;
+    color: #fff;
+}
+
+.cart-icon .stored {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+
+    height: 18px;
+    width: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color:#FF4D6D;  /* red background, like your original red text color */
+    color: white;                         /* white text on red — matches the screenshot */
+
+    font-size: 11px;
+    font-weight: bolder;
+
+    border-radius: 50%;   /* makes it a perfect circle */
+    border: 2px solid white; /* optional: gives it a clean separation from the icon behind it */
+}
+
+.nav-cart {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-cart p {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
 /* ===========================
 TABLET
 =========================== */
@@ -1180,44 +1225,227 @@ TABLET
 }
 
 /* ---------- 768px ---------- */
-@media (max-width:768px) {
+/* =========================================================
+   NAVBAR — RESPONSIVE OVERRIDES
+   Replaces the previously scattered navbar rules inside the
+   1024px / 768px / 576px / 425px / 320px media queries.
+   Desktop (.navbar, .search-bar, etc. base rules) unchanged.
+========================================================= */
+
+/* =========================================================
+   TABLET (768px – 1024px)
+   Goal: slightly compact navbar, shrink search bar,
+   keep all nav items visible in one row if possible.
+========================================================= */
+@media (max-width: 1024px) and (min-width: 768px) {
 
     .navbar {
         height: auto;
+        min-height: 64px;
+        padding: 10px 16px;
         flex-wrap: wrap;
-        padding: 10px;
         gap: 10px;
     }
 
-    .nav-logo {
-        order: 1;
-    }
-
-    .nav-cart {
-        order: 2;
-        margin-left: auto;
+    .nav-logo img {
+        width: 110px;
+        height: auto;
     }
 
     .nav-location {
-        order: 3;
-        margin-left: 0;
+        margin-left: 12px;
+    }
+
+    .location-text span {
+        font-size: 13px;
+    }
+
+    .location-text p {
+        font-size: 13px;
     }
 
     .search-bar {
-        order: 4;
         width: 100%;
+        order: 5;
+        height: 44px;
         margin-left: 0;
     }
 
+    .search-select,
+    .search-bar input,
+    .search-bar button {
+        height: 40px;
+    }
+
+    .search-bar button {
+        min-width: 44px;
+    }
+
+    .nav-language {
+        margin-left: 12px;
+    }
+
+    .nav-language img {
+        width: 22px;
+        height: 15px;
+    }
+
+    .nav-account,
+    .nav-orders {
+        margin-left: 14px;
+        font-size: 13px;
+        min-height: 44px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .nav-account p,
+    .nav-orders p {
+        font-size: 13px;
+    }
+
+    .nav-cart {
+        margin-left: 14px;
+        min-height: 44px;
+        align-items: center;
+    }
+
+    .cart-icon i {
+        font-size: 26px;
+    }
+
+    .nav-currency {
+        width: 240px;
+    }
+
+    /* Category nav: allow horizontal scroll, bigger touch targets */
+    .category-container {
+        padding: 8px 14px;
+    }
+
+    .category {
+        padding: 10px 12px;
+        font-size: 13px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Sidebar / close button touch target */
+    .close-btn {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE (320px – 767px)
+   Goal: stack nav rows cleanly, full-width search bar,
+   no horizontal scroll, 44px+ touch targets on everything
+   clickable, no items silently disappear — wrap instead.
+========================================================= */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* ---------- Navbar: Logo | Search | Cart ---------- */
+
+    .navbar {
+        height: auto;
+        min-height: 56px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 8px 10px;
+        gap: 8px;
+    }
+
+    .nav-logo {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-logo img {
+        width: 84px;
+        height: auto;
+    }
+
+    /* Hide everything except logo, search bar, and cart */
+    .nav-location,
     .nav-language,
+    .currency-container,
     .nav-account,
     .nav-orders {
         display: none;
     }
 
+    /* Search bar takes the remaining space, centered between logo and cart */
+    .search-bar {
+        flex: 1 1 auto;
+        width: auto;
+        max-width: none;
+        margin-left: 0;
+        height: 40px;
+    }
+
+    .search-select {
+        display: none;
+    }
+
+    .search-bar input {
+        font-size: 13px;
+        min-width: 0;
+    }
+
+    .search-bar button {
+        width: 42px;
+        min-width: 42px;
+        height: 40px;
+    }
+
+    .nav-cart {
+        flex: 0 0 auto;
+        margin-left: 0;
+        gap: 4px;
+        min-height: 44px;
+        justify-content: center;
+    }
+
+    .cart-icon i {
+        font-size: 26px;
+    }
+
+    #maincart {
+        height: 16px;
+        width: 16px;
+        font-size: 10px;
+        top: -6px;
+        right: -8px;
+    }
+
+    .nav-cart p {
+        font-size: 12px;
+    }
+
+    /* ---------- Category navigation: keep desktop look ---------- */
+
+    .category-container {
+        padding: 8px 14px;
+    }
+
+    .category {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    /* ---------- Sidebar ---------- */
+
     .sidebar {
-        width: 320px;
-        transform: translateX(-320px);
+        width: 290px;
+        transform: translateX(-290px);
     }
 
     .sidebar.active {
@@ -1225,15 +1453,11 @@ TABLET
     }
 
     .close-btn {
-        left: 330px;
+        left: 300px;
+        width: 44px;
+        height: 44px;
     }
 
-    .footer-bottom {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-}
 
 /* ---------- 576px ---------- */
 @media (max-width:576px) {

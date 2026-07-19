@@ -1,8 +1,15 @@
-/* =========================================
-   GLOBAL STYLES
-   (perf: avoid `transition: .3s` on `all`,
-   isolate paint layers, enable touch scroll)
-========================================= */
+/* =========================================================
+   AMAZON CLONE — STYLESHEET
+   Organized to follow the HTML document order:
+   Reset -> Global -> Header/Navbar -> Category Nav ->
+   Sidebar/Overlay -> Banner -> Product Cards -> Electronics ->
+   Back to Top -> Footer -> Sign-in Page -> Responsive
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -12,14 +19,6 @@
 
 html {
     scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #eaeded;
-    overflow-x: hidden;
-    text-rendering: optimizeSpeed;
-    -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -32,13 +31,27 @@ img {
     max-width: 100%;
 }
 
-
-/* navbar ====================================================*/
-
-.nav-logo img {
-    width: 150px;
-    height: auto;
+button {
+    font-family: inherit;
 }
+
+
+/* =========================================================
+   GLOBAL STYLES
+========================================================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eaeded;
+    overflow-x: hidden;
+    text-rendering: optimizeSpeed;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   HEADER / TOP NAVBAR
+========================================================= */
 
 .navbar {
     background-color: #131921;
@@ -48,7 +61,14 @@ img {
     padding: 0 20px;
 }
 
-/* Nav Location */
+/* Logo */
+
+.nav-logo img {
+    width: 150px;
+    height: auto;
+}
+
+/* Location */
 
 .nav-location {
     display: flex;
@@ -80,30 +100,11 @@ img {
     color: white;
     margin: 0;
 }
-#maincart {
-    position: absolute;
-    top: -8px;
-    right: -10px;
-
-    height: 18px;
-    width: 18px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color:#FF4D6D;  /* red background, like your original red text color */
-    color: white;                         /* white text on red — matches the screenshot */
-
-    font-size: 11px;
-    font-weight: bolder;
-
-    border-radius: 50%;   /* makes it a perfect circle */
-    border: 2px solid white; /* optional: gives it a clean separation from the icon behind it */
-}
 
 
-/* Search bar */
+/* =========================================================
+   SEARCH BAR
+========================================================= */
 
 .search-bar {
     display: flex;
@@ -114,7 +115,6 @@ img {
     border: 2px solid transparent;
     border-radius: 6px;
     overflow: hidden;
-    /* was declared twice in the original file (2px then 3px) — de-duplicated below */
 }
 
 .search-bar:focus-within {
@@ -123,6 +123,7 @@ img {
 
 .search-select {
     width: 60px;
+    height: 36px;
     border: none;
     outline: none;
     background-color: #d4d4d4;
@@ -137,6 +138,7 @@ img {
 
 .search-bar input {
     flex: 1;
+    height: 36px;
     padding: 10px;
     border: none;
     outline: none;
@@ -145,6 +147,7 @@ img {
 
 .search-bar button {
     width: 45px;
+    height: 36px;
     background-color: #febd69;
     border: none;
     border-radius: 0 4px 4px 0;
@@ -159,11 +162,10 @@ img {
     font-size: 18px;
 }
 
-.search-select,
-.search-bar input,
-.search-bar button {
-    height: 36px;
-}
+
+/* =========================================================
+   NAVIGATION LINKS (Language / Currency / Account / Orders / Cart)
+========================================================= */
 
 /* Language */
 
@@ -188,12 +190,11 @@ img {
     cursor: pointer;
 }
 
-/* Currency container */
+/* Currency container + dropdown */
+
 .currency-container {
     position: relative;
 }
-
-/* Currency dropdown */
 
 .nav-currency {
     display: none;
@@ -291,13 +292,21 @@ img {
     font-size: 30px;
 }
 
-.cart-icon span {
+#maincart {
     position: absolute;
     top: -8px;
-    right: 6px;
-    font-size: 16px;
-    color: #f08804;
-    font-weight: bold;
+    right: -10px;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF4D6D;
+    color: white;
+    font-size: 11px;
+    font-weight: bolder;
+    border-radius: 50%;
+    border: 2px solid white;
 }
 
 .nav-cart p {
@@ -307,9 +316,9 @@ img {
 }
 
 
-/* =========================================
+/* =========================================================
    CATEGORY NAVIGATION
-========================================= */
+========================================================= */
 
 .category-section {
     width: 100%;
@@ -348,10 +357,11 @@ img {
     cursor: pointer;
 }
 
-/* =========================================
+
+/* =========================================================
    OVERLAY
    (opacity + visibility only — cheap, GPU-composited)
-========================================= */
+========================================================= */
 
 .overlay {
     position: fixed;
@@ -368,13 +378,12 @@ img {
     visibility: visible;
 }
 
-/* =========================================
+
+/* =========================================================
    SIDEBAR
-   PERF FIX: original animated the `left` property,
-   which forces layout/reflow on every frame.
-   Switched to `transform: translateX()`, which is
-   handled entirely on the GPU compositor.
-========================================= */
+   PERF: animates `transform` (GPU compositor) instead of `left`
+   (which forces layout/reflow on every frame).
+========================================================= */
 
 .sidebar {
     position: fixed;
@@ -397,10 +406,6 @@ img {
     transform: translateX(0);
 }
 
-/* =========================================
-   SIDEBAR HEADER
-========================================= */
-
 .sidebar-header {
     height: 60px;
     background: #232f3e;
@@ -419,33 +424,6 @@ img {
     font-size: 22px;
     font-weight: 700;
 }
-
-/* =========================================
-   CLOSE BUTTON
-========================================= */
-
-.close-btn {
-    position: fixed;
-    top: 12px;
-    left: 335px;
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 30px;
-    cursor: pointer;
-    display: none;
-    z-index: 1001;
-}
-
-.close-btn.active {
-    display: block;
-}
-
-/* =========================================
-   SIDEBAR CONTENT
-========================================= */
 
 .sidebar-section {
     border-bottom: 1px solid #ddd;
@@ -479,9 +457,28 @@ img {
     font-size: 14px;
 }
 
-/* =========================================
-   SCROLLBAR
-========================================= */
+/* Close button */
+
+.close-btn {
+    position: fixed;
+    top: 12px;
+    left: 335px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    z-index: 1001;
+}
+
+.close-btn.active {
+    display: block;
+}
+
+/* Sidebar scrollbar */
 
 .sidebar::-webkit-scrollbar {
     width: 8px;
@@ -496,13 +493,12 @@ img {
     background: #fff;
 }
 
-/* =========================================
-   HERO SECTION
-   PERF NOTE: the mask-image fade is kept (removing it
-   changes the Amazon look) but isolated on its own
-   compositor layer via `contain` + `transform:translateZ(0)`
-   so the browser doesn't repaint it while the page scrolls.
-========================================= */
+
+/* =========================================================
+   BANNER / HERO SECTION
+   PERF NOTE: the mask-image fade is kept (removing it changes
+   the Amazon look) but isolated on its own compositor layer.
+========================================================= */
 
 #banner-container {
     position: relative;
@@ -521,12 +517,7 @@ img {
             rgba(0, 0, 0, 0));
 }
 
-/* =========================================
-   IMAGE SLIDER
-   PERF FIX: added will-change + translateZ so the
-   transform animation runs on the GPU compositor
-   instead of triggering paint on every slide change.
-========================================= */
+/* Image slider */
 
 #image-slider {
     display: flex;
@@ -545,9 +536,7 @@ img {
     object-fit: cover;
 }
 
-/* =========================================
-   SLIDER ARROWS
-========================================= */
+/* Slider arrows */
 
 #left,
 #right {
@@ -580,13 +569,11 @@ img {
 }
 
 
-/* =========================================
+/* =========================================================
    PRODUCT CARDS SECTION
-   PERF FIX: `content-visibility:auto` + `contain`
-   let the browser skip layout/paint work for cards
-   that are off-screen — this is the biggest win when
-   there are many product cards.
-========================================= */
+   PERF: content-visibility + contain skip layout/paint work
+   for cards that are off-screen.
+========================================================= */
 
 .cards-section {
     position: relative;
@@ -602,10 +589,6 @@ img {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
-
-/* =========================================
-   CARD
-========================================= */
 
 .card {
     background: #fff;
@@ -626,10 +609,6 @@ img {
     margin-bottom: 15px;
     min-height: 55px;
 }
-
-/* =========================================
-   CARD GRID
-========================================= */
 
 .card-grid {
     display: grid;
@@ -657,17 +636,13 @@ img {
     line-height: 1.4;
 }
 
-/* Headphone Card */
+/* Headphone-style card (image only, no caption) */
 
 .grid-item.no-text img {
     height: 130px;
     object-fit: contain;
     margin-bottom: 0;
 }
-
-/* =========================================
-   CARD LINK
-========================================= */
 
 .card-link {
     margin-top: 18px;
@@ -682,23 +657,14 @@ img {
 }
 
 
-/* ===================================================== */
-/* Electronics page */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: #eaeded;
-    font-family: Arial, Helvetica, sans-serif;
-}
+/* =========================================================
+   ELECTRONICS / PRODUCT SLIDER SECTION
+========================================================= */
 
 .electronics {
     width: 100%;
     height: 270px;
-    margin: 0px auto;
+    margin: 0 auto;
     background: #fff;
     padding: 20px;
 }
@@ -731,14 +697,11 @@ body {
     overflow-x: auto;
     scroll-behavior: smooth;
     padding: 10px;
+    scrollbar-width: none;
 }
 
 .products::-webkit-scrollbar {
     display: none;
-}
-
-.products {
-    scrollbar-width: none;
 }
 
 .item {
@@ -778,737 +741,602 @@ body {
     background: #ffffff;
 }
 
-    /* =========================================
+
+/* =========================================================
    BACK TO TOP
-========================================= */
-
-    .back-top {
-        background: #37475a;
-        color: #fff;
-        text-align: center;
-        padding: 16px;
-        font-size: 14px;
-        cursor: pointer;
-        transition: background-color .3s ease;
-    }
-
-    .back-top:hover {
-        background: #485769;
-    }
-
-    /* =========================================
-   FOOTER
-========================================= */
-
-    .footer-section {
-        background: #131a22;
-        color: #fff;
-    }
-
-    .footer-container {
-        max-width: 1500px;
-        margin: auto;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 40px;
-        padding: 50px 60px;
-    }
-
-    .footer-box {
-        content-visibility: auto;
-        contain-intrinsic-size: 300px 260px;
-    }
-
-    .footer-box h3 {
-        font-size: 16px;
-        margin-bottom: 18px;
-        font-weight: 700;
-    }
-
-    .footer-box p {
-        color: #ddd;
-        font-size: 14px;
-        margin: 10px 0;
-        cursor: pointer;
-        transition: color .3s ease;
-    }
-
-    .footer-box p:hover {
-        color: #fff;
-        text-decoration: underline;
-    }
-
-    /* =========================================
-   FOOTER BOTTOM
-========================================= */
-
-    .footer-bottom {
-        border-top: 1px solid #3a4553;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        padding: 30px;
-    }
-
-    .amazon-logo {
-        font-size: 34px;
-        font-weight: bold;
-        letter-spacing: 1px;
-        text-transform: lowercase;
-    }
-
-    .footer-bottom button {
-        background: transparent;
-        color: #fff;
-        border: 1px solid #777;
-        padding: 10px 18px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color .3s ease;
-    }
-
-    .footer-bottom button:hover {
-        background: #37475a;
-    }
-
-
-    /* =========================================================
-   RESPONSIVE / MEDIA QUERIES
-   Consolidated — every breakpoint now appears ONCE,
-   with all rules for that width grouped together
-   (previously the same breakpoint was declared 3–5
-   separate times across the file).
 ========================================================= */
 
-    /* ---------- 1200px ---------- */
-    @media (max-width:1200px) {
-
-        /* Product cards */
-        .cards-container {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        /* Footer */
-        .footer-container {
-            grid-template-columns: repeat(2, 1fr);
-            padding: 40px;
-        }
-
-    }
-
-    /* ---------- 1024px ---------- */
-    @media (max-width:1024px) {
-
-        /* Navbar */
-        .navbar {
-            padding: 0 10px;
-        }
-
-        .search-bar {
-            width: 420px;
-        }
-
-        .nav-language,
-        .nav-orders {
-            display: none;
-        }
-
-        .nav-logo img {
-            width: 120px;
-        }
-
-        /* Electronics */
-        .electronics {
-            height: auto;
-            padding: 15px;
-        }
-
-        .electronics h2 {
-            font-size: 22px;
-        }
-
-        .item img {
-            width: 160px;
-            height: 160px;
-        }
-
-        .prev,
-        .next {
-            width: 40px;
-            height: 70px;
-            font-size: 22px;
-        }
-
-    }
-
-    /* ---------- 992px ---------- */
-    @media (max-width:992px) {
-
-        /* Hero */
-        #banner-container {
-            height: 420px;
-        }
-
-    }
-
-    /* ---------- 768px ---------- */
-    @media (max-width:768px) {
-
-        /* Navbar */
-        .navbar {
-            height: auto;
-            flex-wrap: wrap;
-            padding: 10px;
-            gap: 10px;
-        }
-
-        .nav-logo {
-            order: 1;
-        }
-
-        .nav-cart {
-            order: 2;
-            margin-left: auto;
-        }
-
-        .nav-location {
-            order: 3;
-            margin-left: 0;
-        }
-
-        .search-bar {
-            order: 4;
-            width: 100%;
-            margin-left: 0;
-        }
-
-        .nav-language,
-        .nav-account,
-        .nav-orders {
-            display: none;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 320px;
-            transform: translateX(-320px);
-        }
-
-        .sidebar.active {
-            transform: translateX(0);
-        }
-
-        .close-btn {
-            left: 330px;
-        }
-
-        /* Hero */
-        #banner-container {
-            height: 350px;
-        }
-
-        #left,
-        #right {
-            width: 40px;
-            height: 40px;
-        }
-
-        /* Product cards */
-        .cards-section {
-            margin-top: -80px;
-        }
-
-        /* Electronics */
-        .electronics {
-            padding: 15px 10px;
-        }
-
-        .electronics h2 {
-            display: block;
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-
-        .electronics a {
-            display: inline-block;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .products {
-            gap: 8px;
-            padding: 5px;
-        }
-
-        .item img {
-            width: 140px;
-            height: 140px;
-        }
-
-        .prev,
-        .next {
-            width: 35px;
-            height: 60px;
-            font-size: 20px;
-        }
-
-        /* Footer */
-        .footer-bottom {
-            flex-direction: column;
-            gap: 15px;
-        }
-
-    }
-
-    /* ---------- 600px ---------- */
-    @media (max-width:600px) {
-
-        /* Product cards */
-        .cards-container {
-            grid-template-columns: 1fr;
-        }
-
-        .cards-section {
-            margin-top: -40px;
-            padding: 15px;
-        }
-
-        .card h2 {
-            font-size: 20px;
-        }
-
-        .grid-item img {
-            height: 150px;
-        }
-
-    }
-
-    /* ---------- 576px ---------- */
-    @media (max-width:576px) {
-
-        /* Navbar */
-        .navbar {
-            padding: 8px;
-        }
-
-        .nav-logo img {
-            width: 100px;
-        }
-
-        .nav-location {
-            display: none;
-        }
-
-        .search-bar {
-            width: 100%;
-            height: 38px;
-        }
-
-        .search-select {
-            width: 55px;
-            font-size: 12px;
-            padding: 5px;
-        }
-
-        .search-bar input {
-            font-size: 13px;
-        }
-
-        .search-bar button {
-            width: 42px;
-        }
-
-        .nav-account,
-        .nav-orders,
-        .nav-language {
-            display: none;
-        }
-
-        .cart-icon i {
-            font-size: 26px;
-        }
-
-        .cart-icon span {
-            font-size: 14px;
-            right: 5px;
-        }
-
-        .nav-cart p {
-            display: none;
-        }
-
-        /* Hero */
-        #banner-container {
-            height: 240px;
-        }
-
-        #left {
-            left: 8px;
-        }
-
-        #right {
-            right: 8px;
-        }
-
-        #left,
-        #right {
-            width: 30px;
-            height: 30px;
-        }
-
-        /* Electronics */
-        .electronics {
-            padding: 12px 8px;
-        }
-
-        .electronics h2 {
-            font-size: 18px;
-        }
-
-        .electronics a {
-            font-size: 13px;
-        }
-
-        .products {
-            gap: 6px;
-        }
-
-        .item img {
-            width: 120px;
-            height: 120px;
-        }
-
-        .prev,
-        .next {
-            width: 30px;
-            height: 50px;
-            font-size: 18px;
-        }
-
-        .back-top {
-            padding: 14px;
-            font-size: 13px;
-        }
-
-        /* Footer */
-        .footer-container {
-            grid-template-columns: 1fr;
-            gap: 30px;
-            padding: 30px 20px;
-        }
-
-        .amazon-logo {
-            font-size: 28px;
-        }
-
-        .footer-bottom button {
-            width: 220px;
-        }
-
-    }
-
-    /* ---------- 480px ---------- */
-    @media (max-width:480px) {
-
-        /* Sidebar */
-        .sidebar {
-            width: 290px;
-            transform: translateX(-290px);
-        }
-
-        .sidebar.active {
-            transform: translateX(0);
-        }
-
-        .close-btn {
-            left: 300px;
-        }
-
-    }
-
-    /* ---------- 425px ---------- */
-    @media (max-width:425px) {
-
-        /* Navbar */
-        .navbar {
-            gap: 8px;
-        }
-
-        .nav-logo img {
-            width: 90px;
-        }
-
-        .search-bar {
-            height: 36px;
-        }
-
-        .search-select {
-            width: 50px;
-            font-size: 11px;
-        }
-
-        .search-bar input {
-            font-size: 12px;
-        }
-
-        .search-bar button {
-            width: 38px;
-        }
-
-        .cart-icon i {
-            font-size: 24px;
-        }
-
-        /* Electronics */
-        .electronics {
-            padding: 10px;
-        }
-
-        .electronics h2 {
-            font-size: 17px;
-        }
-
-        .electronics a {
-            font-size: 12px;
-        }
-
-        .item img {
-            width: 100px;
-            height: 100px;
-        }
-
-        .prev,
-        .next {
-            width: 28px;
-            height: 45px;
-            font-size: 16px;
-        }
-
-        .back-top {
-            padding: 12px;
-            font-size: 12px;
-        }
-
-    }
-
-    /* ---------- 320px ---------- */
-    @media (max-width:320px) {
-
-        /* Navbar */
-        .nav-logo img {
-            width: 80px;
-        }
-
-        .search-select {
-            display: none;
-        }
-
-        .search-bar {
-            width: 100%;
-        }
-
-        .search-bar input {
-            font-size: 11px;
-        }
-
-        .search-bar button {
-            width: 36px;
-        }
-
-        .cart-icon i {
-            font-size: 22px;
-        }
-
-        /* Electronics */
-        .electronics h2 {
-            font-size: 16px;
-        }
-
-        .electronics a {
-            font-size: 11px;
-        }
-
-        .item img {
-            width: 85px;
-            height: 85px;
-        }
-
-        .prev,
-        .next {
-            width: 25px;
-            height: 40px;
-            font-size: 14px;
-        }
-
-        .back-top {
-            font-size: 11px;
-            padding: 10px;
-        }
-
-    }
-
-    /*=========================================
- // sigin page//
-=========================================  */
-
-    body {
-        background: #fff;
-        margin: 0px;
-    }
-
+.back-top {
+    background: #37475a;
+    color: #fff;
+    text-align: center;
+    padding: 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.back-top:hover {
+    background: #485769;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer-section {
+    background: #131a22;
+    color: #fff;
+}
+
+.footer-container {
+    max-width: 1500px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 50px 60px;
+}
+
+.footer-box {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px 260px;
+}
+
+.footer-box h3 {
+    font-size: 16px;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.footer-box p {
+    color: #ddd;
+    font-size: 14px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: color .3s ease;
+}
+
+.footer-box p:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid #3a4553;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+.amazon-logo {
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+}
+
+.footer-bottom button {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #777;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.footer-bottom button:hover {
+    background: #37475a;
+}
+
+
+/* =========================================================
+   SIGN-IN PAGE
+========================================================= */
+
+.container {
+    width: 350px;
+    margin: 40px auto;
+}
+
+.container h2 {
+    margin-bottom: 20px;
+}
+
+.container label {
+    font-weight: bold;
+}
+
+.container input {
+    width: 100%;
+    height: 40px;
+    margin: 10px 0 20px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.container button {
+    width: 100%;
+    height: 42px;
+    background: #ffd814;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.text {
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.text a {
+    color: #007185;
+    text-decoration: none;
+}
+
+.container hr {
+    margin: 20px 0;
+}
+
+.sign-footer {
+    margin-top: 50px;
+    background: #131a22;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-lang {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.globe-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.footer-links {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================================
+   TABLET RESPONSIVE (768px – 1024px)
+   Goal: navbar stays visually almost identical to desktop — same layout,
+   spacing proportions, and structure. Only sizes/paddings are trimmed
+   where needed to avoid overflow. All navbar elements remain visible.
+   Category navigation keeps the same desktop look and spacing.
+========================================================================= */
+
+@media (max-width: 1024px) and (min-width: 768px) {
+
+    /* Navbar — same single-row layout as desktop, just tighter */
     .navbar {
-        background-color: #131921;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
+        padding: 0 14px;
     }
 
     .nav-logo img {
-        height: 35px;
+        width: 120px;
     }
 
-    .container {
-        width: 350px;
-        margin: 40px auto;
+    .nav-location {
+        margin-left: 14px;
     }
 
-    .container h2 {
-        margin-bottom: 20px;
+    .location-text span {
+        font-size: 14px;
     }
 
-    label {
-        font-weight: bold;
+    .location-text p {
+        font-size: 13px;
     }
 
-    input {
+    .search-bar {
         width: 100%;
+        max-width: 380px;
+        margin-left: 14px;
+    }
+
+    .nav-language {
+        margin-left: 14px;
+    }
+
+    .nav-language img {
+        width: 22px;
+        height: 15px;
+    }
+
+    .nav-account,
+    .nav-orders {
+        margin-left: 14px;
+        font-size: 13px;
+    }
+
+    .nav-account p,
+    .nav-orders p {
+        font-size: 13px;
+    }
+
+    .nav-cart {
+        margin-left: 14px;
+    }
+
+    .cart-icon i {
+        font-size: 26px;
+    }
+
+    .nav-currency {
+        width: 240px;
+    }
+
+    /* Category navigation — identical desktop look, tighter padding */
+    .category-container {
+        padding: 10px 14px;
+    }
+
+    .category {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    /* Product cards */
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer */
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 40px;
+    }
+
+    /* Hero */
+    #banner-container {
+        height: 420px;
+    }
+
+    /* Electronics */
+    .item img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .prev,
+    .next {
+        width: 40px;
+        height: 70px;
+        font-size: 22px;
+    }
+}
+
+
+/* =========================================================================
+   MOBILE RESPONSIVE (below 768px)
+   Navbar is fully redesigned: only Logo (left), Search bar (center,
+   takes most width), and Cart (right) remain. Everything else
+   (location, sign in / account, returns & orders, language/currency)
+   is hidden. Category navigation keeps its desktop look/behavior.
+========================================================================= */
+
+@media (max-width: 767px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* ---------- Navbar: Logo | Search | Cart ---------- */
+
+    .navbar {
+        height: auto;
+        min-height: 56px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 8px 10px;
+        gap: 8px;
+    }
+
+    .nav-logo {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-logo img {
+        width: 84px;
+        height: auto;
+    }
+
+    /* Hide everything except logo, search bar, and cart */
+    .nav-location,
+    .nav-language,
+    .currency-container,
+    .nav-account,
+    .nav-orders {
+        display: none;
+    }
+
+    /* Search bar takes the remaining space, centered between logo and cart */
+    .search-bar {
+        flex: 1 1 auto;
+        width: auto;
+        max-width: none;
+        margin-left: 0;
         height: 40px;
-        margin: 10px 0 20px;
-        border: 1px solid #999;
-        border-radius: 4px;
-        padding: 10px;
-        box-sizing: border-box;
     }
 
-    button {
-        width: 100%;
-        height: 42px;
-        background: #ffd814;
-        border: none;
-        border-radius: 25px;
+    .search-select {
+        display: none;
+    }
+
+    .search-bar input {
+        font-size: 13px;
+        min-width: 0;
+    }
+
+    .search-bar button {
+        width: 42px;
+        min-width: 42px;
+        height: 40px;
+    }
+
+    .nav-cart {
+        flex: 0 0 auto;
+        margin-left: 0;
+        gap: 4px;
+        min-height: 44px;
+        justify-content: center;
+    }
+
+    .cart-icon i {
+        font-size: 26px;
+    }
+
+    #maincart {
+        height: 16px;
+        width: 16px;
+        font-size: 10px;
+        top: -6px;
+        right: -8px;
+    }
+
+    .nav-cart p {
+        font-size: 12px;
+    }
+
+    /* ---------- Category navigation: keep desktop look ---------- */
+
+    .category-container {
+        padding: 8px 14px;
+    }
+
+    .category {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    /* ---------- Sidebar ---------- */
+
+    .sidebar {
+        width: 290px;
+        transform: translateX(-290px);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .close-btn {
+        left: 300px;
+        width: 44px;
+        height: 44px;
+    }
+
+    /* ---------- Hero ---------- */
+
+    #banner-container {
+        height: 260px;
+    }
+
+    #left,
+    #right {
+        width: 34px;
+        height: 34px;
+    }
+
+    /* ---------- Product cards ---------- */
+
+    .cards-section {
+        margin-top: -80px;
+        padding: 15px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .card h2 {
+        font-size: 19px;
+    }
+
+    .grid-item img {
+        height: 140px;
+    }
+
+    /* ---------- Electronics ---------- */
+
+    .electronics {
+        height: auto;
+        padding: 12px 8px;
+    }
+
+    .electronics h2 {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .electronics a {
+        display: inline-block;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .products {
+        gap: 6px;
+        padding: 5px;
+    }
+
+    .item img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .prev,
+    .next {
+        width: 28px;
+        height: 45px;
         font-size: 16px;
-        cursor: pointer;
     }
 
-    .error {
-        color: red;
-        font-size: 14px;
-        margin-top: -15px;
-        margin-bottom: 15px;
+    /* ---------- Back to top ---------- */
+
+    .back-top {
+        padding: 12px;
+        font-size: 13px;
     }
 
-    .text {
-        margin: 20px 0;
-        font-size: 14px;
+    /* ---------- Footer ---------- */
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 30px 20px;
     }
 
-    .text a {
-        color: #007185;
-        text-decoration: none;
+    .amazon-logo {
+        font-size: 26px;
     }
 
-    hr {
-        margin: 20px 0;
-    }
-
-    footer {
-        margin-top: 50px;
-        background: #131a22;
-        color: white;
-        text-align: center;
+    .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
         padding: 20px;
     }
 
-    .footer-lang {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 15px;
+    .footer-bottom button {
+        width: 220px;
     }
 
-    .globe-icon {
-        width: 18px;
-        height: 18px;
+    /* ---------- Sign-in page ---------- */
 
+    .container {
+        width: 90%;
+        margin: 30px auto;
+    }
+
+    .container h2 {
+        font-size: 22px;
+    }
+
+    .footer-lang {
+        flex-direction: column;
+        gap: 5px;
     }
 
     .footer-links {
-        margin-bottom: 10px;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 8px;
     }
 
     .footer-links a {
-        color: white;
-        text-decoration: none;
-        margin: 0 10px;
+        margin: 0;
+    }
+
+    .sign-footer {
+        padding: 15px;
         font-size: 14px;
     }
+}
 
-    .footer-links a:hover {
-        text-decoration: underline;
+
+/* =========================================================================
+   SMALL MOBILE FINE-TUNING (below 480px)
+========================================================================= */
+
+@media (max-width: 480px) {
+
+    .nav-logo img {
+        width: 72px;
     }
 
-    @media screen and (max-width: 768px) {
-
-        .navbar {
-            height: 55px;
-            padding: 0 15px;
-        }
-
-        .nav-logo img {
-            height: 30px;
-        }
-
-        .container {
-            width: 90%;
-            margin: 30px auto;
-        }
-
-        .container h2 {
-            font-size: 24px;
-        }
-
-        input,
-        button {
-            width: 100%;
-        }
-
-        .footer-lang {
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .footer-links a {
-            margin: 0;
-        }
-
-        footer {
-            padding: 15px;
-            font-size: 14px;
-        }
+    .search-bar input {
+        font-size: 12px;
     }
 
-    /* products css  */
+    .cart-icon i {
+        font-size: 22px;
+    }
 
-    
+    .sidebar {
+        width: 260px;
+        transform: translateX(-260px);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .close-btn {
+        left: 270px;
+    }
+
+    #banner-container {
+        height: 220px;
+    }
+
+    .item img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .prev,
+    .next {
+        width: 24px;
+        height: 38px;
+        font-size: 14px;
+    }
+}

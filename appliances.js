@@ -6,18 +6,18 @@ const navLanguageBtn = document.querySelector(".nav-language");
 const currencyBox = document.querySelector(".nav-currency");
 const saveButton = document.getElementById("save-currency");
 
-navLanguageBtn?.addEventListener("click", function(e){
+navLanguageBtn?.addEventListener("click", function (e) {
 
-    e.preventDefault();
+  e.preventDefault();
 
-    currencyBox.style.display =
-        currencyBox.style.display === "block" ? "none" : "block";
+  currencyBox.style.display =
+    currencyBox.style.display === "block" ? "none" : "block";
 
 });
 
-saveButton?.addEventListener("click", function(){
+saveButton?.addEventListener("click", function () {
 
-    currencyBox.style.display = "none";
+  currencyBox.style.display = "none";
 
 });
 
@@ -31,23 +31,23 @@ const categories = document.querySelectorAll(".category");
 
 categories.forEach(category => {
 
-    if(category.id !== "menu-btn"){
+  if (category.id !== "menu-btn") {
 
-        category.addEventListener("click", () => {
+    category.addEventListener("click", () => {
 
-            categories.forEach(item => {
+      categories.forEach(item => {
 
-                if(item.id !== "menu-btn"){
-                    item.classList.remove("active");
-                }
+        if (item.id !== "menu-btn") {
+          item.classList.remove("active");
+        }
 
-            });
+      });
 
-            category.classList.add("active");
+      category.classList.add("active");
 
-        });
+    });
 
-    }
+  }
 
 });
 
@@ -60,29 +60,29 @@ const sidebar = document.querySelector(".sidebar");
 const overlay = document.querySelector(".overlay");
 const closeBtn = document.querySelector(".close-btn");
 
-menuBtn.addEventListener("click", function(e){
+menuBtn.addEventListener("click", function (e) {
 
-    e.preventDefault();
+  e.preventDefault();
 
-    sidebar.classList.add("active");
-    overlay.classList.add("active");
-    closeBtn.classList.add("active");
-
-});
-
-closeBtn.addEventListener("click", function(){
-
-    sidebar.classList.remove("active");
-    overlay.classList.remove("active");
-    closeBtn.classList.remove("active");
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
+  closeBtn.classList.add("active");
 
 });
 
-overlay.addEventListener("click", function(){
+closeBtn.addEventListener("click", function () {
 
-    sidebar.classList.remove("active");
-    overlay.classList.remove("active");
-    closeBtn.classList.remove("active");
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+  closeBtn.classList.remove("active");
+
+});
+
+overlay.addEventListener("click", function () {
+
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+  closeBtn.classList.remove("active");
 
 });
 
@@ -91,16 +91,28 @@ overlay.addEventListener("click", function(){
    Vanilla JS (ES6) - No frameworks
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
 
   /* ------------------------------------------------------------------------
      0. CACHE DOM REFERENCES
   ------------------------------------------------------------------------ */
-  const productsGrid = document.querySelector('.products-grid');
-  const sortSelect = document.getElementById('sortProducts');
-  const searchInput = document.querySelector('.navbar-search input, #searchInput, input[type="search"]');
-  const categoryButtons = document.querySelectorAll('[data-filter-category]');
-  const cartCountEl = document.querySelector('.cart-count');
+
+  // Products Grid
+  const productsGrid = document.querySelector(".products-grid");
+
+  // Product Sorting Dropdown
+  const sortSelect = document.getElementById("sortProducts");
+
+  // Search Input
+  const searchInput = document.querySelector(".search-bar-s1");
+
+  // Filter Sidebar Checkboxes
+  const categoryButtons = document.querySelectorAll(
+    '.filter-sidebar input[type="checkbox"]'
+  );
+
+  // Cart Count
+  const cartCountEl = document.getElementById("maincart");
 
   // Guard: if grid is missing, nothing else can run
   if (!productsGrid) return;
@@ -126,95 +138,221 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem(key, JSON.stringify(value));
   };
 
-  // Extract clean product data from a product-card element
+  // Extract clean product data
   const getProductData = (card) => {
-    const title = card.querySelector('h3 a')?.textContent.trim() || 'Unknown Product';
-    const image = card.querySelector('img')?.getAttribute('src') || '';
-    const price = Number(card.getAttribute('data-price')) || 0;
-    const category = card.getAttribute('data-category') || '';
-    return { title, image, price, category };
+
+    const title =
+      card.querySelector("h3 a")?.textContent.trim() ||
+      "Unknown Product";
+
+    const image =
+      card.querySelector("img")?.src || "";
+
+    const price =
+      Number(card.dataset.price) || 0;
+
+    const category =
+      card.dataset.category || "";
+
+    return {
+      title,
+      image,
+      price,
+      category
+    };
+
   };
 
-  // Toast notification (Amazon style) instead of plain alert
+  // Toast notification
   const showToast = (message) => {
-    let toast = document.querySelector('.az-toast');
+
+    let toast = document.querySelector(".az-toast");
 
     if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'az-toast';
+
+      toast = document.createElement("div");
+
+      toast.className = "az-toast";
+
       Object.assign(toast.style, {
-        position: 'fixed',
-        bottom: '24px',
-        left: '50%',
-        transform: 'translateX(-50%) translateY(20px)',
-        background: '#232f3e',
-        color: '#fff',
-        padding: '12px 20px',
-        borderRadius: '6px',
-        fontSize: '14px',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
-        zIndex: '9999',
-        opacity: '0',
-        transition: 'opacity 0.25s ease, transform 0.25s ease',
-        pointerEvents: 'none'
+        position: "fixed",
+        bottom: "24px",
+        left: "50%",
+        transform: "translateX(-50%) translateY(20px)",
+        background: "#232f3e",
+        color: "#fff",
+        padding: "12px 20px",
+        borderRadius: "6px",
+        fontSize: "14px",
+        boxShadow: "0 4px 12px rgba(0,0,0,.25)",
+        zIndex: "9999",
+        opacity: "0",
+        transition: "0.25s",
+        pointerEvents: "none"
       });
+
       document.body.appendChild(toast);
+
     }
 
     toast.textContent = message;
-    toast.style.opacity = '1';
-    toast.style.transform = 'translateX(-50%) translateY(0)';
+
+    toast.style.opacity = "1";
+    toast.style.transform = "translateX(-50%) translateY(0)";
 
     clearTimeout(toast._hideTimer);
+
     toast._hideTimer = setTimeout(() => {
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateX(-50%) translateY(20px)';
+
+      toast.style.opacity = "0";
+      toast.style.transform = "translateX(-50%) translateY(20px)";
+
     }, 2200);
+
   };
 
   /* ------------------------------------------------------------------------
      2. PRODUCT SORTING SYSTEM
   ------------------------------------------------------------------------ */
-  const sortProducts = (criteria) => {
-    const cards = Array.from(productsGrid.children);
+  /* ==========================================
+     PRODUCT FILTER
+  ========================================== */
 
-    switch (criteria) {
-      case 'low':
-        cards.sort((a, b) => Number(a.dataset.price) - Number(b.dataset.price));
-        break;
+  const categoryFilters = document.querySelectorAll(".category-filter");
+  const brandFilters = document.querySelectorAll(".brand-filter");
+  const priceFilters = document.querySelectorAll('input[name="price"]');
+  const ratingFilters = document.querySelectorAll(".rating-filter");
+  const stockFilter = document.querySelector(".stock-filter");
 
-      case 'high':
-        cards.sort((a, b) => Number(b.dataset.price) - Number(a.dataset.price));
-        break;
+  const productCards = document.querySelectorAll(".product-card");
 
-      case 'new':
-        // Newest first = reverse of current DOM order
-        cards.reverse();
-        break;
+  function filterProducts() {
 
-      case 'rating':
-        cards.sort((a, b) => {
-          const ratingA = Number(a.querySelector('.rating-count')?.textContent.replace(/,/g, '')) || 0;
-          const ratingB = Number(b.querySelector('.rating-count')?.textContent.replace(/,/g, '')) || 0;
-          return ratingB - ratingA;
-        });
-        break;
+    // Selected Categories
+    const selectedCategories = [...categoryFilters]
+      .filter(item => item.checked)
+      .map(item => item.value);
 
-      case 'featured':
-      default:
-        // Restore original order
-        originalOrder.forEach((card) => productsGrid.appendChild(card));
-        return;
-    }
+    // Selected Brands
+    const selectedBrands = [...brandFilters]
+      .filter(item => item.checked)
+      .map(item => item.value);
 
-    cards.forEach((card) => productsGrid.appendChild(card));
-  };
+    // Selected Rating
+    const selectedRatings = [...ratingFilters]
+      .filter(item => item.checked)
+      .map(item => Number(item.value));
 
-  if (sortSelect) {
-    sortSelect.addEventListener('change', (e) => {
-      sortProducts(e.target.value);
+    // Selected Price
+    const selectedPrice = document.querySelector(
+      'input[name="price"]:checked'
+    )?.value;
+
+    // Stock
+    const onlyStock = stockFilter.checked;
+
+    productCards.forEach(card => {
+
+      const category = card.dataset.category;
+      const brand = card.dataset.brand;
+      const price = Number(card.dataset.price);
+      const rating = Number(card.dataset.rating);
+      const stock = card.dataset.stock;
+
+      let show = true;
+
+      /* CATEGORY */
+
+      if (
+        selectedCategories.length &&
+        !selectedCategories.includes(category)
+      ) {
+        show = false;
+      }
+
+      /* BRAND */
+
+      if (
+        selectedBrands.length &&
+        !selectedBrands.includes(brand)
+      ) {
+        show = false;
+      }
+
+      /* PRICE */
+
+      if (selectedPrice) {
+
+        switch (selectedPrice) {
+
+          case "under10000":
+            if (price >= 10000) show = false;
+            break;
+
+          case "10000-25000":
+            if (price < 10000 || price > 25000)
+              show = false;
+            break;
+
+          case "25000-50000":
+            if (price < 25000 || price > 50000)
+              show = false;
+            break;
+
+          case "50000above":
+            if (price <= 50000)
+              show = false;
+            break;
+        }
+
+      }
+
+      /* RATING */
+
+      if (selectedRatings.length) {
+
+        const match = selectedRatings.some(r => rating >= r);
+
+        if (!match)
+          show = false;
+
+      }
+
+      /* STOCK */
+
+      if (onlyStock && stock !== "instock") {
+
+        show = false;
+
+      }
+
+      card.style.display = show ? "" : "none";
+
     });
+
   }
+
+  /* ==========================
+     EVENTS
+  ========================== */
+
+  categoryFilters.forEach(item =>
+    item.addEventListener("change", filterProducts)
+  );
+
+  brandFilters.forEach(item =>
+    item.addEventListener("change", filterProducts)
+  );
+
+  priceFilters.forEach(item =>
+    item.addEventListener("change", filterProducts)
+  );
+
+  ratingFilters.forEach(item =>
+    item.addEventListener("change", filterProducts)
+  );
+
+  stockFilter.addEventListener("change", filterProducts);
 
   /* ------------------------------------------------------------------------
      3. CART COUNTER UPDATE
