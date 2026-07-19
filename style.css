@@ -596,3 +596,120 @@
         right: 8px;
     }
 }
+
+
+/* ==========================================
+   HOME ESSENTIALS CARD (INDEX PAGE)
+========================================== */
+
+.home-section {
+    padding: 40px 20px;
+    background: #eaeded;
+}
+
+.home-preview-card {
+    background: #ffffff;
+    max-width: 350px;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.home-preview-card:hover {
+    transform: translateY(-5px);
+}
+
+.home-preview-card h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f1111;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.category-item {
+    text-align: center;
+}
+
+.category-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  
+}
+
+.category-item p {
+    margin-top: 8px;
+    font-size: 15px;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif
+}
+.explore-link{
+
+     display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007185;
+    font-size: 15px;
+}
+
+.explore-link:hover {
+    color: #c7511f;
+    text-decoration: underline;
+}
+
+/* ======================================
+   HOME ESSENTIALS CARD - MOBILE
+====================================== */
+
+@media (max-width: 768px) {
+
+    .home-preview-card {
+        padding: 15px;
+    }
+
+    .home-preview-card h2 {
+        font-size: 18px;
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .category-item {
+        text-align: center;
+    }
+
+    .category-item img {
+        width: 100%;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+    .category-item p {
+        font-size: 12px;
+        margin-top: 6px;
+    }
+
+    .explore-link {
+        font-size: 13px;
+        margin-top: 12px;
+    }
+}

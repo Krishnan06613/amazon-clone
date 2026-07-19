@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Essentials</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Home Essentials CSS -->
+    <link rel="stylesheet" href="home-essentials.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <!--Header-->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="nav-logo">
+
+                <img src="images/Logo.png" alt="Amazon Logo">
+
+            </a>
+
+            <!--Nav Location-->
+
+            <div class="nav-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <div class="location-text">
+                    <span>Delivering to</span>
+                    <p>London</p>
+                </div>
+            </div>
+
+            <!--Search Bar-->
+
+            <div class="search-bar">
+                <select class="search-select">
+
+                    <option>All</option>
+                    <option>Baby</option>
+                    <option>Books</option>
+                    <option>Electronics</option>
+                    <option>Fashion</option>
+                    <option>Home</option>
+                    <option>Beauty</option>
+                    <option>Toys</option>
+                </select>
+
+                <input type="text" placeholder="Search Amazon.co.uk">
+
+                <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+
+            </div>
+
+            <!-- Currency-->
+            <div class="currency-container">
+
+                <div class="nav-language">
+
+                    <img src="images/united-kingdom.png" alt="UK Flag">
+
+                    <i class="fa-solid fa-caret-down"></i>
+
+                </div>
+
+                <!--Currency Dropdown-->
+
+                <div class="nav-currency">
+
+                    <h3>Change Currency </h3>
+
+                    <label>
+                        <input type="radio" name="currency" checked>
+                        £ GBP - British Pound
+                    </label>
+
+                    <label>
+                        <input type="radio" name="currency">
+                        $ USD - US Dollar
+                    </label>
+
+                    <label>
+                        <input type="radio" name="currency">
+                        € EUR - Euro
+                    </label>
+
+                    <label>
+                        <input type="radio" name="currency">
+                        ₹ INR - Rupees
+                    </label>
+
+                    <label>
+                        <input type="radio" name="currency">
+                        ¥ CNY - Chinese Yuan
+                    </label>
+
+                    <button id="save-currency">Save Changes</button>
+
+                </div>
+
+            </div>
+
+            <!-- Account & Lists -->
+
+            <div class="nav-account">
+
+                <span>Hello, sign in</span>
+
+                <p>
+                    Account & Lists
+                    <i class="fa-solid fa-caret-down"></i>
+                </p>
+
+            </div>
+
+            <!-- Returns & Orders -->
+
+            <div class="nav-orders">
+
+                <span>Returns</span>
+
+                <p>
+                    & Orders
+                </p>
+
+            </div>
+
+            <!-- Cart -->
+
+            <div class="nav-cart">
+
+                <div class="cart-icon"> <i class="fa-solid fa-cart-plus"></i>
+                    <span>0</span>
+                </div>
+                <p>Cart</p>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!--MAIN-->
+
+    <main class="home-essentials">
+
+        <section class="page-banner">
+            <h1>Home Essentials</h1>
+            <p>Discover everyday essentials for every room in your home.</p>
+        </section>
+
+        <section class="home-products">
+
+            <!-- Cleaning -->
+            <div class="home-card">
+                <h2>Cleaning Supplies</h2>
+
+                <div class="category-grid">
+                    <div class="category-item">
+                        <img src="home-essentials/Cleaning spray.png" alt="Cleaning Sprays">
+                        <p>Cleaning Sprays</p>
+                    </div>
+
+                    <div class="category-item">
+                        <img src="home-essentials/mop.png" alt="Mops">
+                        <p>Mops</p>
+                    </div>
+
+                    <div class="category-item">
+                        <img src="home-essentials/brooms.jpg" alt="Brooms">
+                        <p>Brooms</p>
+                    </div>
+
+                    <div class="category-item">
+                        <img src="home-essentials/gloves.jpg" alt="Cleaning Gloves">
+                        <p>Cleaning Gloves</p>
+                    </div>
+                </div>
+
+                <a href="#" class="explore-link">Explore all</a>
+            </div>
+
+            <!-- Kitchen -->
+            <div class="home-card">
+                <h2>Kitchen Essentials</h2>
+
+                <div class="category-grid">
+                    <div class="category-item">
+                        <img src="home-essentials/Cookware.jpg" alt="Cookware">
+                        <p>Cookware</p>
+                    </div>
+
+                    <div class="category-item">
+                        <img src="home-essentials/Food storage.jpg" alt="Food Storage">
+                        <p>Food Storage</p>
+                    </div>
+
+                    <div class="category-item">
+                        <img src="home-essentials/Spoons.jpg" alt="Cutlery">
+                        <p>Cutlery</p>
+                    </div>
+
+                    <div class="category-item">
+                        <img src="home-essentials/kitchen utensils.jpg" alt="Kitchen Tools">
+                        <p>Kitchen Tools</p>
+                    </div>
+                </div>
+
+                <a href="#" class="explore-link">Explore all</a>
+            </div>
+
+            <!-- Bathroom -->
+            <div class="home-card">
+                <h2>Bathroom Accessories</h2>
+
+                <div class="category-grid">
+                    <div class="category-item">
+                        <img src="home-essentials/bathrrom ass.jpg" alt="Bathroom Sets">
+                        <p>Bathroom Sets</p>
+                    </div>
+
+                    <div class="category-item">
+                        <img src="home-essentials/Bath towels.jpg" alt="Towels">
+                        <p>Towels</p>
+                    </div>
+
+                    <div class="category-item">
+                        <img src="home-essentials/Shower.jpg" alt="Shower Curtains">
+                        <p>Shower Curtains</p>
+                    </div>
+
+                    <div class="category-item">
+                        <img src="home-essentials/Mirror.jpg" alt="Mirrors">
+                        <p>Mirrors</p>
+                    </div>
+                </div>
+
+                <a href="#" class="explore-link">Explore all</a>
+            </div>
+
+            <!-- DIY -->
+            <div class="home-card">
+                <h2>DIY & Home Tools</h2>
+
+                <div class="category-grid">
+                    <div class="category-item">
+                        <img src="home-essentials/Toolkit.jpg" alt=" Tool Kits">
+                        <p>Tool Kits</p>
+                    </div>
+
+                    <div class="category-item">
+                        <img src="home-essentials/Power drill.jpg" alt="Power Drills">
+                        <p>Power Drills</p>
+                    </div>
+
+                    <div class="category-item">
+                        <img src="home-essentials/tape.jpg" alt="Measuring Tape">
+                        <p>Measuring Tape</p>
+                    </div>
+
+                    <div class="category-item">
+                        <img src="home-essentials/Ladder.jpg" alt="Ladders">
+                        <p>Ladders</p>
+                    </div>
+                </div>
+
+                <a href="#" class="explore-link">Explore all</a>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script src="home-essentials.js"></script>
+
+</body>
+
+</html>
