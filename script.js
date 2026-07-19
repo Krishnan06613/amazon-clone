@@ -89,35 +89,54 @@ overlay.addEventListener("click", function () {
 // HERO SLIDER
 // ===========================
 
-const slider = document.getElementById("image-slider");
+var slider = document.getElementById("image-slider");
 
 if (slider) {
 
-    const images = slider.querySelectorAll("img");
-    const rightBtn = document.getElementById("right");
-    const leftBtn = document.getElementById("left");
+    var imglist = slider.querySelectorAll("img");
+    var rhtbtn = document.getElementById("right");
+    var lftbtn = document.getElementById("left");
 
-    let index = 0;
-    const totalSlides = images.length;
+    var index = 0;
+    var totalslides = imglist.length;
 
-    function updateSlide() {
-        slider.style.transform = `translateX(-${index * 100}%)`;
+    var slider1 = () => {
+        if (index == 0) {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+        if (index == 1) {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+        if (index == 2) {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+        if (index == 3) {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+        if (index == 4) {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+        if (index == 5) {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
     }
 
-    rightBtn?.addEventListener("click", () => {
-        index = (index + 1) % totalSlides;
-        updateSlide();
+    rhtbtn.addEventListener("click", function () {
+        index = (index + 1) % totalslides;
+        slider1();
     });
 
-    leftBtn?.addEventListener("click", () => {
-        index = (index - 1 + totalSlides) % totalSlides;
-        updateSlide();
+    lftbtn.addEventListener("click", function () {
+        index = (index - 1 + totalslides) % totalslides;
+        slider1();
     });
 
-    setInterval(() => {
-        index = (index + 1) % totalSlides;
-        updateSlide();
+    setInterval(function () {
+        index = (index + 1) % totalslides;
+        slider1();
     }, 3000);
+
+
 }
 
 var productSlider = document.querySelector(".left-slider");
