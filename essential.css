@@ -1,597 +1,195 @@
+/* ======================================
+   HOME ESSENTIALS PAGE
+====================================== */
+
+.home-essentials {
+  background: #eaeded;
+  min-height: 100vh;
+  padding: 30px 20px 50px;
+}
+
+/* ======================================
+   PAGE BANNER
+====================================== */
+
+.page-banner {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.page-banner h1 {
+  font-size: 36px;
+  color: #131921;
+  margin-bottom: 10px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.page-banner p {
+  font-size: 17px;
+  color: #565959;
+}
+
+/* ======================================
+   HOME PRODUCTS
+====================================== */
+
+.home-products {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* ======================================
+   HOME CARD
+====================================== */
+
+.home-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.home-card h2 {
+  font-size: 25px;
+  margin-bottom: 20px;
+  color: #0f1111;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ======================================
+   CATEGORY GRID
+====================================== */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  flex: 1;
+}
+
+/* ======================================
+   CATEGORY ITEM
+====================================== */
+
+.category-item {
+  text-align: center;
+}
+
+.category-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.category-item img:hover {
+  transform: scale(1.05);
+}
+
+.category-item p {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ======================================
+   EXPLORE LINK
+====================================== */
+
+.explore-link {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #007185;
+  font-weight: 600;
+}
+
+.explore-link:hover {
+  color: #c7511f;
+  text-decoration: underline;
+}
+
+/* ======================================
+   MOBILE
+====================================== */
+
+@media (max-width: 768px) {
+
+    .home-essentials {
+        padding: 20px 15px;
+    }
+
+    .home-products {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .home-card {
+        padding: 18px;
+        min-height: auto;
+    }
+
+    .home-card h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .page-banner h1 {
+        font-size: 28px;
+    }
+
+    .page-banner p {
+        font-size: 15px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .category-item img {
+        width: 100%;
+        height: 110px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .category-item p {
+        font-size: 13px;
+        margin-top: 8px;
+    }
+
+    .explore-link {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+}
+
 /* =========================================================
-   PRODUCTS PAGE — ORGANIZED STYLESHEET
-   Sections:
-   1. Reset / Global
-   2. Product Page — Left Column (Image/Slider)
-   3. Product Page — Center Column (Details, Warranty, Brand, About, Q&A)
-   4. Product Page — Right Column (Buy Box, Shipment)
-   5. Product Page — Add to Cart / Related Products / Headphones
-   6. Header / Navbar
-   7. Category Navigation
-   8. Overlay / Sidebar
-   9. Footer
-   10. Responsive — Product Page Layout
-   11. Responsive — Navbar / Category / Sidebar / Footer
+   AMAZON CLONE — EXTRACTED SECTIONS
+   Header/Navbar, Category Nav, Sidebar, Footer, Responsive
 ========================================================= */
 
 
 /* =========================================================
-   1. RESET / GLOBAL
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background-color: #FFFFFF;
-}
-
-.container {
-    padding: 20px;
-    margin-top: 30px;
-}
-
-.conatiner a {
-    color: #007185 !important;
-}
-
-
-/* =========================================================
-   2. PRODUCT PAGE — LEFT COLUMN (Image / Slider)
-========================================================= */
-
-.left-con {
-    width: 100%;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 20px;
-}
-
-.left-s1 {
-    margin: 20px;
-    gap: 20px;
-}
-
-.left-s1 img {
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: border-color 0.2s ease;
-}
-
-.left-s1 img:hover {
-    border: 1px solid #000;
-}
-
-.left-s2 {
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    position: relative;
-}
-
-.left-slider {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-
-.left-slider img {
-    width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    object-fit: contain;
-}
-
-
-/* =========================================================
-   3. PRODUCT PAGE — CENTER COLUMN
-   (Title/Details, Warranty, Design swatches, Brand table,
-   About, Customer Q&A)
-========================================================= */
-
-.center-con {
-    padding: 20px;
-}
-
-.products {
-    text-align: start;
-    gap: 10px;
-    border-bottom: solid black 1px;
-}
-
-.products span {
-    font-weight: bold;
-}
-
-.symbol {
-    margin: 5px;
-}
-
-.offers {
-    padding: 5px;
-}
-
-.warranty {
-    margin: 20px 0;
-}
-
-.warranty ol {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border-bottom: solid black 1px;
-    margin-bottom: 10px;
-}
-
-.warranty li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.warranty li img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-    margin-bottom: 8px;
-}
-
-.warranty li a {
-    color: #007185;
-    text-decoration: none;
-    font-size: 14px;
-    line-height: 1.4;
-}
-
-.warranty li a:hover {
-    text-decoration: underline;
-}
-
-.design-con {
-    width: fit-content;
-    padding: 10px;
-}
-
-.design {
-    border: 2px solid transparent;
-    transition: border-color 0.2s ease;
-}
-
-.design:hover {
-    border: solid black 2px;
-}
-
-.brand-table {
-    margin: 20px 0;
-}
-
-.table1 {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table1 th,
-.table1 td {
-    padding: 10px 15px;
-    border: 1px solid #e5e7eb;
-    text-align: left;
-    font-size: 14px;
-}
-
-.table1 th {
-    width: 180px;
-    background-color: #f7f7f7;
-    font-weight: 600;
-    color: #555;
-}
-
-.table1 td {
-    background-color: #fff;
-    color: #111;
-}
-
-.about-product {
-    padding: 10px;
-}
-
-.about-product a {
-    text-decoration: underline;
-}
-
-.customer-query {
-    margin: 6px;
-}
-
-.report {
-    margin: 6px;
-    padding: 5px;
-}
-
-.checking {
-    margin: 20px 0;
-}
-
-.checking h1 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.checking p {
-    margin-bottom: 12px;
-    color: #555;
-}
-
-.checking ul {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.checking li {
-    padding: 8px 16px;
-    border: 1px solid #d5d9d9;
-    border-radius: 9999px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: #fff;
-}
-
-.checking li:hover {
-    border-color: #007185;
-    background: #f0fbff;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 20px 0;
-    padding: 12px;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    background: #fff;
-}
-
-.logo img {
-    width: 55px;
-    height: 55px;
-    object-fit: contain;
-}
-
-.logo ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.logo p {
-    font-size: 14px;
-    color: #111;
-    margin-bottom: 5px;
-}
-
-.logo a {
-    color: #007185;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.logo a:hover {
-    color: #C7511F;
-    text-decoration: underline;
-}
-
-
-/* =========================================================
-   4. PRODUCT PAGE — RIGHT COLUMN (Buy Box, Shipment)
-========================================================= */
-
-.right-s2 {
-    padding: 10px;
-}
-
-.quantity select {
-    border: 1px solid #d5d9d9;
-    border-radius: 9999px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: #fff;
-    padding: 5px;
-}
-
-.btns {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-#cart,
-#buy {
-    width: 100%;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 50px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-/* Add to Cart */
-#cart {
-    background: #FFD814;
-    color: #0F1111;
-}
-
-#cart:hover {
-    background: #F7CA00;
-}
-
-/* Buy Now */
-#buy {
-    background: #FFA41C;
-    color: #0F1111;
-}
-
-#buy:hover {
-    background: #FA8900;
-}
-
-#add {
-    width: 100%;
-    padding: 10px 20px;
-    background: #FFFFFF;
-    color: #0F1111;
-    border: 1px solid #D5D9D9;
-    border-radius: 50px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-#add:hover {
-    background: #F7FAFA;
-    border-color: #A2A6AC;
-}
-
-.shipment {
-    margin: 20px 0;
-}
-
-.ship-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.ship-table th,
-.ship-table td {
-    padding: 8px 0;
-    text-align: left;
-    font-size: 14px;
-    vertical-align: top;
-}
-
-.ship-table th {
-    width: 90px;
-    color: #565959;
-    font-weight: 500;
-}
-
-.ship-table td {
-    color: #0F1111;
-}
-
-.ship-table a {
-    color: #007185;
-    text-decoration: none;
-}
-
-.ship-table a:hover {
-    color: #C7511F;
-    text-decoration: underline;
-}
-
-
-/* =========================================================
-   5. PRODUCT PAGE — ADD TO CART / RELATED PRODUCTS / HEADPHONES
-========================================================= */
-
-#addcart {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin: 40px 0;
-    padding: 20px;
-    border: 1px solid #d5d9d9;
-    border-radius: 8px;
-    background: #fff;
-}
-
-.addlist {
-    width: 180px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.addlist img {
-    width: 140px;
-    height: 140px;
-    object-fit: contain;
-    margin-bottom: 10px;
-}
-
-.addlist p {
-    font-size: 14px;
-    color: #0F1111;
-    line-height: 1.5;
-    margin: 10px 0;
-}
-
-.addlist span {
-    font-weight: 600;
-}
-
-.addlist h1 {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-#plus {
-    font-size: 40px;
-    font-weight: bold;
-    color: #777;
-}
-
-.addcarts-3 {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-left: 20px;
-}
-
-.addcarts-3 h1 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #0F1111;
-}
-
-#add1 {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 50px;
-    background: #FFD814;
-    color: #0F1111;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-#add1:hover {
-    background: #F7CA00;
-}
-
-#related-products {
-    margin: 40px 20px;
-}
-
-#related-products h1 {
-    font-size: 22px;
-    font-weight: 700;
-    color: #070707;
-    margin-bottom: 20px;
-}
-
-#related-products ol {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-    overflow-x: auto;
-}
-
-#related-products ol::-webkit-scrollbar {
-    height: 8px;
-}
-
-#related-products ol::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
-}
-
-.related-s1 {
-    width: 180px;
-    flex-shrink: 0;
-    padding: 10px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.related-s1:hover {
-    border-color: #d5d9d9;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-}
-
-.related-s1 img {
-    width: 100%;
-    height: 170px;
-    object-fit: contain;
-    margin-bottom: 10px;
-}
-
-.related-s1 a {
-    display: block;
-    color: #007185;
-    font-size: 14px;
-    text-decoration: none;
-    margin-bottom: 8px;
-}
-
-.related-s1 a:hover {
-    color: #C7511F;
-    text-decoration: underline;
-}
-
-.related-s1 p {
-    font-size: 14px;
-    color: #565959;
-    margin: 4px 0;
-}
-
-.related-s1 h3 {
-    color: #CC0C39;
-    font-size: 16px;
-    font-weight: 700;
-    margin: 4px 0;
-}
-
-.related-s1 h2 {
-    font-size: 22px;
-    color: #0F1111;
-    margin: 4px 0;
-}
-
-.related-s1 del {
-    color: #565959;
-}
-
-#headphones {
-    padding: 20px;
-    margin: 20px;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
-
-#headphones h1 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #070707;
-    margin-bottom: 20px;
-}
-
-
-/* =========================================================
-   6. HEADER / TOP NAVBAR
+   HEADER / TOP NAVBAR
 ========================================================= */
 
 .navbar {
@@ -642,7 +240,10 @@ body {
     margin: 0;
 }
 
-/* Search bar */
+
+/* =========================================================
+   SEARCH BAR
+========================================================= */
 
 .search-bar {
     display: flex;
@@ -699,6 +300,11 @@ body {
 .search-bar button i {
     font-size: 18px;
 }
+
+
+/* =========================================================
+   NAVIGATION LINKS (Language / Currency / Account / Orders / Cart)
+========================================================= */
 
 /* Language */
 
@@ -817,12 +423,6 @@ body {
     cursor: pointer;
 }
 
-.nav-cart p {
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0;
-}
-
 .cart-icon {
     position: relative;
 }
@@ -831,9 +431,7 @@ body {
     font-size: 30px;
 }
 
-/* Cart badge — circular red badge (used with id="maincart" or class="stored") */
-#maincart,
-.cart-icon .stored {
+#maincart {
     position: absolute;
     top: -8px;
     right: -10px;
@@ -850,19 +448,15 @@ body {
     border: 2px solid white;
 }
 
-/* Cart badge fallback — plain number, no circle (used with a bare <span> in .cart-icon) */
-.cart-icon span:not(.stored):not(#maincart) {
-    position: absolute;
-    top: -8px;
-    right: 6px;
-    font-size: 16px;
-    color: #f08804;
+.nav-cart p {
+    font-size: 14px;
     font-weight: bold;
+    margin: 0;
 }
 
 
 /* =========================================================
-   7. CATEGORY NAVIGATION
+   CATEGORY NAVIGATION
 ========================================================= */
 
 .category-section {
@@ -904,7 +498,7 @@ body {
 
 
 /* =========================================================
-   8. OVERLAY / SIDEBAR
+   OVERLAY
 ========================================================= */
 
 .overlay {
@@ -921,6 +515,11 @@ body {
     opacity: 1;
     visibility: visible;
 }
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
 
 .sidebar {
     position: fixed;
@@ -943,8 +542,6 @@ body {
     transform: translateX(0);
 }
 
-/* Sidebar header */
-
 .sidebar-header {
     height: 60px;
     background: #232f3e;
@@ -963,8 +560,6 @@ body {
     font-size: 22px;
     font-weight: 700;
 }
-
-/* Sidebar content */
 
 .sidebar-section {
     border-bottom: 1px solid #ddd;
@@ -1036,7 +631,7 @@ body {
 
 
 /* =========================================================
-   9. FOOTER
+   FOOTER
 ========================================================= */
 
 .footer-section {
@@ -1109,102 +704,12 @@ body {
 
 
 /* =========================================================================
-   10. RESPONSIVE — PRODUCT PAGE LAYOUT (below 991px)
+   TABLET RESPONSIVE (768px – 1024px)
 ========================================================================= */
 
-@media (max-width: 991px) {
-
-    .conatiner {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 30px !important;
-        padding: 15px;
-    }
-
-    .left-con {
-        position: static;
-        height: auto;
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-    }
-
-    .left-s1 {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin: 15px 0;
-    }
-
-    .left-s1 img {
-        width: 60px;
-    }
-
-    .left-s2 {
-        width: 100%;
-        height: 400px;
-    }
-
-    .center-con {
-        padding: 0;
-    }
-
-    .right-con {
-        margin-left: 0 !important;
-        width: 100%;
-        align-items: center;
-    }
-
-    .right-s1,
-    .right-s2 {
-        width: 100% !important;
-        max-width: 450px;
-    }
-
-    .offers {
-        flex-wrap: wrap;
-    }
-
-    .offer1,
-    .offer2,
-    .offer3 {
-        width: 48%;
-    }
-
-    .warranty ol {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .design-con {
-        grid-template-columns: repeat(3, 1fr) !important;
-    }
-
-    #addcart {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .addcarts-3 {
-        margin-left: 0;
-        align-items: center;
-    }
-
-    #headphones img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-
-/* =========================================================================
-   11. RESPONSIVE — NAVBAR / CATEGORY / SIDEBAR / FOOTER
-========================================================================= */
-
-/* ---------- Tablet (768px – 1024px) ---------- */
 @media (max-width: 1024px) and (min-width: 768px) {
 
+    /* Navbar */
     .navbar {
         padding: 0 14px;
     }
@@ -1263,6 +768,7 @@ body {
         width: 240px;
     }
 
+    /* Category navigation */
     .category-container {
         padding: 10px 14px;
     }
@@ -1272,20 +778,25 @@ body {
         font-size: 13px;
     }
 
+    /* Footer */
     .footer-container {
         grid-template-columns: repeat(2, 1fr);
         padding: 40px;
     }
 }
 
-/* ---------- Mobile (below 768px) ---------- */
+
+/* =========================================================================
+   MOBILE RESPONSIVE (below 768px)
+========================================================================= */
+
 @media (max-width: 767px) {
 
     body {
         overflow-x: hidden;
     }
 
-    /* Navbar: Logo | Search | Cart */
+    /* ---------- Navbar: Logo | Search | Cart ---------- */
 
     .navbar {
         height: auto;
@@ -1308,6 +819,7 @@ body {
         height: auto;
     }
 
+    /* Hide everything except logo, search bar, and cart */
     .nav-location,
     .nav-language,
     .currency-container,
@@ -1316,6 +828,7 @@ body {
         display: none;
     }
 
+    /* Search bar takes the remaining space, centered between logo and cart */
     .search-bar {
         flex: 1 1 auto;
         width: auto;
@@ -1351,8 +864,7 @@ body {
         font-size: 26px;
     }
 
-    #maincart,
-    .cart-icon .stored {
+    #maincart {
         height: 16px;
         width: 16px;
         font-size: 10px;
@@ -1360,16 +872,11 @@ body {
         right: -8px;
     }
 
-    .cart-icon span:not(.stored):not(#maincart) {
-        font-size: 14px;
-        right: 5px;
-    }
-
     .nav-cart p {
         font-size: 12px;
     }
 
-    /* Category navigation */
+    /* ---------- Category navigation: keep desktop look ---------- */
 
     .category-container {
         padding: 8px 14px;
@@ -1380,7 +887,7 @@ body {
         font-size: 13px;
     }
 
-    /* Sidebar */
+    /* ---------- Sidebar ---------- */
 
     .sidebar {
         width: 290px;
@@ -1397,7 +904,7 @@ body {
         height: 44px;
     }
 
-    /* Footer */
+    /* ---------- Footer ---------- */
 
     .footer-container {
         grid-template-columns: 1fr;
@@ -1420,7 +927,11 @@ body {
     }
 }
 
-/* ---------- Small mobile fine-tuning (below 480px) ---------- */
+
+/* =========================================================================
+   SMALL MOBILE FINE-TUNING (below 480px)
+========================================================================= */
+
 @media (max-width: 480px) {
 
     .nav-logo img {

@@ -258,6 +258,12 @@ languageBtn?.addEventListener("click", () => {
 });
 
 
+var essential=document.getElementById("essential")
+
+essential.addEventListener("click",function(){
+    window.location.href="essential.html"
+})
+
 
 
 

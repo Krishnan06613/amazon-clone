@@ -1,1638 +1,1210 @@
-/* =========================================
-   GLOBAL STYLES
-========================================= */
+/* ==========================================================================
+   AMAZON CLONE — HOME APPLIANCES PAGE (ORGANIZED)
+   Sections:
+   0. CSS Variables
+   1. Reset / Global
+   2. Header / Navbar
+   3. Category Navigation
+   4. Overlay / Sidebar
+   5. Filter Sidebar (Appliances Page)
+   6. Products Section / Grid / Card
+   7. Footer
+   8. Responsive — Tablet (768px – 1024px)
+   9. Responsive — Mobile (below 768px)
+   10. Responsive — Small Mobile (below 480px)
+   ========================================================================== */
 
+
+/* ==========================================================================
+   0. CSS VARIABLES
+   ========================================================================== */
+:root {
+    --amazon-dark: #131921;
+    --amazon-navy: #232f3e;
+    --amazon-navy-light: #37475a;
+    --amazon-orange: #febd69;
+    --amazon-yellow: #f3a847;
+    --amazon-blue-link: #007185;
+    --amazon-price-red: #cc0c39;
+    --amazon-badge-bg: #cc0c39;
+    --amazon-success-green: #007600;
+    --amazon-star: #ffa41c;
+    --amazon-btn-yellow: #ffd814;
+    --amazon-btn-yellow-hover: #f7ca00;
+    --amazon-btn-orange: #ffa41c;
+    --amazon-btn-orange-hover: #fa8900;
+    --card-bg: #ffffff;
+    --card-border: #d5d9d9;
+    --text-dark: #0f1111;
+    --text-gray: #565959;
+    --font-main: "Amazon Ember", Arial, Helvetica, sans-serif;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-card-hover: 0 6px 16px rgba(0, 0, 0, 0.18);
+    --transition-fast: 0.2s ease-in-out;
+}
+
+
+/* ==========================================================================
+   1. RESET / GLOBAL
+   ========================================================================== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #eaeded;
-  overflow-x: hidden;
+    font-family: var(--font-main);
+    background-color: #eaeded;
+    color: var(--text-dark);
+    line-height: 1.4;
+    overflow-x: hidden;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
 }
 
 img {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 
-/* navbar ====================================================*/
-
-.nav-logo img {
-  width: 150px;
-  height: auto;
-}
+/* ==========================================================================
+   2. HEADER / TOP NAVBAR
+   ========================================================================== */
 
 .navbar {
-  background-color: #131921;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
+    background-color: #131921;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
 }
 
-/*Nav Location */
+/* Logo */
+
+.nav-logo img {
+    width: 150px;
+    height: auto;
+}
+
+/* Location */
 
 .nav-location {
-  display: flex;
-  align-items: center;
-  color: white;
-  margin-left: 20px;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
 }
 
 .nav-location i {
-  font-size: 16px;
-  margin-right: 6px;
-  margin-top: 10px;
-  /* pushes the icon down slightly like Amazon */
+    font-size: 16px;
+    margin-right: 6px;
+    margin-top: 10px;
 }
 
 .location-text {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .location-text span {
-  font-size: 16px;
-  color: #cccccc;
+    font-size: 16px;
+    color: #cccccc;
 }
 
 .location-text p {
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
-  margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
 }
 
-/*Search bar*/
+/* Search bar */
 
 .search-bar {
-  display: flex;
-  align-items: center;
-  width: 700px;
-  height: 40px;
-  margin-left: 20px;
-  border: 2px solid transparent;
-  border-radius: 6px;
-  overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 700px;
+    height: 40px;
+    margin-left: 20px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .search-bar:focus-within {
-  border: 2px solid #ff9900;
+    border: 3px solid #ff9900;
 }
 
 .search-select {
-  width: 60px;
-  border: none;
-  outline: none;
-  background-color: #d4d4d4;
-  border-radius: 4px 0 0 4px;
-  padding: 10px;
-  cursor: pointer;
+    width: 60px;
+    height: 36px;
+    border: none;
+    outline: none;
+    background-color: #d4d4d4;
+    border-radius: 4px 0 0 4px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .search-select:hover {
-  background-color: #a8a8a8;
-}
-
-.search-bar:focus-within {
-  border: 3px solid #ff9900;
+    background-color: #a8a8a8;
 }
 
 .search-bar input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  outline: none;
-  padding: 10px;
-  font-size: 14px;
+    flex: 1;
+    height: 36px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
 }
 
 .search-bar button {
-  width: 45px;
-  background-color: #febd69;
-  border: none;
-  border-radius: 0 4px 4px 0;
-  cursor: pointer;
+    width: 45px;
+    height: 36px;
+    background-color: #febd69;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
 }
 
 .search-bar button:hover {
-  background-color: #f3a847;
+    background-color: #f3a847;
 }
 
 .search-bar button i {
-  font-size: 18px;
-}
-
-.search-select,
-.search-bar input,
-.search-bar button {
-  height: 36px;
+    font-size: 18px;
 }
 
 /* Language */
 
 .nav-language {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-left: 20px;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 20px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .nav-language img {
-  width: 24px;
-  height: 16px;
-  object-fit: cover;
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
 }
 
 .nav-language i {
-  font-size: 12px;
-  cursor: pointer;
+    font-size: 12px;
+    cursor: pointer;
 }
 
-/* Currency container */
+/* Currency container + dropdown */
+
 .currency-container {
-  position: relative;
+    position: relative;
 }
-
-/* Currency dropdown */
 
 .nav-currency {
-  display: none;
-  /* hidden initially */
-  position: absolute;
-  top: 35px;
-  right: 0;
-  width: 280px;
-  background-color: white;
-  color: black;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  z-index: 100;
+    display: none;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    width: 280px;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
 }
 
 .nav-currency h3 {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .nav-currency label {
-  display: block;
-  margin: 12px 0;
-  white-space: nowrap;
+    display: block;
+    margin: 12px 0;
+    white-space: nowrap;
 }
 
 .nav-currency button {
-  margin-top: 15px;
-  padding: 8px 20px;
-  border: none;
-  background-color: #ffd814;
-  border-radius: 5px;
-  cursor: pointer;
+    margin-top: 15px;
+    padding: 8px 20px;
+    border: none;
+    background-color: #ffd814;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /* Account */
 
 .nav-account {
-  color: white;
-  margin-left: 20px;
-  cursor: pointer;
-  white-space: nowrap;
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
 .nav-account span {
-  display: block;
-  font-size: 12px;
+    display: block;
+    font-size: 12px;
 }
 
 .nav-account p {
-  font-size: 13px;
-  font-weight: bold;
-  margin: 0;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0;
 }
 
 .nav-account i {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 /* Returns & Orders */
 
 .nav-orders {
-  color: white;
-  margin-left: 20px;
-  cursor: pointer;
-  white-space: nowrap;
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
 .nav-orders span {
-  display: block;
-  font-size: 12px;
+    display: block;
+    font-size: 12px;
 }
 
 .nav-orders p {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
 }
 
 /* Cart */
 
 .nav-cart {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: white;
-  margin-left: 20px;
-  cursor: pointer;
-}
-
-.cart-icon {
-  position: relative;
-}
-
-.cart-icon i {
-  font-size: 30px;
-}
-
-#maincart {
-  position: absolute;
-  top: -8px;
-  right: -10px;
-  height: 18px;
-  width: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #FF4D6D;
-  color: white;
-  font-size: 11px;
-  font-weight: bolder;
-  border-radius: 50%;
-  border: 2px solid white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
 }
 
 .nav-cart p {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0;
-}
-
-
-
-/* =========================
-   Tablet (1024px)
-========================= */
-@media (max-width: 1024px) {
-
-  .navbar {
-    padding: 0 10px;
-  }
-
-  .search-bar {
-    width: 420px;
-  }
-
-  .nav-language,
-  .nav-orders {
-    display: none;
-  }
-
-  .nav-logo img {
-    width: 120px;
-  }
-
-}
-
-
-/* =========================
-   Small Tablet (768px)
-========================= */
-
-@media (max-width:768px) {
-
-  .navbar {
-    height: auto;
-    flex-wrap: wrap;
-    padding: 10px;
-    gap: 10px;
-  }
-
-  .nav-logo {
-    order: 1;
-  }
-
-  .nav-cart {
-    order: 2;
-    margin-left: auto;
-  }
-
-  .nav-location {
-    order: 3;
-    margin-left: 0;
-  }
-
-  .search-bar {
-    order: 4;
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .nav-language,
-  .nav-account,
-  .nav-orders {
-    display: none;
-  }
-
-}
-
-
-/* =========================
-   Mobile (576px)
-========================= */
-
-@media (max-width:576px) {
-
-  .navbar {
-    padding: 8px;
-  }
-
-  .nav-logo img {
-    width: 100px;
-  }
-
-  .nav-location {
-    display: none;
-  }
-
-  .search-bar {
-    width: 100%;
-    height: 38px;
-  }
-
-  .search-select {
-    width: 55px;
-    font-size: 12px;
-    padding: 5px;
-  }
-
-  .search-bar input {
-    font-size: 13px;
-  }
-
-  .search-bar button {
-    width: 42px;
-  }
-
-  .nav-account,
-  .nav-orders,
-  .nav-language {
-    display: none;
-  }
-
-  .cart-icon i {
-    font-size: 26px;
-  }
-
-  .cart-icon span {
     font-size: 14px;
-    right: 5px;
-  }
-
-  .nav-cart p {
-    display: none;
-  }
-
+    font-weight: bold;
+    margin: 0;
 }
 
+.cart-icon {
+    position: relative;
+}
 
-/* =========================
-   Small Mobile (425px)
-========================= */
+.cart-icon i {
+    font-size: 30px;
+}
 
-@media (max-width:425px) {
-
-  .navbar {
-    gap: 8px;
-  }
-
-  .nav-logo img {
-    width: 90px;
-  }
-
-  .search-bar {
-    height: 36px;
-  }
-
-  .search-select {
-    width: 50px;
+#maincart {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF4D6D;
+    color: white;
     font-size: 11px;
-  }
-
-  .search-bar input {
-    font-size: 12px;
-  }
-
-  .search-bar button {
-    width: 38px;
-  }
-
-  .cart-icon i {
-    font-size: 24px;
-  }
-
+    font-weight: bolder;
+    border-radius: 50%;
+    border: 2px solid white;
 }
 
 
-
-
-/* =========================================
-   CATEGORY NAVIGATION
-========================================= */
+/* ==========================================================================
+   3. CATEGORY NAVIGATION
+   ========================================================================== */
 
 .category-section {
-  width: 100%;
-  background: #232f3e;
-  overflow-x: auto;
-  white-space: nowrap;
-  scrollbar-width: none;
+    width: 100%;
+    background: #232f3e;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
 }
 
 .category-section::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .category-container {
-  display: flex;
-  align-items: center;
-  padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px 18px;
 }
 
 .category {
-  color: #fff;
-  padding: 8px 12px;
-  font-size: 14px;
-  font-weight: 500;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  flex-shrink: 0;
-  transition: .3s;
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    flex-shrink: 0;
+    transition: border-color .2s ease, background-color .2s ease;
 }
 
 .category:hover,
 .category.active {
-  border: 1px solid #fff;
-  cursor: pointer;
+    border: 1px solid #fff;
+    cursor: pointer;
 }
 
-/* =========================================
-   OVERLAY
-========================================= */
+
+/* ==========================================================================
+   4. OVERLAY / SIDEBAR
+   ========================================================================== */
 
 .overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, .65);
-  opacity: 0;
-  visibility: hidden;
-  transition: .3s;
-  z-index: 999;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .65);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+    z-index: 999;
 }
 
 .overlay.active {
-  opacity: 1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
 
-/* =========================================
-   SIDEBAR
-========================================= */
-
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: -320px;
-  width: 320px;
-  height: 100vh;
-  background: #fff;
-  overflow-y: auto;
-  transition: .35s;
-  z-index: 1000;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 100vh;
+    background: #fff;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateX(-320px);
+    transition: transform .35s ease;
+    will-change: transform;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, .3);
+    contain: layout style;
 }
 
 .sidebar.active {
-  left: 0;
+    transform: translateX(0);
 }
 
-/* =========================================
-   SIDEBAR HEADER
-========================================= */
+/* Sidebar header */
 
 .sidebar-header {
-  height: 60px;
-  background: #232f3e;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 0 20px;
+    height: 60px;
+    background: #232f3e;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0 20px;
 }
 
 .sidebar-header i {
-  font-size: 30px;
+    font-size: 30px;
 }
 
 .sidebar-header h2 {
-  font-size: 22px;
-  font-weight: 700;
+    font-size: 22px;
+    font-weight: 700;
 }
 
-/* =========================================
-   CLOSE BUTTON
-========================================= */
-
-.close-btn {
-  position: fixed;
-  top: 12px;
-  left: 335px;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 30px;
-  cursor: pointer;
-  display: none;
-  z-index: 1001;
-}
-
-.close-btn.active {
-  display: block;
-}
-
-/* =========================================
-   SIDEBAR CONTENT
-========================================= */
+/* Sidebar content */
 
 .sidebar-section {
-  border-bottom: 1px solid #ddd;
-  padding: 18px 0;
+    border-bottom: 1px solid #ddd;
+    padding: 18px 0;
 }
 
 .sidebar-section h3 {
-  font-size: 20px;
-  font-weight: 700;
-  padding: 0 20px;
-  margin-bottom: 10px;
-  color: #111;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    color: #111;
 }
 
 .sidebar-section a {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  color: #111;
-  font-size: 15px;
-  transition: .2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    color: #111;
+    font-size: 15px;
+    transition: background-color .2s ease;
 }
 
 .sidebar-section a:hover {
-  background: #f3f3f3;
+    background: #f3f3f3;
 }
 
 .sidebar-section a i {
-  color: #666;
-  font-size: 14px;
+    color: #666;
+    font-size: 14px;
 }
 
-/* =========================================
-   SCROLLBAR
-========================================= */
+/* Close button */
+
+.close-btn {
+    position: fixed;
+    top: 12px;
+    left: 335px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    z-index: 1001;
+}
+
+.close-btn.active {
+    display: block;
+}
+
+/* Sidebar scrollbar */
 
 .sidebar::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background: #bcbcbc;
-  border-radius: 20px;
+    background: #bcbcbc;
+    border-radius: 20px;
 }
 
 .sidebar::-webkit-scrollbar-track {
-  background: #fff;
+    background: #fff;
 }
-
-/* =========================================
-   RESPONSIVE SIDEBAR
-========================================= */
-
-@media(max-width:768px) {
-
-  .sidebar {
-    width: 320px;
-    left: -320px;
-  }
-
-  .close-btn {
-    left: 330px;
-  }
-
-}
-
-@media(max-width:480px) {
-
-  .sidebar {
-    width: 290px;
-    left: -290px;
-  }
-
-  .close-btn {
-    left: 300px;
-  }
-
-}
-
 
 
 /* ==========================================================================
-   AMAZON CLONE - HOME APPLIANCES PAGE
+   5. FILTER SIDEBAR (APPLIANCES PAGE)
    ========================================================================== */
 
-/* ==========================================================================
-   1. CSS VARIABLES
-   ========================================================================== */
-:root {
-  --amazon-dark: #131921;
-  --amazon-navy: #232f3e;
-  --amazon-navy-light: #37475a;
-  --amazon-orange: #febd69;
-  --amazon-yellow: #f3a847;
-  --amazon-blue-link: #007185;
-  --amazon-price-red: #cc0c39;
-  --amazon-badge-bg: #cc0c39;
-  --amazon-success-green: #007600;
-  --amazon-star: #ffa41c;
-  --amazon-btn-yellow: #ffd814;
-  --amazon-btn-yellow-hover: #f7ca00;
-  --amazon-btn-orange: #ffa41c;
-  --amazon-btn-orange-hover: #fa8900;
-  --card-bg: #ffffff;
-  --card-border: #d5d9d9;
-  --text-dark: #0f1111;
-  --text-gray: #565959;
-  --font-main: "Amazon Ember", Arial, Helvetica, sans-serif;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.12);
-  --shadow-card-hover: 0 6px 16px rgba(0, 0, 0, 0.18);
-  --transition-fast: 0.2s ease-in-out;
+.appliances-page {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    align-items: start;
+    max-width: 1600px;
+    margin: 30px auto;
+    padding: 0 20px;
 }
-
-/* ==========================================================================
-   2. RESET / BASE
-   ========================================================================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: var(--font-main);
-  background-color: #eaeded;
-  color: var(--text-dark);
-  line-height: 1.4;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-/*=========================================
-        APPLIANCES PAGE LAYOUT
-=========================================*/
-
-.appliances-page{
-    display:grid;
-    grid-template-columns:280px 1fr;
-    gap:30px;
-    align-items:start;
-    max-width:1600px;
-    margin:30px auto;
-    padding:0 20px;
-}
-
-/*=========================================
-        FILTER SIDEBAR
-=========================================*/
 
 .filter-sidebar {
-  width: 270px;
-  background: #fff;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  position: sticky;
-  top: 20px;
-  height: fit-content;
-  font-family: Arial, Helvetica, sans-serif;
+    width: 270px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/*=========================================
-        FILTER GROUP
-=========================================*/
-
 .filter-group {
-  padding-bottom: 22px;
-  margin-bottom: 22px;
-  border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid #e7e7e7;
 }
 
 .filter-group:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
-
-/*=========================================
-        HEADING
-=========================================*/
 
 .filter-group h2 {
-  font-size: 18px;
-  font-weight: 700;
-  color: #0F1111;
-  margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0F1111;
+    margin-bottom: 15px;
 }
 
-/*=========================================
-        LABELS
-=========================================*/
-
 .filter-group label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  color: #0F1111;
-  margin-bottom: 12px;
-  cursor: pointer;
-  transition: 0.25s;
-  line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #0F1111;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: 0.25s;
+    line-height: 1.4;
 }
 
 .filter-group label:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .filter-group label:hover {
-  color: #C7511F;
+    color: #C7511F;
 }
-
-/*=========================================
-        INPUTS
-=========================================*/
 
 .filter-group input[type="checkbox"],
 .filter-group input[type="radio"] {
-  width: 17px;
-  height: 17px;
-  cursor: pointer;
-  accent-color: #FFD814;
-  flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    accent-color: #FFD814;
+    flex-shrink: 0;
 }
 
-/*=========================================
-        SCROLLBAR
-=========================================*/
-
 .filter-sidebar::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 
 .filter-sidebar::-webkit-scrollbar-thumb {
-  background: #c7c7c7;
-  border-radius: 20px;
+    background: #c7c7c7;
+    border-radius: 20px;
 }
-
-/*=========================================
-        TABLET
-=========================================*/
-
-@media(max-width:992px) {
-
-  .filter-sidebar {
-    width: 240px;
-    padding: 18px;
-  }
-
-}
-
-/*=========================================
-        MOBILE
-=========================================*/
-
-@media(max-width:768px) {
-
-  .filter-sidebar {
-    width: 100%;
-    position: static;
-    margin-bottom: 20px;
-    border-radius: 6px;
-  }
-
-}
-
 
 
 /* ==========================================================================
-   3. PRODUCTS SECTION HEADER
+   6. PRODUCTS SECTION / GRID / CARD
    ========================================================================== */
+
 .products-section {
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 20px 16px 60px;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
 }
 
 .products-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--card-border);
 }
 
 .products-header h1 {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-dark);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
 }
 
 #sortProducts {
-  padding: 8px 12px;
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-sm);
-  background-color: #fff;
-  font-size: 14px;
-  color: var(--text-dark);
-  cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    background-color: #fff;
+    font-size: 14px;
+    color: var(--text-dark);
+    cursor: pointer;
 }
 
-/* ==========================================================================
-   4. PRODUCTS GRID
-   ========================================================================== */
 .products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  /* Desktop: 4 per row */
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Desktop: 4 per row */
+    gap: 20px;
 }
 
-/* ==========================================================================
-   5. PRODUCT CARD
-   ========================================================================== */
 .product-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
-  padding: 16px;
-  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    padding: 16px;
+    transition: box-shadow var(--transition-fast), transform var(--transition-fast);
 }
 
 .product-card:hover {
-  box-shadow: var(--shadow-card-hover);
-  transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
 }
 
 /* Badge */
 .product-card .badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background-color: var(--amazon-badge-bg);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 8px;
-  border-radius: var(--radius-sm);
-  z-index: 2;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: var(--amazon-badge-bg);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
 }
 
 /* Wishlist icon */
 .product-card .wishlist {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  border: 1px solid var(--card-border);
-  border-radius: 50%;
-  z-index: 2;
-  transition: background-color var(--transition-fast);
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 50%;
+    z-index: 2;
+    transition: background-color var(--transition-fast);
 }
 
 .product-card .wishlist:hover {
-  background-color: #f5f5f5;
+    background-color: #f5f5f5;
 }
 
 .product-card .wishlist i {
-  color: var(--text-gray);
-  font-size: 14px;
+    color: var(--text-gray);
+    font-size: 14px;
 }
 
 /* Product image */
 .product-card>a>img {
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  margin: 10px 0 14px;
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    margin: 10px 0 14px;
 }
 
 /* Product title */
 .product-card h3 {
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.4;
-  margin-bottom: 6px;
-  min-height: 42px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 6px;
+    min-height: 42px;
 }
 
 .product-card h3 a {
-  color: var(--amazon-blue-link);
+    color: var(--amazon-blue-link);
 }
 
 .product-card h3 a:hover {
-  color: var(--amazon-price-red);
-  text-decoration: underline;
+    color: var(--amazon-price-red);
+    text-decoration: underline;
 }
 
 /* Rating */
 .product-card .rating {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
 }
 
 .product-card .stars {
-  color: var(--amazon-star);
-  font-size: 15px;
-  letter-spacing: 1px;
+    color: var(--amazon-star);
+    font-size: 15px;
+    letter-spacing: 1px;
 }
 
 .product-card .rating-count {
-  font-size: 13px;
-  color: var(--amazon-blue-link);
+    font-size: 13px;
+    color: var(--amazon-blue-link);
 }
 
 /* Bought text */
 .product-card .bought {
-  font-size: 12px;
-  color: var(--text-gray);
-  margin-bottom: 6px;
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-bottom: 6px;
 }
 
 /* Price */
 .product-card .price {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 4px;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
 }
 
 .product-card .price span {
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text-gray);
-  text-decoration: line-through;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-gray);
+    text-decoration: line-through;
 }
 
 /* Offer */
 .product-card .offer {
-  font-size: 13px;
-  color: var(--amazon-success-green);
-  font-weight: 600;
-  margin-bottom: 4px;
+    font-size: 13px;
+    color: var(--amazon-success-green);
+    font-weight: 600;
+    margin-bottom: 4px;
 }
 
 /* Delivery */
 .product-card .delivery {
-  font-size: 13px;
-  color: var(--text-dark);
-  margin-bottom: 2px;
+    font-size: 13px;
+    color: var(--text-dark);
+    margin-bottom: 2px;
 }
 
 /* Stock */
 .product-card .stock {
-  font-size: 13px;
-  color: var(--amazon-price-red);
-  font-weight: 600;
-  margin-bottom: 12px;
+    font-size: 13px;
+    color: var(--amazon-price-red);
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
 /* Push buttons to bottom regardless of content height */
 .product-card .product-buttons {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-top: 10px;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 10px;
 }
 
 .product-card .cart-btn,
 .product-card .buy-btn {
-  width: 100%;
-  padding: 9px 10px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  border: 1px solid;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+    width: 100%;
+    padding: 9px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .product-card .cart-btn {
-  background-color: var(--amazon-btn-yellow);
-  border-color: #fcd200;
-  color: var(--text-dark);
+    background-color: var(--amazon-btn-yellow);
+    border-color: #fcd200;
+    color: var(--text-dark);
 }
 
 .product-card .cart-btn:hover {
-  background-color: var(--amazon-btn-yellow-hover);
+    background-color: var(--amazon-btn-yellow-hover);
 }
 
 .product-card .buy-btn {
-  background-color: var(--amazon-btn-orange);
-  border-color: #ff8f00;
-  color: #fff;
+    background-color: var(--amazon-btn-orange);
+    border-color: #ff8f00;
+    color: #fff;
 }
 
 .product-card .buy-btn:hover {
-  background-color: var(--amazon-btn-orange-hover);
+    background-color: var(--amazon-btn-orange-hover);
 }
 
 .product-card .cart-btn:active,
 .product-card .buy-btn:active {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }
 
+
 /* ==========================================================================
-   6. FOOTER SECTION
+   7. FOOTER
    ========================================================================== */
+
 .footer-section {
-  background-color: var(--amazon-navy);
-  color: #fff;
-  margin-top: 40px;
+    background-color: var(--amazon-navy);
+    color: #fff;
+    margin-top: 40px;
 }
 
 .footer-container {
-  max-width: 1500px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  padding: 40px 20px;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 40px 20px;
 }
 
 .footer-box h3 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 14px;
 }
 
 .footer-box p {
-  font-size: 13px;
-  color: #ddd;
-  margin-bottom: 10px;
-  cursor: pointer;
-  transition: text-decoration var(--transition-fast);
+    font-size: 13px;
+    color: #ddd;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: text-decoration var(--transition-fast);
 }
 
 .footer-box p:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .footer-bottom {
-  border-top: 1px solid #3a4553;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 24px 16px;
-  flex-wrap: wrap;
+    border-top: 1px solid #3a4553;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 24px 16px;
+    flex-wrap: wrap;
 }
 
 .footer-bottom .amazon-logo {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 1px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .footer-bottom button {
-  background: transparent;
-  color: #fff;
-  border: 1px solid #55606d;
-  padding: 6px 14px;
-  border-radius: var(--radius-sm);
-  font-size: 13px;
-  transition: border-color var(--transition-fast);
+    background: transparent;
+    color: #fff;
+    border: 1px solid #55606d;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    transition: border-color var(--transition-fast);
 }
 
 .footer-bottom button:hover {
-  border-color: #fff;
+    border-color: #fff;
 }
 
-/* =========================================================================
-   TABLET RESPONSIVE (768px – 1024px)
-   Goal: navbar stays visually almost identical to desktop — same layout,
-   spacing proportions, and structure. Only sizes/paddings are trimmed
-   where needed to avoid overflow. All navbar elements remain visible.
-   Category navigation keeps the same desktop look and spacing.
-========================================================================= */
+
+/* ==========================================================================
+   8. RESPONSIVE — TABLET (768px – 1024px)
+   ========================================================================== */
 
 @media (max-width: 1024px) and (min-width: 768px) {
 
-  /* Navbar — same single-row layout as desktop, just tighter */
-  .navbar {
-    padding: 0 14px;
-  }
+    /* Navbar */
+    .navbar {
+        padding: 0 14px;
+    }
 
-  .nav-logo img {
-    width: 120px;
-  }
+    .nav-logo img {
+        width: 120px;
+    }
 
-  .nav-location {
-    margin-left: 14px;
-  }
+    .nav-location {
+        margin-left: 14px;
+    }
 
-  .location-text span {
-    font-size: 14px;
-  }
+    .location-text span {
+        font-size: 14px;
+    }
 
-  .location-text p {
-    font-size: 13px;
-  }
+    .location-text p {
+        font-size: 13px;
+    }
 
-  .search-bar {
-    width: 100%;
-    max-width: 380px;
-    margin-left: 14px;
-  }
+    .search-bar {
+        width: 100%;
+        max-width: 380px;
+        margin-left: 14px;
+    }
 
-  .nav-language {
-    margin-left: 14px;
-  }
+    .nav-language {
+        margin-left: 14px;
+    }
 
-  .nav-language img {
-    width: 22px;
-    height: 15px;
-  }
+    .nav-language img {
+        width: 22px;
+        height: 15px;
+    }
 
-  .nav-account,
-  .nav-orders {
-    margin-left: 14px;
-    font-size: 13px;
-  }
+    .nav-account,
+    .nav-orders {
+        margin-left: 14px;
+        font-size: 13px;
+    }
 
-  .nav-account p,
-  .nav-orders p {
-    font-size: 13px;
-  }
+    .nav-account p,
+    .nav-orders p {
+        font-size: 13px;
+    }
 
-  .nav-cart {
-    margin-left: 14px;
-  }
+    .nav-cart {
+        margin-left: 14px;
+    }
 
-  .cart-icon i {
-    font-size: 26px;
-  }
+    .cart-icon i {
+        font-size: 26px;
+    }
 
-  .nav-currency {
-    width: 240px;
-  }
+    .nav-currency {
+        width: 240px;
+    }
 
-  /* Category navigation — identical desktop look, tighter padding */
-  .category-container {
-    padding: 10px 14px;
-  }
+    /* Category navigation */
+    .category-container {
+        padding: 10px 14px;
+    }
 
-  .category {
-    padding: 8px 10px;
-    font-size: 13px;
-  }
+    .category {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
 
-  /* Product cards */
-  .cards-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    /* Filter sidebar */
+    .filter-sidebar {
+        width: 240px;
+        padding: 18px;
+    }
 
-  /* Footer */
-  .footer-container {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 40px;
-  }
+    /* Products grid */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-  /* Hero */
-  #banner-container {
-    height: 420px;
-  }
-
-  /* Electronics */
-  .item img {
-    width: 160px;
-    height: 160px;
-  }
-
-  .prev,
-  .next {
-    width: 40px;
-    height: 70px;
-    font-size: 22px;
-  }
+    /* Footer */
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 40px;
+    }
 }
 
 
-/* =========================================================================
-   MOBILE RESPONSIVE (below 768px)
-   Navbar is fully redesigned: only Logo (left), Search bar (center,
-   takes most width), and Cart (right) remain. Everything else
-   (location, sign in / account, returns & orders, language/currency)
-   is hidden. Category navigation keeps its desktop look/behavior.
-========================================================================= */
+/* ==========================================================================
+   9. RESPONSIVE — MOBILE (below 768px)
+   ========================================================================== */
 
 @media (max-width: 767px) {
 
-  body {
-    overflow-x: hidden;
-  }
-
-  /* ---------- Navbar: Logo | Search | Cart ---------- */
-
-  .navbar {
-    height: auto;
-    min-height: 56px;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    padding: 8px 10px;
-    gap: 8px;
-  }
-
-  .nav-logo {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-logo img {
-    width: 84px;
-    height: auto;
-  }
-
-  /* Hide everything except logo, search bar, and cart */
-  .nav-location,
-  .nav-language,
-  .currency-container,
-  .nav-account,
-  .nav-orders {
-    display: none;
-  }
-
-  /* Search bar takes the remaining space, centered between logo and cart */
-  .search-bar {
-    flex: 1 1 auto;
-    width: auto;
-    max-width: none;
-    margin-left: 0;
-    height: 40px;
-  }
-
-  .search-select {
-    display: none;
-  }
-
-  .search-bar input {
-    font-size: 13px;
-    min-width: 0;
-  }
-
-  .search-bar button {
-    width: 42px;
-    min-width: 42px;
-    height: 40px;
-  }
-
-  .nav-cart {
-    flex: 0 0 auto;
-    margin-left: 0;
-    gap: 4px;
-    min-height: 44px;
-    justify-content: center;
-  }
-
-  .cart-icon i {
-    font-size: 26px;
-  }
-
-  #maincart {
-    height: 16px;
-    width: 16px;
-    font-size: 10px;
-    top: -6px;
-    right: -8px;
-  }
-
-  .nav-cart p {
-    font-size: 12px;
-  }
-
-  /* ---------- Category navigation: keep desktop look ---------- */
-
-  .category-container {
-    padding: 8px 14px;
-  }
-
-  .category {
-    padding: 8px 10px;
-    font-size: 13px;
-  }
-
-  /* ---------- Sidebar ---------- */
-
-  .sidebar {
-    width: 290px;
-    transform: translateX(-290px);
-  }
-
-  .sidebar.active {
-    transform: translateX(0);
-  }
-
-  .close-btn {
-    left: 300px;
-    width: 44px;
-    height: 44px;
-  }
-
-  /* ---------- Hero ---------- */
-
-  #banner-container {
-    height: 260px;
-  }
-
-  #left,
-  #right {
-    width: 34px;
-    height: 34px;
-  }
-
-  /* ---------- Product cards ---------- */
-
-  .cards-section {
-    margin-top: -80px;
-    padding: 15px;
-  }
-
-  .cards-container {
-    grid-template-columns: 1fr;
-  }
-
-  .card h2 {
-    font-size: 19px;
-  }
-
-  .grid-item img {
-    height: 140px;
-  }
-
-  /* ---------- Electronics ---------- */
-
-  .electronics {
-    height: auto;
-    padding: 12px 8px;
-  }
-
-  .electronics h2 {
-    display: block;
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-
-  .electronics a {
-    display: inline-block;
-    font-size: 13px;
-    margin-bottom: 10px;
-  }
-
-  .products {
-    gap: 6px;
-    padding: 5px;
-  }
-
-  .item img {
-    width: 110px;
-    height: 110px;
-  }
-
-  .prev,
-  .next {
-    width: 28px;
-    height: 45px;
-    font-size: 16px;
-  }
-
-  /* ---------- Back to top ---------- */
-
-  .back-top {
-    padding: 12px;
-    font-size: 13px;
-  }
-
-  /* ---------- Footer ---------- */
-
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 30px 20px;
-  }
-
-  .amazon-logo {
-    font-size: 26px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: 12px;
-    padding: 20px;
-  }
-
-  .footer-bottom button {
-    width: 220px;
-  }
-
-  /* ---------- Sign-in page ---------- */
-
-  .container {
-    width: 90%;
-    margin: 30px auto;
-  }
-
-  .container h2 {
-    font-size: 22px;
-  }
-
-  .footer-lang {
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .footer-links {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .footer-links a {
-    margin: 0;
-  }
-
-  .sign-footer {
-    padding: 15px;
-    font-size: 14px;
-  }
-}
-
-
-/* =========================================================================
-   SMALL MOBILE FINE-TUNING (below 480px)
-========================================================================= */
-
-@media (max-width: 480px) {
-
-  .nav-logo img {
-    width: 72px;
-  }
-
-  .search-bar input {
-    font-size: 12px;
-  }
-
-  .cart-icon i {
-    font-size: 22px;
-  }
-
-  .sidebar {
-    width: 260px;
-    transform: translateX(-260px);
-  }
-
-  .sidebar.active {
-    transform: translateX(0);
-  }
-
-  .close-btn {
-    left: 270px;
-  }
-
-  #banner-container {
-    height: 220px;
-  }
-
-  .item img {
-    width: 90px;
-    height: 90px;
-  }
-
-  .prev,
-  .next {
-    width: 24px;
-    height: 38px;
-    font-size: 14px;
-  }
-}
-
-/*=========================================
-        TABLET
-=========================================*/
-
-@media (max-width:768px){
-
-    /* Sidebar on top, products below */
-    .appliances-page{
-        display:flex;
-        flex-direction:column;
-        gap:20px;
+    body {
+        overflow-x: hidden;
     }
 
-    .filter-sidebar{
-        width:100%;
-        position:static;
+    /* ---------- Navbar: Logo | Search | Cart ---------- */
+
+    .navbar {
+        height: auto;
+        min-height: 56px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 8px 10px;
+        gap: 8px;
     }
 
-    /* Products Layout */
-    .products-grid{
-        display:flex;
-        flex-wrap:wrap;
-        justify-content:space-between;
-        gap:16px;
+    .nav-logo {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-logo img {
+        width: 84px;
+        height: auto;
+    }
+
+    /* Hide everything except logo, search bar, and cart */
+    .nav-location,
+    .nav-language,
+    .currency-container,
+    .nav-account,
+    .nav-orders {
+        display: none;
+    }
+
+    /* Search bar takes the remaining space, centered between logo and cart */
+    .search-bar {
+        flex: 1 1 auto;
+        width: auto;
+        max-width: none;
+        margin-left: 0;
+        height: 40px;
+    }
+
+    .search-select {
+        display: none;
+    }
+
+    .search-bar input {
+        font-size: 13px;
+        min-width: 0;
+    }
+
+    .search-bar button {
+        width: 42px;
+        min-width: 42px;
+        height: 40px;
+    }
+
+    .nav-cart {
+        flex: 0 0 auto;
+        margin-left: 0;
+        gap: 4px;
+        min-height: 44px;
+        justify-content: center;
+    }
+
+    .cart-icon i {
+        font-size: 26px;
+    }
+
+    #maincart {
+        height: 16px;
+        width: 16px;
+        font-size: 10px;
+        top: -6px;
+        right: -8px;
+    }
+
+    .nav-cart p {
+        font-size: 12px;
+    }
+
+    /* ---------- Category navigation: keep desktop look ---------- */
+
+    .category-container {
+        padding: 8px 14px;
+    }
+
+    .category {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    /* ---------- Sidebar ---------- */
+
+    .sidebar {
+        width: 290px;
+        transform: translateX(-290px);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .close-btn {
+        left: 300px;
+        width: 44px;
+        height: 44px;
+    }
+
+    /* ---------- Appliances layout: sidebar on top, products below ---------- */
+
+    .appliances-page {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .filter-sidebar {
+        width: 100%;
+        position: static;
+        margin-bottom: 20px;
+        border-radius: 6px;
     }
 
     /* Two cards per row */
-    .product-card{
-        flex:0 0 calc(50% - 8px);
-        max-width:calc(50% - 8px);
-        box-sizing:border-box;
+    .products-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 16px;
     }
 
+    .product-card {
+        flex: 0 0 calc(50% - 8px);
+        max-width: calc(50% - 8px);
+        box-sizing: border-box;
+    }
+
+    /* ---------- Footer ---------- */
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 30px 20px;
+    }
+
+    .amazon-logo {
+        font-size: 26px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .footer-bottom button {
+        width: 220px;
+    }
 }
 
 
-/* =========================================
-   SMOOTH SCROLL
-========================================= */
+/* ==========================================================================
+   10. RESPONSIVE — SMALL MOBILE FINE-TUNING (below 480px)
+   ========================================================================== */
 
-html {
-  scroll-behavior: smooth;
+@media (max-width: 480px) {
+
+    .nav-logo img {
+        width: 72px;
+    }
+
+    .search-bar input {
+        font-size: 12px;
+    }
+
+    .cart-icon i {
+        font-size: 22px;
+    }
+
+    .sidebar {
+        width: 260px;
+        transform: translateX(-260px);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .close-btn {
+        left: 270px;
+    }
 }
